@@ -30,26 +30,35 @@
 " General
 
 set nocompatible	" not compatible with the old-fashion vi mode
-set bs=2		        " allow backspacing over everything in insert mode
+set bs=2		" allow backspacing over everything in insert mode
 set history=500		" keep 50 lines of command line history
-set ruler		        " show the cursor position all the time
-set number                      " always show line numbers
+set ruler		" show the cursor position all the time
+"set rulerformat=%15(%c%V\ %p%%%)
+set number              " always show line numbers
 set autoread		" auto read when file is changed from outside
+"set autochdir 		" auto change the directory
+set mouse=a             " enable using the mouse if terminal emulator
+                        "    supports it (xterm does)
+"set title              " change the terminal's title
+"set ttyfast            " always use a fast terminal
+"set cursorline         " underline the current line, for quick orientation
 
-set mouse=a                     " enable using the mouse if terminal emulator
-                                "    supports it (xterm does)
-"set title                       " change the terminal's title
-"set ttyfast                     " always use a fast terminal
-"set cursorline                  " underline the current line, for quick orientation
-
-filetype off          " necessary to make ftdetect work on Linux
-syntax on
-filetype on           " Enable filetype detection
-filetype indent on    " Enable filetype-specific indenting
-filetype plugin on    " Enable filetype-specific plugins
+filetype off          	" necessary to make ftdetect work on Linux
+syntax on		" set syntax
+filetype on           	" Enable filetype detection
+filetype indent on    	" Enable filetype-specific indenting
+filetype plugin on    	" Enable filetype-specific plugins
 
 " auto reload vimrc when editing it
 autocmd! bufwritepost .vimrc source ~/.vimrc
+
+" tab page
+set tabpagemax=9
+set showtabline=2
+
+" auto complete
+set complete=.,w,b,k,t,i
+set completeopt=longest,menu
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
@@ -184,14 +193,17 @@ set noswapfile
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "TAB setting
-   set expandtab        "replace <TAB> with spaces
-   set softtabstop=4
-   set shiftwidth=4     " 1 tab == 4 spaces
-   set tabstop=4
-   set shiftround                  " use multiple of shiftwidth when indenting with '<' and '>'
-   set smarttab                    " insert tabs on the start of a line according to
-                                "    shiftwidth, not tabstop
-   au FileType Makefile set noexpandtab
+set expandtab        "replace <TAB> with spaces
+set softtabstop=4
+set shiftwidth=4     " 1 tab == 4 spaces
+set tabstop=4
+set shiftround       " use multiple of shiftwidth when indenting with '<' and '>'
+"set smarttab         " insert tabs on the start of a line according to
+                     "    shiftwidth, not tabstop
+" set textwidth=79
+
+au FileType Makefile set noexpandtab
+autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
 
 " Linebreak on 500 characters
 set lbr
@@ -201,6 +213,7 @@ set autoindent                  " always set autoindenting on
 "set ai "Auto indent
 set copyindent                  " copy the previous indentation on autoindenting
 set si "Smart indent
+"set smartindent
 set wrap "Wrap lines
 
 """"""""""""""""""""""""""""""
@@ -446,9 +459,13 @@ let g:SuperTabContextDiscoverDiscovery = ["&completefunc:<c-x><c-u>", "&omnifunc
 " toggle TagBar with F7
 nnoremap <silent> <F7> :TagbarToggle<CR> 
 " set focus to TagBar when opening it
+let g:tagbar_left=1
+let g:tagbar_width=30
 let g:tagbar_autofocus = 1
+let g:tagbar_sort = 0
+let g:tagbar_compact = 1
 
-" NERDTree settings {{{
+" NERDTree settings
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <leader>m :NERDTreeClose<CR>:NERDTreeFind<CR>
 nnoremap <leader>N :NERDTreeClose<CR>
@@ -477,9 +494,12 @@ let NERDTreeMouseMode=2
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
             \ '\.o$', '\.so$', '\.egg$', '^\.git$' ]
 
-" }}}
+" nerdcommenter
+let NERDSpaceDelims=1
+" nmap <D-/> :NERDComToggleComment<cr>
+let NERDCompactSexyComs=1
 
-" TagList settings {{{
+" TagList settings
 nnoremap <leader>l :TlistClose<CR>:TlistToggle<CR>
 nnoremap <leader>L :TlistClose<CR>
 
@@ -509,4 +529,3 @@ let Tlist_Display_Tag_Scope=0
 " show TagList window on the right
 let Tlist_Use_Right_Window=1
 
-" }}}
