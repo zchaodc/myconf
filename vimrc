@@ -540,3 +540,18 @@ let Tlist_Use_Right_Window=1
 set tags=tags; " the ';' at the end will cause the ctags plugin search current dir and above
 
 
+nmap <F8> :TagbarToggle<CR>
+" erlang language
+let s:tlist_def_erlang_settings='erlang;d:macro;r:record;m:module;f:function'
+" vim language
+let s:tlist_def_vim_settings='vim;a:autocmds;v:variable;f:function'
+
+" Maps the updates of tags to key ,t.
+nmap ,t :!(cd %:p:h;ctags *)&  
+set tags=tags; " The ';' at the end will cause the ctags plugin to search for current dir and above dirs until         it find a tag file.
+" Add the following below if you want to generate ctags upon saving a file
+" Auto-generate ctags upon making changes to a file
+autocmd BufWritePost *.erl :silent !(cd %:p:h;ctags *)&
+" If you want to auto compile (erlc) upon saving a file, then add that one as well
+" Run erlc on the file being saved
+" autocmd BufWritePost *.erl :!erlc <afile>
