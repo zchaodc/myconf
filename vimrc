@@ -464,6 +464,7 @@ let g:tagbar_width=30
 let g:tagbar_autofocus = 1
 let g:tagbar_sort = 0
 let g:tagbar_compact = 1
+let g:tagbar_ctags_bin = "/usr/bin/ctags"
 
 " NERDTree settings
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -510,7 +511,11 @@ let Tlist_GainFocus_On_ToggleOpen=1 " put focus on the TagList window when it op
 "let Tlist_Show_One_File=1           " only show tags from the current buffer, not all open buffers
 let Tlist_WinWidth=40               " set the width
 let Tlist_Inc_Winwidth=1            " increase window by 1 when growing
+let Tlist_Use_Right_Window=1
+let Tlist_Enable_Fold_Column=0
+let Tlist_Compact_Format=1
 
+set updatetime=1000
 " shorten the time it takes to highlight the current tag (default is 4 secs)
 " note that this setting influences Vim's behaviour when saving swap files,
 " but we have already turned off swap files (earlier)
@@ -528,4 +533,10 @@ let Tlist_Display_Tag_Scope=0
 
 " show TagList window on the right
 let Tlist_Use_Right_Window=1
+
+"--------------------------------------
+"	ctags
+"--------------------------------------
+set tags=tags; " the ';' at the end will cause the ctags plugin search current dir and above
+
 
