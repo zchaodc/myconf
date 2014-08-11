@@ -10,7 +10,7 @@ done
 FINISH="%{$terminfo[sgr0]%}"
 #}}}
  
-#命令提示符
+#prompt command line
 RPROMPT=$(echo "$RED%D %T$FINISH")
 PROMPT=$(echo "@$GREEN%/$_YELLOW\$ $FINISH")
 
@@ -19,7 +19,7 @@ PROMPT=$(echo "@$GREEN%/$_YELLOW\$ $FINISH")
  
 #PROMPT=$(echo "$BLUE%M$GREEN%/
 #$CYAN%n@$BLUE%M:$GREEN%/$_YELLOW>>>$FINISH ")
-#标题栏、任务栏样式{{{
+#title task style{{{
 case $TERM in (*xterm*|*rxvt*|(dt|k|E)term)
 precmd () { print -Pn "\e]0;%n@%M//%/\a" }
 preexec () { print -Pn "\e]0;%n@%M//%/\ $1\a" }
