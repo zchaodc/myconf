@@ -1,7 +1,7 @@
 myconf
 ======
 
-my configuration fils for unixlike os
+my configuration files for unixlike os
 
 
 files including
