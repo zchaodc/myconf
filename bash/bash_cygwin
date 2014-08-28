@@ -189,3 +189,21 @@ alias l='ls -CF'                              #
 # }
 # 
 # alias cd=cd_func
+
+#
+# Enable aliases to be sudo’ed
+# alias sudo='sudo '
+
+# for my project settings
+# sbg project
+if [ -f "${HOME}/mysbg/tools/devscr/bash_sbg" ]; then
+    source "${HOME}/mysbg/tools/devscr/bash_sbg"
+fi
+
+# 256 color settings
+if [ -e /usr/share/terminfo/x/xterm-256color  ]; then
+    #debian在/lib/terminfo/x/xterm-256color
+    export TERM='xterm-256color'
+else
+    export TERM='xterm-color'
+fi
