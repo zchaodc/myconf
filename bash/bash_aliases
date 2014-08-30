@@ -47,12 +47,3 @@ alias ctags="/usr/bin/ctags"
 
 # set terminal
 tput setf 2
-
-# proxy
-export proxy='http://www-proxy.ericsson.se:8080/'
-export http_proxy="$proxy"
-export https_proxy="$proxy"
-
-# virtualbox
-alias sshtest='ssh xchaozh@esekiws6013.rnd.ki.sw.ericsson.se'
-alias sshmyd='ssh xchaozh@esekiws5788.rnd.ki.sw.ericsson.se'
