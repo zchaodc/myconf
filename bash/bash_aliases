@@ -18,6 +18,7 @@ alias -- -="cd -"
 alias g="git"
 alias h="history"
 alias j="jobs"
+# alias j='jobs -l'
 alias v="vim"
 # alias m="mate ."
 # alias s="subl ."
