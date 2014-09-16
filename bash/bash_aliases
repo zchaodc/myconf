@@ -47,6 +47,7 @@ alias tr3='tree -L 3'
 
 # ctags
 alias ctags="/usr/bin/ctags"
+alias erlctags="/usr/bin/ctags --file-scope=no -R --languages=erlang"
 
 # set terminal
 tput setf 2
