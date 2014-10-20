@@ -48,3 +48,8 @@ close other panes except the current one	^b !
 swap location of panes	                ^b ^o	
 show time	                              ^b t	
 show numeric values of panes	          ^b q	
+
+
+
+reference:
+http://www.dayid.org/os/notes/tm.html
