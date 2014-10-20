@@ -11,7 +11,7 @@ The formatting here is simple enough to understand (I would hope). ^ means ctrl+
 It should be noted that this is no where near a full feature-set of either group. This - being a cheat-sheet - is just to point out the most very basic features to get you on the road.
 
 ## Action                                  tmux                screen
-* [start a new session]	[tmux OR]
+* 'start a new session'	'tmux OR'
                                         tmux new OR
                                         tmux new-session	  screen
 * re-attach a detached session	          tmux attach OR
