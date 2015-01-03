@@ -65,8 +65,18 @@ set completeopt=longest,menu
 let mapleader = ","
 let g:mapleader = ","
 
-" Fast saving
+" Fast commands
 nmap <leader>w :w!<cr>
+nmap <leader>W :wa!<cr>
+nmap <leader>q :q!<cr>
+nmap <leader>Q :qa!<cr>
+nmap <leader>x :x!<cr>
+nmap <leader>X :xa!<cr>
+
+" for macbook
+" vmap y :w !pbcopy<CR><CR>
+" nmap yy :.w !pbcopy<CR><CR>
+" nmap p :r !pbpaste<CR><CR>
 
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
