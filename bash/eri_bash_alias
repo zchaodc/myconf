@@ -1,0 +1,69 @@
+# Easiser for navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias .2='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+
+alias ~="cd ~" # `cd` is probably faster to type though
+alias -- -="cd -"
+
+# Shortcuts
+# alias d="cd ~/Documents/Dropbox"
+# alias p="cd ~/Projects"
+alias g="git"
+alias h="history"
+alias j="jobs"
+alias v="vim"
+alias e="~/tools/bin/vim"
+# alias t="top"
+alias t="~/tools/bin/htop"
+# alias m="mate ."
+# alias s="subl ."
+# alias o="open"
+# alias oo="open ."
+
+# clear
+alias clr='clear'
+alias c='clearr'
+
+# screen command
+alias scr='screen'
+alias scrls='screen -ls'
+alias scrra='screen -r'
+alias scrrd='screen -rd'
+
+# tmux command
+alias tmux='~/tools/bin/tmux'
+
+# ssh
+alias sshx="ssh -X "
+
+# tree
+alias tree="~/tools/bin/tree"
+alias tree1='tree -L 1'
+alias tree2='tree -L 2'
+alias tree3='tree -L 3'
+
+alias tr1='tree -L 1 -p'
+alias tr2='tree -L 2 -p'
+alias tr3='tree -L 3 -p'
+
+# ctags
+alias ctags="/usr/bin/ctags"
+alias erlctags="ctags --file-scope=no -R --languages=erlang"
+alias etags="~/tools/bin/ctags"
+alias erltags="etags --file-scope=no -R --languages=erlang"
+
+# cmake
+# alias cmake="~/tools/cmake/cmake-3.0.1/bin/cmake"
+#
+
+
+# ack
+alias ack="~/tools/ack/ack --color "
+# ag
+alias ag="~/tools/ag/ag --color --ignore '*tags' "
