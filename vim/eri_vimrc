@@ -1,4 +1,6 @@
-" version guard
+" ***********************************
+"  version guard
+" ***********************************
 if v:version < 703
     finish
 endif
