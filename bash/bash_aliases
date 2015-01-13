@@ -1,3 +1,4 @@
+#!/bin/bash
 # prompt
 PS1='\[\e[1;37m\]\u\[\e[0m\]@\[\e[0;31m\]\h\[\e[0m\] [\[\e[0;32m\]\w\[\e[0m\]] \[\e[0;36m\]\$\[\e[0m\] '
 
@@ -48,6 +49,15 @@ alias tr3='tree -L 3'
 # ctags
 alias ctags="/usr/bin/ctags"
 alias erlctags="/usr/bin/ctags --file-scope=no -R --languages=erlang"
+
+#   ---------------------------
+#   SEARCHING
+#   ---------------------------
+
+alias fq="find . -iname "                 # qfind:    Quickly search for file
+fc () { /usr/bin/find . -iname "$@" ; }      # ff:       Find file under the current directory
+fs () { /usr/bin/find . -iname "$@"'*' ; }  # ffs:      Find file whose name starts with a given string
+fe () { /usr/bin/find . -iname '*'"$@" ; }  # ffe:      Find file whose name ends with a given string
 
 # set terminal
 tput setf 2
