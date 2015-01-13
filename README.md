@@ -1,19 +1,26 @@
-myconf
-======
+# MY CONFIGURATION
 
-my configuration files for unix or linux os
+Intro:
+configuration files for shell
 
+Unix/Linux OS 
 
 files including
-shell
+* Shell:
 
+tsch:
+
+bash:
 bashrc
 bash_aliases
 
 zsh
 
-screenrc
-
+* Editor
 vim
 vimrc
 vundle
+
+* Terminal
+screenrc
+tmux
