@@ -8,7 +8,7 @@ alias ll='ls -l'
 alias la='ls -a'
 alias vi='vim'
 alias javac="javac -J-Dfile.encoding=utf8"
-alias grep="grep --color=auto
+alias grep="grep --color=auto"
 
 # zsh config
 alias -s html=mate   # 在命令行直接输入后缀为 html 的文件名，会在 TextMate 中打开
