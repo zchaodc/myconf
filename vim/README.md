@@ -1,4 +1,8 @@
-Introduction:
+# VI & VIM Configuration
+
+vi and vim settings and plugins
+
+* Introduction:
 
 Installation requires Git and triggers git clone for each configured repository to ~/.vim/bundle/ by default. Curl is required for search.
 
