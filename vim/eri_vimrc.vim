@@ -188,9 +188,9 @@ let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1 " US layout
 
-"----------------------
-"    Shortcuts
-" ---------------------
+" -----------------------------------------------------------------------------
+" Plugin Shortcuts
+" -----------------------------------------------------------------------------
 " Syntax Check
 nmap <F6> :SyntasticCheck<CR>
 " NerdTree shortcut
