@@ -257,7 +257,7 @@ set t_Co=256
 " colorscheme adam
 colorscheme molokai
 
-" Fast saving
+" Fast commands
 nmap <leader>w :w!<cr>
 nmap <leader>W :wa!<cr>
 nmap <leader>q :q!<cr>
@@ -275,7 +275,7 @@ set mouse=a         " set always use mouse
 set backspace=2
 
 "set textwidth=100
-"
+
 " tab key
 set tabstop=4       " the tab length
 " set smarttab        " the smart tab
