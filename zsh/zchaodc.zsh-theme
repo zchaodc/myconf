@@ -7,7 +7,9 @@ local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 local user_host='%{$terminfo[bold]$fg[cyan]%}%n@%m%{$reset_color%} '
 local current_dir='%{$terminfo[bold]$fg[yellow]%}%~%{$reset_color%} '
 
+# version control status support
 local git_branch='%{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%} '
+local clearcase_branch=''
 
 function prompt_char {
 	# if [ $UID -eq 0 ]; then echo "#"; else echo $; fi
