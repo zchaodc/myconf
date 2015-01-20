@@ -1,19 +1,19 @@
-" ***********************************
+" **********************************************************************
 "  version guard
-" ***********************************
+" **********************************************************************
 if v:version < 703
     finish
 endif
 
-" ***********************************
+" **********************************************************************
 " vim env settings
-" ***********************************
+" **********************************************************************
 let $VIMRUNTIME="/usr/share/vim/vim72"
 set runtimepath=/usr/share/vim/vim72
 
-" ***********************************
+" **********************************************************************
 " vundle settings
-" ***********************************
+" **********************************************************************
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -49,6 +49,8 @@ Plugin 'taglist.vim'
 Plugin 'majutsushi/tagbar'
 " Plugin 'Valloric/YouCompleteMe'
 Plugin 'bling/vim-airline'
+" Plugin 'edkolev/tmuxline.vim'
+" Plugin 'itchyny/lightline.vim'
 Plugin 'SuperTab'
 Plugin 'Syntastic'
 Plugin 'vim-scripts/grep.vim'
@@ -58,6 +60,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'jiangmiao/auto-pairs'
 " scheme
 Plugin 'tomasr/molokai'
+Plugin 'sickill/vim-monokai'
 Plugin 'flazz/vim-colorschemes'
 "
 Plugin 'Lokaltog/vim-easymotion'
@@ -74,7 +77,7 @@ Plugin 'vim-erlang/vim-erlang-tags'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
+" filetype plugin on
 "
 " Brief help
 " :PluginList          - list configured plugins
@@ -85,9 +88,9 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" -----------------------------------------------------------------------------
-"    ***** Plugins setting *****
-" -----------------------------------------------------------------------------
+" **********************************************************************
+"    ***** Plugin settings *****
+" **********************************************************************
 
 " Syntastic
 let g:syntastic_mode_map = { 'mode': 'passive' }
@@ -115,8 +118,6 @@ let NERDTreeHighlightCursorline=1
 let NERDTreeMouseMode=2
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
             \ '\.o$', '\.so$', '\.egg$', '^\.git$', '\.beam$' ]
-            
-" NERDCommenter
 let NERDSpaceDelims=1
 
 " -----------------------------------------------------------------------------
@@ -151,6 +152,28 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 " let g:airline_powerline_fonts = 1
 " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+let g:airline#extensions#tmuxline#enabled = 0
+
+
+" -----------------------------------------------------------------------------
+" tmuxline
+" let g:tmuxline_theme = 'jellybeans'
+" let g:tmuxline_preset = {
+      " \'a'    : '#S',
+      " \'c'    : ['#(whoami)', '#(uptime | cut -d " " -f 1,2,3)'],
+      " \'win'  : ['#I', '#W'],
+      " \'cwin' : ['#I', '#W', '#F'],
+      " \'x'    : '#(date)',
+      " \'y'    : ['%R', '%a', '%Y'],
+      " \'z'    : '#H'}
+" let g:tmuxline_powerline_separators = 0
+" let g:tmuxline_separators = {
+    " \ 'left' : '',
+    " \ 'left_alt': '>',
+    " \ 'right' : '',
+    " \ 'right_alt' : '<',
+    " \ 'space' : ' '}
+
 
 " -----------------------------------------------------------------------------
 " CtrlP
@@ -188,9 +211,11 @@ let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1 " US layout
 
+
 " -----------------------------------------------------------------------------
-" Plugin Shortcuts
+"    Shortcuts for plugins
 " -----------------------------------------------------------------------------
+
 " Syntax Check
 nmap <F6> :SyntasticCheck<CR>
 " NerdTree shortcut
@@ -211,7 +236,10 @@ nmap <F8> :TagbarToggle<CR>
 " endfunction
 " nnoremap <silent> <expr> <CR> Highlighting()
 
-" General
+" **********************************************************************
+" General VIM Settings
+" **********************************************************************
+
 set nocompatible    " not compatible with the old-fashion vi mode
 set bs=2    " allow backspacing over everything in insert mode
 set history=500 " keep 50 lines of command line history
@@ -244,7 +272,7 @@ set showtabline=2
 set complete=.,w,b,k,t,i
 set completeopt=longest,menu
 " With a map leader it's possibl
-" like <leader>w saves the curre
+" like <leader>w saves the current file
 let mapleader = ","
 let g:mapleader = ","
 
@@ -255,15 +283,19 @@ set t_Co=256
 " colorscheme solarized
 " let g:solarized_termcolors=256
 " colorscheme adam
-colorscheme molokai
+" colorscheme molokai
+colorscheme monokai
 
-" Fast commands
+" Fast operations
 nmap <leader>w :w!<cr>
 nmap <leader>W :wa!<cr>
 nmap <leader>q :q!<cr>
 nmap <leader>Q :qa!<cr>
 nmap <leader>x :x!<cr>
 nmap <leader>X :xa!<cr>
+nmap <leader>h :set hlsearch!<CR>
+" nmap <leader>s :saveas<cr> " must add the arguments
+nmap <leader>t :tabnew<cr>
 
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
@@ -271,11 +303,10 @@ nmap <leader>X :xa!<cr>
 
 "set autoindent
 set smartindent
-set mouse=a         " set always use mouse
 set backspace=2
 
 "set textwidth=100
-
+"
 " tab key
 set tabstop=4       " the tab length
 " set smarttab        " the smart tab
@@ -296,7 +327,7 @@ set foldclose=all
 set hlsearch
 set ignorecase " use easymotion search
 
-" window split
+" window split default settings
 set splitbelow
 set splitright
 
@@ -328,7 +359,6 @@ set laststatus=2
 " set statusline+=%-14.(%l,%c%V%)\ %<%P " offset
 " if filereadable(expand("$VIM/vimfiles/plugin/vimbuddy.vim"))
     " set statusline+=\ %{VimBuddy()} " vim buddy
-
 " endif
 " set statusline+=:%l/%L    " line/lines
 
@@ -352,6 +382,11 @@ set wildmode=longest:list,full
 " ignore these files while expanding wild chars
 set wildignore=*.o,*.class,*.pyc,*.beam
 
+
+
+" **********************************************************************
+" other settings
+" **********************************************************************
 " erlang language
 let s:tlist_def_erlang_settings='erlang;d:macro;r:record;m:module;f:function'
 
@@ -359,7 +394,7 @@ let s:tlist_def_erlang_settings='erlang;d:macro;r:record;m:module;f:function'
 let s:tlist_def_vim_settings='vim;a:autocmds;v:variable;f:function'
 
 " Maps the updates of tags to key ,t.
-nmap ,t :!(cd %:p:h;ctags *)&
+" nmap ,t :!(cd %:p:h;ctags *)&
 set tags=tags; " The ';' at the end will cause the ctags plugin to search for current dir and above dirs until it find a tag file.
 " Add the following below if you want to generate ctags upon saving a file
 " Auto-generate ctags upon making changes to a file
@@ -368,5 +403,19 @@ set tags=tags; " The ';' at the end will cause the ctags plugin to search for cu
 " Run erlc on the file being saved
 " autocmd BufWritePost *.erl :!erlc <afile>
 
+" remove trailing sapce
+" Not worked well
+" function! StripTrailingWhitespace()
+    " normal mZ
+    " let l:chars = col("$")
+    " %s/\s\+$//e
+    " if (line("'Z") != line(".")) || (l:chars != col("$"))
+        " echo "Trailing whitespace stripped\n"
+    " endif
+    " normal `Z
+" endfunction
 
+" autocmd BufWritePre * :call StripTrailingWhitespace()
 
+" autocmd BufWritePre * :%s/\s\+$//e      " any file type
+" autocmd BufWritePre *.rb :%s/\s\+$//e   " ruby(.rb) files
