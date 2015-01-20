@@ -118,6 +118,8 @@ let NERDTreeHighlightCursorline=1
 let NERDTreeMouseMode=2
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
             \ '\.o$', '\.so$', '\.egg$', '^\.git$', '\.beam$' ]
+
+" NERDCommenter
 let NERDSpaceDelims=1
 
 " -----------------------------------------------------------------------------
