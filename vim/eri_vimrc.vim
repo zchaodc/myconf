@@ -1,18 +1,18 @@
 " **********************************************************************
-"  version guard
+" 	version guard
 " **********************************************************************
 if v:version < 703
     finish
 endif
 
 " **********************************************************************
-" vim env settings
+" 	vim env settings
 " **********************************************************************
 let $VIMRUNTIME="/usr/share/vim/vim72"
 set runtimepath=/usr/share/vim/vim72
 
 " **********************************************************************
-" vundle settings
+" 	vundle settings
 " **********************************************************************
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -41,7 +41,7 @@ Plugin 'L9'
 " Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Avoid a name conflict with L9
-Plugin 'user/L9', {'name': 'newL9'}
+" Plugin 'user/L9', {'name': 'newL9'}
 
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
@@ -49,6 +49,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'taglist.vim'
 Plugin 'majutsushi/tagbar'
 " Plugin 'Valloric/YouCompleteMe'
+" statusline
+" Plugin 'powerline/powerline'
 Plugin 'bling/vim-airline'
 " Plugin 'edkolev/tmuxline.vim'
 " Plugin 'itchyny/lightline.vim'
@@ -59,8 +61,8 @@ Plugin 'vim-scripts/grep.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'jiangmiao/auto-pairs'
-" scheme
-Plugin 'tomasr/molokai'
+" color scheme
+" Plugin 'tomasr/molokai'
 Plugin 'sickill/vim-monokai'
 Plugin 'flazz/vim-colorschemes'
 "
@@ -70,6 +72,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 
 " plugins for erlang
+Plugin 'jimenezrick/vimerl'
 Plugin 'edkolev/erlang-motions.vim'
 Plugin 'vim-erlang/vim-erlang-tags'
 
@@ -90,7 +93,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " **********************************************************************
-"    ***** Plugin settings *****
+" 	***** Plugin settings *****
 " **********************************************************************
 
 " Syntastic
@@ -146,16 +149,16 @@ set updatetime=1000
 " vim-airline
 " let g:airline_theme='powerlineish'
 " let g:airline_left_sep=''
-" let g:airline_left_sep = '▶'
 " let g:airline_right_sep=''
+" let g:airline_left_sep = '▶'
 " let g:airline_right_sep = '◀'
-" let g:airline_section_z=''
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#left_sep = '>'
+" let g:airline#extensions#tabline#left_alt_sep = '|'
 " let g:airline_powerline_fonts = 1
 " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
-let g:airline#extensions#tmuxline#enabled = 0
+" let g:airline_section_z=''
+" let g:airline#extensions#tmuxline#enabled = 1
 
 
 " -----------------------------------------------------------------------------
@@ -177,6 +180,9 @@ let g:airline#extensions#tmuxline#enabled = 0
     " \ 'right_alt' : '<',
     " \ 'space' : ' '}
 
+" let g:lightline = {
+      " \ 'colorscheme': 'wombat',
+      " \ }
 
 " -----------------------------------------------------------------------------
 " CtrlP
@@ -218,9 +224,14 @@ let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1 " US layout
 
+" -----------------------------------------------------------------------------
+"  vim erlang plugins
+"
+let erlang_skel_dir = "~/.vim/plugin/erlang_skels"
+let erlang_show_errors = 0
 
 " -----------------------------------------------------------------------------
-"    Shortcuts for plugins
+" 	Shortcuts for plugins
 " -----------------------------------------------------------------------------
 
 " Syntax Check
@@ -231,20 +242,20 @@ nmap <F7> :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR>
 
 " Highlight selected word with mouse and Enter key
-" let g:highlighting = 0
-" function! Highlighting()
-    " if g:highlighting == 1 && @/ =~ '^\\<'.expand('<cword>').'\\>$'
-        " let g:highlighting = 0
-        " return ":silent nohlsearch\<CR>"
-    " endif
-    " let @/ = '\<'.expand('<cword>').'\>'
-    " let g:highlighting = 1
-    " return ":silent set hlsearch\<CR>"
-" endfunction
-" nnoremap <silent> <expr> <CR> Highlighting()
+let g:highlighting = 0
+function! Highlighting()
+    if g:highlighting == 1 && @/ =~ '^\\<'.expand('<cword>').'\\>$'
+        let g:highlighting = 0
+        return ":silent nohlsearch\<CR>"
+    endif
+    let @/ = '\<'.expand('<cword>').'\>'
+    let g:highlighting = 1
+    return ":silent set hlsearch\<CR>"
+endfunction
+nnoremap <silent> <expr> <CR> Highlighting()
 
 " **********************************************************************
-" General VIM Settings
+" 	General VIM Settings
 " **********************************************************************
 
 set nocompatible    " not compatible with the old-fashion vi mode
@@ -291,7 +302,7 @@ set t_Co=256
 " let g:solarized_termcolors=256
 " colorscheme adam
 " colorscheme molokai
-colorscheme monokai
+" colorscheme monokai
 
 " Fast operations
 nmap <leader>w  :w!<cr>
@@ -347,9 +358,9 @@ set ignorecase " use easymotion search
 set splitbelow
 set splitright
 
-"---------------------------------------------------------------------------
-" Status line
-"---------------------------------------------------------------------------
+" ---------------------------------------------------------------------------
+"	Status line
+" ---------------------------------------------------------------------------
 " last status
 set laststatus=2
 " highlight StatusLine NONE ctermbg=DarkGreen ctermfg=White cterm=NONE
@@ -379,7 +390,7 @@ set laststatus=2
 " set statusline+=:%l/%L    " line/lines
 
 "---------------------------------------------------------------------------
-"" ENCODING SETTINGS
+"	ENCODING SETTINGS
 "---------------------------------------------------------------------------
 set encoding=utf-8
 set termencoding=utf-8
@@ -401,7 +412,7 @@ set wildignore=*.o,*.class,*.pyc,*.beam
 
 
 " **********************************************************************
-" other settings
+" 	other settings
 " **********************************************************************
 " erlang language
 let s:tlist_def_erlang_settings='erlang;d:macro;r:record;m:module;f:function'
