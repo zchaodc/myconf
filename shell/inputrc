@@ -1,0 +1,2 @@
+# tab ignores case
+set completion-ignore-case On
