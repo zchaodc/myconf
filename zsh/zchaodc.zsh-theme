@@ -1,5 +1,5 @@
 #! /bin/zsh
-# zchaodc theme
+# zchaodc theme for zsh
 #
 
 local user_host='%{$terminfo[bold]$fg[cyan]%}%n$fg[white]@$fg[red]%m%{$reset_color%} '
