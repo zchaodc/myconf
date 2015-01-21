@@ -289,16 +289,25 @@ set t_Co=256
 colorscheme monokai
 
 " Fast operations
-nmap <leader>w :w!<cr>
-nmap <leader>W :wa!<cr>
-nmap <leader>q :q!<cr>
-nmap <leader>Q :qa!<cr>
-nmap <leader>x :x!<cr>
-nmap <leader>X :xa!<cr>
-nmap <leader>h :set hlsearch!<CR>
+nmap <leader>w  :w!<cr>
+nmap <leader>W  :wa!<cr>
+nmap <leader>q  :q!<cr>
+nmap <leader>Q  :qa!<cr>
+nmap <leader>x  :x!<cr>
+nmap <leader>X  :xa!<cr>
+nmap <leader>h  :set hlsearch!<CR>
 " nmap <leader>s :saveas<cr> " must add the arguments
-nmap <leader>t :tabnew<cr>
-
+nmap <leader>t  :tabnew<cr>
+" reload current file
+nmap <leader>r  :e!<CR>
+" reload all open files
+nmap <leader>R  :tabdo bufdo e!<CR>
+" Open new buffers
+nmap <leader>v  :rightbelow vsp<cr>
+nmap <leader>h  :rightbelow sp<cr>
+" Yank text to the OS X clipboard
+noremap <leader>y "*y
+noremap <leader>yy "*Y
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
 " command W w !sudo tee % > /dev/null
