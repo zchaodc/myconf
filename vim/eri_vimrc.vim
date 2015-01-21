@@ -29,8 +29,6 @@ Plugin 'gmarik/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
 
@@ -43,7 +41,10 @@ Plugin 'L9'
 " Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Avoid a name conflict with L9
-" Plugin 'user/L9', {'name': 'newL9'}
+Plugin 'user/L9', {'name': 'newL9'}
+
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
 
 Plugin 'taglist.vim'
 Plugin 'majutsushi/tagbar'
@@ -180,8 +181,12 @@ let g:airline#extensions#tmuxline#enabled = 0
 " -----------------------------------------------------------------------------
 " CtrlP
 let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 " let g:ctrlp_cmd = 'CtrlP'
-" let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_max_files = 15000
+let g:ctrlp_max_depth = 40
+let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.beam
 " let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 " let g:ctrlp_custom_ignore = {
@@ -304,7 +309,7 @@ nmap <leader>r  :e!<CR>
 nmap <leader>R  :tabdo bufdo e!<CR>
 " Open new buffers
 nmap <leader>v  :rightbelow vsp<cr>
-nmap <leader>h  :rightbelow sp<cr>
+nmap <leader>-  :rightbelow sp<cr>
 " Yank text to the OS X clipboard
 noremap <leader>y "*y
 noremap <leader>yy "*Y
