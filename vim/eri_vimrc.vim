@@ -414,6 +414,10 @@ set wildignore=*.o,*.class,*.pyc,*.beam
 " **********************************************************************
 " 	other settings
 " **********************************************************************
+" Search and MatchPattern color settings
+hi MatchParen ctermfg=233  ctermbg=208 cterm=bold guifg=#000000 guibg=#FD971F gui=bold
+hi Search ctermfg=0   ctermbg=222   cterm=NONE guifg=#000000 guibg=#FFE792
+
 " erlang language
 let s:tlist_def_erlang_settings='erlang;d:macro;r:record;m:module;f:function'
 
