@@ -1,18 +1,18 @@
 " **********************************************************************
-" 	version guard
+"  version guard
 " **********************************************************************
 if v:version < 703
     finish
 endif
 
 " **********************************************************************
-" 	vim env settings
+" vim env settings
 " **********************************************************************
 let $VIMRUNTIME="/usr/share/vim/vim72"
 set runtimepath=/usr/share/vim/vim72
 
 " **********************************************************************
-" 	vundle settings
+" vundle settings
 " **********************************************************************
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -93,7 +93,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " **********************************************************************
-" 	***** Plugin settings *****
+"    ***** Plugin settings *****
 " **********************************************************************
 
 " Syntastic
@@ -121,7 +121,7 @@ let NERDTreeQuitOnOpen=1
 let NERDTreeHighlightCursorline=1
 let NERDTreeMouseMode=2
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
-            \ '\.o$', '\.so$', '\.egg$', '^\.git$', '\.beam$' ]
+            \ '\.o$', '\.so$', '\.egg$', '^\.git$', '\.beam$', '\.swp$' ]
 
 " NERDCommenter
 let NERDSpaceDelims=1
@@ -152,9 +152,9 @@ set updatetime=1000
 " let g:airline_right_sep=''
 " let g:airline_left_sep = '▶'
 " let g:airline_right_sep = '◀'
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#left_sep = '>'
-" let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = '>'
+let g:airline#extensions#tabline#left_alt_sep = '|'
 " let g:airline_powerline_fonts = 1
 " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
 " let g:airline_section_z=''
@@ -231,7 +231,7 @@ let erlang_skel_dir = "~/.vim/plugin/erlang_skels"
 let erlang_show_errors = 0
 
 " -----------------------------------------------------------------------------
-" 	Shortcuts for plugins
+"    Shortcuts for plugins
 " -----------------------------------------------------------------------------
 
 " Syntax Check
@@ -255,7 +255,7 @@ endfunction
 nnoremap <silent> <expr> <CR> Highlighting()
 
 " **********************************************************************
-" 	General VIM Settings
+" General VIM Settings
 " **********************************************************************
 
 set nocompatible    " not compatible with the old-fashion vi mode
@@ -327,6 +327,34 @@ noremap <leader>yy "*Y
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
 " command W w !sudo tee % > /dev/null
+"--------------------
+" Function: Open tag under cursor in new tab
+" Source:   http://stackoverflow.com/questions/563616/vimctags-tips-and-tricks
+"--------------------
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+"--------------------
+" Function: Remap keys to make it more similar to firefox tab functionality
+" Purpose:  Because I am familiar with firefox tab functionality
+"--------------------
+map <C-T> :tabnew<CR>
+map <C-N> :!gvim &<CR><CR>
+map <C-W> :confirm bdelete<CR>
+
+" Go to tab by number
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
+
+" Go to last active tab
+nnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
+vnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
 
 "set autoindent
 set smartindent
@@ -358,9 +386,9 @@ set ignorecase " use easymotion search
 set splitbelow
 set splitright
 
-" ---------------------------------------------------------------------------
-"	Status line
-" ---------------------------------------------------------------------------
+"---------------------------------------------------------------------------
+" Status line
+"---------------------------------------------------------------------------
 " last status
 set laststatus=2
 " highlight StatusLine NONE ctermbg=DarkGreen ctermfg=White cterm=NONE
@@ -390,7 +418,7 @@ set laststatus=2
 " set statusline+=:%l/%L    " line/lines
 
 "---------------------------------------------------------------------------
-"	ENCODING SETTINGS
+"" ENCODING SETTINGS
 "---------------------------------------------------------------------------
 set encoding=utf-8
 set termencoding=utf-8
@@ -407,16 +435,16 @@ set wildmenu            " wild char completion menu
 set wildmode=longest:list,full
 
 " ignore these files while expanding wild chars
-set wildignore=*.o,*.class,*.pyc,*.beam
-
-
+set wildignore=*.swp,*.o,*.class,*.pyc,*.beam
 
 " **********************************************************************
-" 	other settings
+" other settings
 " **********************************************************************
-" Search and MatchPattern color settings
+" VIM color settings
 hi MatchParen ctermfg=233  ctermbg=208 cterm=bold guifg=#000000 guibg=#FD971F gui=bold
 hi Search ctermfg=0   ctermbg=222   cterm=NONE guifg=#000000 guibg=#FFE792
+hi Visual ctermfg=NONE ctermbg=59 cterm=NONE guifg=NONE guibg=#49483e gui=NONE
+hi LineNr ctermfg=102 ctermbg=237 cterm=NONE guifg=#90908a guibg=#3c3d37 gui=NONE
 
 " erlang language
 let s:tlist_def_erlang_settings='erlang;d:macro;r:record;m:module;f:function'
@@ -434,7 +462,7 @@ set tags=tags; " The ';' at the end will cause the ctags plugin to search for cu
 " Run erlc on the file being saved
 " autocmd BufWritePost *.erl :!erlc <afile>
 
-" remove trailing sapce
+" Remove trailing sapce
 " Not worked well
 " function! StripTrailingWhitespace()
     " normal mZ
@@ -448,5 +476,5 @@ set tags=tags; " The ';' at the end will cause the ctags plugin to search for cu
 
 " autocmd BufWritePre * :call StripTrailingWhitespace()
 
-" autocmd BufWritePre * :%s/\s\+$//e      " any file type
+autocmd BufWritePre * :%s/\s\+$//e      " any file type
 " autocmd BufWritePre *.rb :%s/\s\+$//e   " ruby(.rb) files
