@@ -1,5 +1,7 @@
 # VI & VIM Configuration
 
+=====
+
 vi and vim settings and plugins
 
 * Introduction:
@@ -7,6 +9,8 @@ vi and vim settings and plugins
 Installation requires Git and triggers git clone for each configured repository to ~/.vim/bundle/ by default. Curl is required for search.
 
 If you are using Windows, go directly to Windows setup. If you run into any issues, please consult the FAQ. See Tips for some advanced configurations.
+
+* Vundle
 
 Set up Vundle:
 
