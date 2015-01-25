@@ -1,12 +1,20 @@
 # MY CONFIGURATION
 
+=====
+
 Intro:
 configuration files for shell
+
+Shell like tcsh bash zsh
+
+-----
 
 Unix/Linux OS 
 
 files including
-* Shell:
+* rc conf 
+Shell:
+inputrc
 
 tsch:
 
