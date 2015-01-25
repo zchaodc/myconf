@@ -32,20 +32,12 @@ To install from command line: vim +PluginInstall +qall
 Vundle refer website: https://github.com/gmarik/Vundle.vim
 
 -----
-<<<<<<< HEAD
 * Plugins
 
 airline
 powerline
 easymotion
 
-
-=======
-
-* Plugins
-
-
 * Shortcut
 
 * Keyboard
->>>>>>> c9da0b21f2dbcddb7ec9d0646b7ab6efde047472
