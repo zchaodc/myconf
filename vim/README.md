@@ -41,3 +41,5 @@ easymotion
 * Shortcut
 
 * Keyboard
+
+* General Settings
