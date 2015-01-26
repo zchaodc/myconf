@@ -1,1 +1,7 @@
-Cygwin settings
+### Cygwin Terminal
+
+Cygwin Settings
+
+Color Settings
+
+molokai
