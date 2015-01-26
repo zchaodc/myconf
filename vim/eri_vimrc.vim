@@ -443,7 +443,10 @@ set wildignore=*.swp,*.o,*.class,*.pyc,*.beam
 " VIM color settings
 hi MatchParen ctermfg=233  ctermbg=208 cterm=bold guifg=#000000 guibg=#FD971F gui=bold
 hi Search ctermfg=0   ctermbg=222   cterm=NONE guifg=#000000 guibg=#FFE792
-hi Visual ctermfg=NONE ctermbg=59 cterm=NONE guifg=NONE guibg=#49483e gui=NONE
+" monolkai Visual color
+" hi Visual ctermfg=NONE ctermbg=59 cterm=NONE guifg=NONE guibg=#49483e gui=NONE
+" molokai Visual color
+hi Visual                      ctermbg=235
 hi LineNr ctermfg=102 ctermbg=237 cterm=NONE guifg=#90908a guibg=#3c3d37 gui=NONE
 
 " erlang language
