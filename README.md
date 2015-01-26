@@ -19,10 +19,11 @@ inputrc
 tsch:
 
 bash:
+
 bashrc
 bash_aliases
 
-zsh
+zsh:
 
 * Editor
 vim
