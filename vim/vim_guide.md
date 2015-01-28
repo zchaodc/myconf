@@ -11,3 +11,6 @@ save as root
 
 
 earlier and later
+
+Restore state
+http://vim.wikia.com/wiki/Restore_state_of_edited_files_when_reopened
