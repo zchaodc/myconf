@@ -1,8 +1,17 @@
-#!/bin/sh
+#!/usr/bin/env bash
+### bash file
+### configuration for the mac bashrc
+###
 
-#bash file
- 
-# Easiser for navigation
+export PAGER="most"
+export EDITOR="vim"
+
+## Bash Aliases
+if [ -f "${HOME}/.bash_aliases" ]; then
+   source "${HOME}/.bash_aliases"
+fi
+
+## Easiser for navigation
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -27,10 +36,14 @@ alias fgrep='fgrep --color=auto'
 alias c='clear'
 alias g="git"
 alias v="vim"
+# editor settings
+alias e="/Users/chaozhao/homebrew/Cellar/vim/7.4.488/bin/vim"
+# alias e="vim"
+
 alias h='history'
 alias j='jobs -l'
 
-alias ls="ls -G"
+alias ls="ls -G" 
 alias ll="ls -alF"
 alias la="ls -A"
 alias l="ls -CF"
