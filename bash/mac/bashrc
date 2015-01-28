@@ -3,8 +3,13 @@
 ### configuration for the mac bashrc
 ###
 
-export PAGER="most"
+### set defualt bash settings
+# export PATH=$PATH:/usr/local/bin:/usr/ucb:/usr/ccs/bin:/opt/sfw/bin
+# export MANPATH=$MANPATH:/usr/man:/usr/local/man:/opt/sfw/man
+# export PS1='\u@\h:\w#'
 export EDITOR="vim"
+export VISUAL="vim"
+export PAGER="most"
 
 ## Bash Aliases
 if [ -f "${HOME}/.bash_aliases" ]; then
