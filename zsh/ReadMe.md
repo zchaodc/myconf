@@ -1,13 +1,16 @@
-ZSH Guide
+# ZSH Guide
 
 ====================
 
 
-Zsh files
+###### Configuration files
 
-zshrc
+* zshrc
 
-### theme 
+* zshrc.user
 
-zchaodc.theme
+###### Theme 
+
+* zchaodc.theme
+
 custom zsh theme
