@@ -4,7 +4,7 @@ Shell
 1. inpurtrc
 
 ```shell
-export PAGER</code>
+export PAGER
 ```
 
 2. bashrc
