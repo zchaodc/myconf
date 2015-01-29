@@ -7,6 +7,8 @@ Shell
 export PAGER
 ```
 
+(http://imgur.com/myimage.jpg "An optional title")
+
 2. bashrc
 1. vimrc
 2. pager
