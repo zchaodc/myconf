@@ -5,9 +5,9 @@ Shell
 2. bashrc
 1. vimrc
 2. pager
-* less
-* most
-* more
+  * less
+  * most
+  * more
 3. editor
 
 >> *Shell resource*
