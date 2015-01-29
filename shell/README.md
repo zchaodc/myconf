@@ -2,6 +2,7 @@ Shell
 =====
 
 1. inpurtrc
+<code>export PAGER</code>
 2. bashrc
 1. vimrc
 2. pager
