@@ -481,3 +481,9 @@ set tags=tags; " The ';' at the end will cause the ctags plugin to search for cu
 
 autocmd BufWritePre * :%s/\s\+$//e      " any file type
 " autocmd BufWritePre *.rb :%s/\s\+$//e   " ruby(.rb) files
+
+" Go back to the last line
+autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
