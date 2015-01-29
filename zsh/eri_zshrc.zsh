@@ -24,7 +24,7 @@ DISABLE_AUTO_UPDATE="true"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -79,13 +79,7 @@ export LANG=en_US.UTF-8
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias e='vim'
-alias t='htop'
-alias ls='ls -F --color=auto'
-alias ll='ls -al'
-alias la='ls -a'
-alias grep='grep --color=auto'
 
-# alias shortcut
-alias -s js=vim
-alias -s log=less
+# import zshrc.user
+ZSH_PATH="${HOME}/tools/zsh"
+[[ -s "$ZSH_PATH/zshrc.user" ]] && . "$ZSH_PATH/zshrc.user"
