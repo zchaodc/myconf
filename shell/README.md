@@ -1,7 +1,7 @@
 Shell
 =====
 
-~~*Shell resource*~~
+>*Shell resource*
 
 ## Shell environment variables
 
