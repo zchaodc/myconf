@@ -1,5 +1,5 @@
 #! /bin/zsh
-# zchaodc theme for zsh
+# zchaodc theme
 #
 
 local user_host='%{$terminfo[bold]$fg[cyan]%}%n$fg[white]@$fg[red]%m%{$reset_color%} '
@@ -21,4 +21,4 @@ RPS1="${return_code}"
 ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}X%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%}) %{$fg[green]%}V"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%}) %{$fg[green]%}V%{$reset_color%}"
