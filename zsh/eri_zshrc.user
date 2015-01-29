@@ -1,0 +1,22 @@
+#! /bin/zsh
+#
+#
+
+### Aliases
+
+alias e='vim'
+alias t='htop'
+
+alias ls='ls -F --color=auto'
+alias ll='ls -al'
+alias la='ls -a'
+
+alias grep='grep --color=auto'
+
+# alias shortcut
+alias -s erl=vim
+alias -s ptts=vim
+
+alias -s js=vim
+
+alias -s log=less
