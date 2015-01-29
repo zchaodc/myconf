@@ -1,6 +1,15 @@
 Shell
 =====
 
+1. inpurtrc
+2. bashrc
+1. vimrc
+2. pager
+* less
+* most
+* more
+3. editor
+
 >> *Shell resource*
 
 + OK
