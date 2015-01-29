@@ -3,9 +3,9 @@ Shell
 
 1. inpurtrc
 
-\`\`\`shell
+```shell
 export PAGER</code>
-\`\`\`
+```
 
 2. bashrc
 1. vimrc
