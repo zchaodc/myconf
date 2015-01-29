@@ -1,4 +1,9 @@
+Shell
+=====
 
-* shell variables
+Shell resource
 
-http://en.wikibooks.org/wiki/Guide_to_Unix/Environment_Variables#References
+## Shell environment variables
+
+* link
+http://en.wikibooks.org/wiki/Guide_to_Unix/Environment_Variables#References *
