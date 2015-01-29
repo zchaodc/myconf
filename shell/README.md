@@ -7,7 +7,7 @@ Shell
 export PAGER
 ```
 
-(http://imgur.com/myimage.jpg "An optional title")
+![IMG](https://avatars0.githubusercontent.com/u/7233041?v=3&s=48 "An optional title")
 
 2. bashrc
 1. vimrc
