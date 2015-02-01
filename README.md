@@ -1,29 +1,33 @@
-### MY CONFIGURATION
+# MY CONFIGURATION
 
 =====
 
-Intro:
+## Intro:
+
 configuration files for shell
 
 Shell like tcsh bash zsh
 
 -----
 
-Unix/Linux OS 
+## Unix/Linux OS 
 
 files including
-* rc conf 
-Shell:
+
+* rc conf
+
+- Shell:
+
 inputrc
 
-tsch:
+- tsch:
 
-bash:
+- bash:
 
 bashrc
 bash_aliases
 
-zsh:
+- zsh:
 
 * Editor
 vim
