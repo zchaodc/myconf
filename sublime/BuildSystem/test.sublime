@@ -1,0 +1,47 @@
+sublime text build system for c
+
+Windows
+
+Compile Only:
+
+{
+"cmd" : ["gcc", "$file_name", "-o", "${file_base_name}.exe", "-lm", "-Wall"],
+"selector" : "source.c",
+"shell":true,
+"working_dir" : "$file_path"
+}
+Compile & Run:
+
+{
+    "windows":
+    {
+        "cmd": ["cc","-std=c99" ,"$file_name","-o", "${file_base_name}.exe", "-lm", "-Wall", "&","start", "${file_base_name}.exe"]
+    },
+    "selector" : "source.c",
+    "shell": true,
+    "working_dir" : "$file_path",
+}
+
+Linux
+
+Compile Only:
+
+{
+"cmd" : ["gcc", "$file_name", "-o", "${file_base_name}", "-lm", "-Wall"],
+"selector" : "source.c",
+"shell":false,
+"working_dir" : "$file_path"
+}
+Compile & Run:
+
+{
+    "linux":
+    {
+        "cmd": ["cc","-std=c99" ,"$file_name","-o", "${file_base_name}", "-lm", "-Wall", ";", "./${file_base_name}"]
+    },
+    "selector" : "source.c",
+    "shell": true,
+    "working_dir" : "$file_path",
+}
+
+and save this with extension *.sublime-build
