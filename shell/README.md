@@ -3,6 +3,7 @@ Shell
 
 1. inpurtrc
 
+code like below
 ```shell
 export PAGER
 ```
@@ -19,10 +20,6 @@ export PAGER
 
 >> *Shell resource*
 
-+ OK
++ Item
 
-## Shell environment variables
-
-* link
-<a href="http://www.google.com"> ref </a>
-* [Environment Variables](http://en.wikibooks.org/wiki/Guide_to_Unix/Environment_Variables#References)
+## [Shell Environment Variables](http://en.wikibooks.org/wiki/Guide_to_Unix/Environment_Variables#References)
