@@ -1,5 +1,3 @@
-## @author     Dmitry Kolesnikov, <dmkolesnikov@gmail.com>
-## @copyright  (c) 2012 - 2014 Dmitry Kolesnikov. All Rights Reserved
 ##
 ## @description
 ##   Makefile to build and release Erlang applications using
