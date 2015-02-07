@@ -6,7 +6,7 @@
 
 - WinMerge
 
-- [kdiff3](http://kdiff3.sourceforge.net/)
+- [kdiff3](http://kdiff3.sourceforge.net/ "Kdiff3")
 
 - UltraCompare
 
