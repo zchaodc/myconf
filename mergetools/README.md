@@ -2,11 +2,13 @@
 
 =
 
-- beyondcompare
+- Beyond Compare
 
-- winmerge
+- WinMerge
 
-- kdiff3
+- [kdiff3](http://kdiff3.sourceforge.net/)
 
 - UltraCompare
+
+- [Meld](http://meldmerge.org/)
 
