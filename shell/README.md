@@ -25,4 +25,4 @@ export PAGER
 
 * link
 <a href="http://www.google.com"> ref </a>
-* link http://en.wikibooks.org/wiki/Guide_to_Unix/Environment_Variables#References 
+* [Environment Variables](http://en.wikibooks.org/wiki/Guide_to_Unix/Environment_Variables#References)
