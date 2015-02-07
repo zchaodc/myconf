@@ -2,6 +2,13 @@
 
 =
 
-C and C++ Makefile
+## C and C++ Makefile
 
-Erlang Makefile
+- c 
+- c++ 
+
+clang
+
+gcc
+
+## Erlang Makefile
