@@ -2,13 +2,15 @@
 
 =
 
-## C and C++ Makefile
+## [GNU Make](http://www.gnu.org/software/make/manual/make.html#Phony-Targets)
+
+### C and C++ Makefile
 
 - c 
 - c++ 
 
-clang
+1. clang
 
-gcc
+2. gcc
 
-## Erlang Makefile
+### Erlang Makefile
