@@ -2,6 +2,12 @@
 #
 #
 
+### Export
+export PAGER='less'
+
+### Editor
+export EDITOR='vim'
+
 ### Aliases
 
 alias e='vim'
@@ -12,6 +18,9 @@ alias ll='ls -al'
 alias la='ls -a'
 
 alias grep='grep --color=auto'
+
+alias py2='python'
+
 
 # alias shortcut
 alias -s erl=vim
