@@ -1,7 +1,7 @@
 #! /bin/zsh
+#
 # zchaodc theme
 #
-
 local return_code="%(?..%{$fg[red]%}%? <-%{$reset_color%})"
 local user_host='%{$terminfo[bold]$fg[cyan]%}%n$fg[white]@$fg[red]%m%{$reset_color%} '
 local current_dir='%{$terminfo[bold]$fg[yellow]%}%~%{$reset_color%} '
@@ -11,7 +11,7 @@ local git_branch='%{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$re
 
 function prompt_char {
     # if [ $UID -eq 0  ]; then echo "#"; else echo $; fi
-    if [ $UID -eq 0  ]; then echo "%{$fg[red]%}#%{$reset_color%}"; else echo $; fi
+    if [ $UID -eq 0  ]; then echo "%{$fg[red]%}#%{$reset_color%}"; else echo "%{$fg[magenta]%}$%{$reset_color%}"; fi
 }
 
 PROMPT="%{$fg_bold[green]%}${user_host}${current_dir}${git_branch}
