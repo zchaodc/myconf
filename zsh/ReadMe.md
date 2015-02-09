@@ -9,8 +9,13 @@
 
 * zshrc.user
 
+##### oh-my-zsh
+
+* plugins 
+** git osx mvn 
+
 ###### Theme 
 
 * zchaodc.theme
 
-custom zsh theme
+customize zsh theme
