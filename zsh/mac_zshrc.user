@@ -1,0 +1,27 @@
+#! /bin/zsh
+
+# Alias 
+alias vi
+# my zsh settings
+alias c='clear'
+alias cls='clear'
+
+alias ll='ls -l'
+alias la='ls -al'
+
+alias e='vim'
+alias vi='vim'
+
+
+alias py='python '
+alias py2='python '
+alias py3='python3 '
+alias ipy='ipython'
+
+# quick edit
+alias -s h=vim
+alias -s py=vim       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似
+alias -s log=less
+
+
+[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
