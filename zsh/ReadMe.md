@@ -3,25 +3,25 @@
 ====================
 
 
-###### Configuration files
+### Configuration files
 
 * zshrc
 
 * zshrc.user
 
-##### oh-my-zsh
+### oh-my-zsh
 
-* plugins 
-** git osx mvn 
-
-###### Theme 
-
-* zchaodc.theme
-
-customize zsh theme
-
-##### plugins
+#### plugins 
+* git 
+* osx
+* mvn 
 
 Need to install 
 
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+
+#### Theme 
+
+* zchaodc.theme
+
+customize zsh theme
