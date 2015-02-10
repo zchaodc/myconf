@@ -20,6 +20,11 @@ Need to install
 
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
+[Fasd](https://github.com/clvv/fasd) is a command-line productivity booster inspired by tools like 
+[autojump],
+[z](https://github.com/rupa/z) 
+and [v]().
+
 #### Theme 
 
 * zchaodc.theme
