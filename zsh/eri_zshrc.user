@@ -1,7 +1,5 @@
 #! /bin/zsh
 #
-#
-
 ### Export
 export PAGER='less'
 
@@ -10,8 +8,35 @@ export EDITOR='vim'
 
 ### Aliases
 
+# Easiser for navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias .2='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+
+alias ~="cd ~" # `cd` is probably faster to type though
+alias -- -="cd -"
+
 alias e='vim'
+alias v='vim'
 alias t='htop'
+alias h='history'
+alias j='jobs'
+# clear
+alias clr='clear'
+alias c='clear'
+# tree
+alias tree1='tree -L 1 '
+alias tree2='tree -L 2 '
+alias tree3='tree -L 3 '
+
+alias tr1='tree -L 1 -p '
+alias tr2='tree -L 2 -p '
+alias tr3='tree -L 3 -p '
 
 alias ls='ls -F --color=auto'
 alias ll='ls -al'
@@ -21,6 +46,12 @@ alias grep='grep --color=auto'
 
 alias py2='python'
 
+
+# ctags
+# alias ctags="/usr/bin/ctags "
+alias erlctags="ctags --file-scope=no -R --languages=erlang "
+alias etags="~/tools/bin/ctags "
+alias erltags="etags --file-scope=no -R --languages=erlang "
 
 # alias shortcut
 alias -s erl=vim
