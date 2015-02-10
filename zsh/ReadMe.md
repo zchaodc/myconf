@@ -15,6 +15,7 @@
 * git 
 * osx
 * mvn 
+* colored-man
 
 Need to install 
 
