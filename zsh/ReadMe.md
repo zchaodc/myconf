@@ -30,3 +30,6 @@ and [v]().
 * zchaodc.theme
 
 customize zsh theme
+
+
+[GUIDE](http://doppnet.com/2013/01/10-super-powers-for-your-shell/)
