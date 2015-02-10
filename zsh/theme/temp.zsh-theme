@@ -1,3 +1,4 @@
+#!/bin/zsh
 # Grab the current date (%D) and time (%T) wrapped in {}: {%D %T}
 DALLAS_CURRENT_TIME_="%{$fg[white]%}[%{$fg[yellow]%}%T%{$fg[white]%}]%{$reset_color%}"
 # Grab the current version of ruby in use (via RVM): [ruby-1.8.7]
