@@ -19,3 +19,9 @@
 * zchaodc.theme
 
 customize zsh theme
+
+##### plugins
+
+Need to install 
+
+- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
