@@ -34,9 +34,10 @@ Vundle refer website: https://github.com/gmarik/Vundle.vim
 -----
 * Plugins
 
-airline
-powerline
-easymotion
+..* airline
+..* powerline
+..* easymotion
+..* xolox/vim-easytags
 
 * Shortcut
 
