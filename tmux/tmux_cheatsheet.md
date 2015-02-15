@@ -161,17 +161,3 @@ For example, we can use "w" to jump to the next word and "b" to jump back one wo
 * [tmux: Productive Mouse-Free Development](http://pragprog.com/book/bhtmux/tmux)
 * [How to reorder windows](http://superuser.com/questions/343572/tmux-how-do-i-reorder-my-windows)
 
-## Notes:
-
-* 
-
-## Changelog:
-
-* 1411143833002 - Added [toggle zoom](#PanesSplits) under Panes (splits) section.
-* 1411143833002 - [Added Sync Panes](#syncPanes)
- 
-## Request an Update:
-
-We Noticed that our Cheatsheet is growing and people are coloberating to add new tips and tricks, so please tweet to me what would you like to add and let's make it better!
-
-* Twitter: [@MohammedAlaa](http://twitter.com/MohammedAlaa)
