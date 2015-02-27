@@ -5,7 +5,7 @@ Columns=119
 Rows=30
 Term=xterm-256color
 
-
+# color for solarized dark
 ForegroundColour=131, 148, 150
 BackgroundColour=  0,  43,  54
 CursorColour=    220,  50,  47
