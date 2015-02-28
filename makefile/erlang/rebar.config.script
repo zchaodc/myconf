@@ -1,6 +1,3 @@
-%% @author     Dmitry Kolesnikov, <dmkolesnikov@gmail.com>
-%% @copyright  (c) 2012 - 2014 Dmitry Kolesnikov. All Rights Reserved
-%%
 %% @description
 %%   customize dependency handling
 DEPS = fun
