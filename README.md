@@ -4,13 +4,13 @@
 
 ## Intro:
 
-configuration files for shell
+configuration files for shell and other tools
 
-Shell like tcsh bash zsh
+Shell includes tcsh bash zsh
 
 -----
 
-## Unix/Linux OS 
+## Unix/Linux/Mac/Cygwin(Windows) OS 
 
 files including
 
