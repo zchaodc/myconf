@@ -33,6 +33,7 @@ bash_aliases
 vim
 vimrc
 vundle
+sublime
 
 * Terminal
 screenrc
