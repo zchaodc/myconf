@@ -6,8 +6,8 @@
 
 2. Color Settings
 
---* solarized dark
+ * solarized dark
 
---* molokai
+ * molokai
 
---* monokai
+ * monokai
