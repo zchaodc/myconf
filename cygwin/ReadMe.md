@@ -2,12 +2,12 @@
 
 -----
 
-* Cygwin Settings
+1. Cygwin Settings
 
-* Color Settings
+2. Color Settings
 
-** solarized dark
+--* solarized dark
 
-** molokai
+--* molokai
 
-** monokai
+--* monokai
