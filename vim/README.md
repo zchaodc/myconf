@@ -38,6 +38,10 @@ Vundle refer website: https://github.com/gmarik/Vundle.vim
   1. powerline
   1. easymotion
   1. xolox/vim-easytags
+  2. CtrlP
+  3. EasyMotion
+  4. Ag/Ack -> perl script
+  5. Trim tailing space
 
 * Shortcut
 
