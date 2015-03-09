@@ -5,7 +5,9 @@
 1. Cygwin Settings
  * apt package
  
-   [apt-get](https://code.google.com/p/apt-cyg/)
+   [apt-get](https://github.com/transcode-open/apt-cyg)
+   
+  old:https://code.google.com/p/apt-cyg/
 
  * tools
  
