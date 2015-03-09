@@ -10,12 +10,13 @@
  * tools
  
    gdb,gcc,make,
-   wget, curl, unzip
+   wget, curl, unzip,
    procps, ncurses,
    inet, inetutils, tree,
-   vim, ctags:taglist
-   psmisc
-   bind
+   vim, ctags:taglist,
+   psmisc,
+   bind,
+
    util-linux -> more,mkfs,mount,whereis
 
    * version control
