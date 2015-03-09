@@ -17,7 +17,7 @@
    psmisc,
    bind,
 
-   util-linux -> more,mkfs,mount,whereis
+   util-linux -> more,less,most,mkfs,mount,whereis
 
    * version control
    
