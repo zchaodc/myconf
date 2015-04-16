@@ -26,6 +26,7 @@ BoldMagenta=126,51,255
 Cyan=161,239,228
 BoldCyan=95,227,210
 White=248,248,242
+BoldWhite=249,248,245
 
 Transparency=off
 OpaqueWhenFocused=no
@@ -34,4 +35,3 @@ RightClickAction=paste
 ClicksPlaceCursor=no
 CursorType=line
 CursorBlinks=yes
-BoldWhite=249,248,245
