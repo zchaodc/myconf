@@ -7,18 +7,20 @@ local current_dir='%{$terminfo[bold]$fg[yellow]%}%~%{$reset_color%} '
 
 # version control status support
 local git_branch='%{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%} '
-local clearcase_branch=''
 
 function prompt_char {
     # if [ $UID -eq 0  ]; then echo "#"; else echo $; fi
-    if [ $UID -eq 0  ]; then echo "%{$fg[red]%}#%{$reset_color%}"; else echo $; fi
+    if [ $UID -eq 0  ]; then echo "%{$fg[red]%}#%{$reset_color%}"; else echo "%{$fg[magenta]%}$%{$reset_color%}"; fi
 }
 
-PROMPT="%{$fg_bold[green]%}${user_host}${current_dir}${git_branch}
+PROMPT="%{$fg_bold[green]%}${current_time}${user_host}${current_dir}${git_branch}
 %{$fg_bold[orange]%}$(prompt_char) %{$reset_color%}"
 RPS1="${return_code}"
 
+# git info
+# Encode with UTF-8
+# ✔ - V, ✗ - X
 ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}X%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%}) %{$fg[green]%}V%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[red]%} ✗ %{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%}) %{$fg[green]%} ✔ %{$reset_color%}"
