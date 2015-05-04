@@ -161,6 +161,14 @@ filetype plugin on    	" Enable filetype-specific plugins
 set ignorecase                  " ignore case when searching
 set smartcase                   " ignore case if search pattern is all lowercase,
                                 "    case-sensitive otherwise
+" tab key
+set tabstop=4       " the tab length
+" set smarttab        " the smart tab
+set softtabstop=4   " control tab state
+set expandtab       " change the tab to space
+set shiftwidth=4    " space for inserted or indentation
+au FileType Makefile set noexpandtab
+autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
 
 " Highlight search results
 set hlsearch
