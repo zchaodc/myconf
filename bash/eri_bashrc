@@ -154,3 +154,23 @@ fi
 if [[ -f "${HOME}/projects/sbg/scripts/bash_sbg" ]]; then
    source "${HOME}/projects/sbg/scripts/bash_sbg"
 fi
+
+# LMWP settings for bash
+MODULEPATH="/app/modules/0/modulefiles:\
+$HOME/.afs/1/rmodules:$HOME/.afs/1/pmodules:\
+/env/seki/modules:$HOME/.afs/1/imodules:\
+/env/common/modules"
+export MODULEPATH
+
+. /app/modules/0/init/bash
+[ -f "$HOME/.modules"  ] && . "$HOME/.modules"
+
+sgc=/local/scratch/$USER/repos/sgc
+otpvsn=`(awk '/^otp/{print $2}' "$sgc/deps.vsn"; echo R16B03-pre2-3;) | sed 1q`
+OTP_ROOT=$sgc/deps/otp/$otpvsn
+
+PATH="$OTP_ROOT/bin:$PATH"
+export sgc OTP_ROOT PATH
+
+GIT_PROMPT_THEME=Solarized
+# source /home/eijjmno/tools/bash/bash-git-prompt/gitprompt.sh
