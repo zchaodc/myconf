@@ -1,0 +1,112 @@
+#!/usr/bin/env bash
+### bash file
+### configuration for the mac bashrc
+###
+
+# If not running interactively, don't do anything
+[[ "$-" != *i* ]] && return
+
+# Shell Options
+# See man bash for more options...
+
+# Don't wait for job termination notification
+set -o notify
+
+# Don't use ^D to exit
+set -o ignoreeof
+
+# Use case-insensitive filename globbing
+shopt -s nocaseglob
+
+# Make bash append rather than overwrite the history on disk
+# shopt -s histappend
+
+# When changing directory small typos can be ignored by bash
+# for example, cd /vr/lgo/apache would find /var/log/apache
+shopt -s cdspell
+
+# History Options
+
+# Don't put duplicate lines in the history.
+export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
+
+# prompt
+# PS1='\[\e[1;37m\]\u\[\e[0m\]@\[\e[0;31m\]\h\[\e[0m\] [\[\e[0;32m\]\W\[\e[0m\]] \[\e[0;36m\]\$\[\e[0m\] '
+if [ ! -z $CDE_VIEW ]
+then
+    PS1='\[\e[35;1m\]\@\[\e[0m\] \[\e[33;1m\]$CDE_VIEW\[\e[0m\]@\[\e[0;31m\]\h\[\e[0m\] [\[\e[0;32m\]\w\[\e[0m\]] \n\[\e[0;36m\]\$\[\e[0m\] '
+else
+    PS1='\[\e[35;1m\]\@\[\e[0m\] \[\e[33;1m\]\u\[\e[0m\]@\[\e[0;31m\]\h\[\e[0m\] [\[\e[0;32m\]\w\[\e[0m\]] \n\[\e[0;36m\]\$\[\e[0m\] '
+fi
+
+# Aliases
+if [ -f "${HOME}/.bash_aliases" ]; then
+   source "${HOME}/.bash_aliases"
+fi
+
+### set defualt bash settings
+# export PATH=$PATH:/usr/local/bin:/usr/ucb:/usr/ccs/bin:/opt/sfw/bin
+# export MANPATH=$MANPATH:/usr/man:/usr/local/man:/opt/sfw/man
+# export PS1='\u@\h:\w#'
+export EDITOR="vim"
+export VISUAL="vim"
+export PAGER="most"
+# export LESSOPEN='|/usr/bin/lesspipe.sh %s'
+
+## Bash Aliases
+if [ -f "${HOME}/.bash_aliases" ]; then
+   source "${HOME}/.bash_aliases"
+fi
+
+## Easiser for navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias .2='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+
+alias ~="cd ~" # `cd` is probably faster to type though
+alias -- -="cd -"
+
+## get rid of command not found ##
+alias cd..='cd ..'
+
+## shortcut 
+alias c='clear'
+alias g="git"
+# editor settings
+alias v="vim"
+alias e="/Users/chaozhao/homebrew/Cellar/vim/7.4.488/bin/vim"
+# alias e="vim"
+
+alias h='history'
+alias j='jobs -l'
+alias t='htop'
+
+# Some shortcuts for different directory listings
+alias ls='ls -hF --color=tty'                 # classify files in colour
+alias dir='ls --color=auto --format=vertical'
+alias vdir='ls --color=auto --format=long'
+alias ll='ls -l'                              # long list
+alias la='ls -A'                              # all but . and ..
+alias l='ls -CF'                              #
+
+alias clr="clear"
+
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
+# Default to human readable figures
+alias df='df -h '
+alias du='du -h '
+
+# Misc :)
+alias less='less -r'                          # raw control characters
+alias whence='type -a'                        # where, of a sort
+## Colorize the grep command output for ease of use (good for log files)##
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
