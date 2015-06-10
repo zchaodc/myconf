@@ -28,7 +28,9 @@ PROMPT="%{$fg_bold[green]%}${current_time}${user_host}${current_dir}${git_branch
 RPS1="${return_code}"
 
 # zsh git info
+# Encode with UTF-8
+# ✔ - V, ✗ - X
 ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}X%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%}) %{$fg[green]%}V%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[red]%} ✗ %{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%}) %{$fg[green]%} ✔ %{$reset_color%}"
