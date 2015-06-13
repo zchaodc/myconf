@@ -12,7 +12,7 @@
 #%D{string}
 local current_time='%{$fg[white]%}[%{$fg[yellow]%}%D %*%{$fg[white]%}]%{$reset_color%} '
 local return_code='%(?..%{$fg[red]%}%? <-%{$reset_color%})'
-local user_host='%{$terminfo[bold]$fg[cyan]%}%n$fg[white]@$fg[red]%m%{$reset_color%} '
+local user_host='%{$terminfo[bold]$fg[cyan]%}%n%{$fg[white]%}@%{$fg[red]%}%m%{$reset_color%} '
 local current_dir='%{$terminfo[bold]$fg[yellow]%}%~%{$reset_color%} '
 
 # version control status support
