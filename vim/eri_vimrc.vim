@@ -336,7 +336,7 @@ map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 " Function: Remap keys to make it more similar to firefox tab functionality
 " Purpose:  Because I am familiar with firefox tab functionality
 "--------------------
-map <C-T> :tabnew<CR>
+" map <C-T> :tabnew<CR>
 map <C-N> :!gvim &<CR><CR>
 map <C-W> :confirm bdelete<CR>
 
@@ -360,7 +360,7 @@ vnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
 set smartindent
 set backspace=2
 
-"set textwidth=100
+" set textwidth=100
 "
 " tab key
 set tabstop=4       " the tab length
@@ -370,6 +370,9 @@ set expandtab       " change the tab to space
 set shiftwidth=4    " space for inserted or indentation
 au FileType Makefile set noexpandtab
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
+autocmd FileType erlang setlocal tabstop=8 shiftwidth=4 softtabstop=4 textwidth=79
+set autoindent
+set smartindent
 
 " set ai!
 
@@ -479,7 +482,7 @@ set tags=tags; " The ';' at the end will cause the ctags plugin to search for cu
 
 " autocmd BufWritePre * :call StripTrailingWhitespace()
 
-autocmd BufWritePre * :%s/\s\+$//e      " any file type
+" autocmd BufWritePre * :%s/\s\+$//e      " any file type
 " autocmd BufWritePre *.rb :%s/\s\+$//e   " ruby(.rb) files
 
 " Go back to the last line
