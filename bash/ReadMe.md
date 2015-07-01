@@ -1,5 +1,4 @@
 BASH
-
 =====
 
 bashrc file
