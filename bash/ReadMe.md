@@ -4,14 +4,13 @@ BASH
 
 bashrc file
 
-default settings
+default settings:
 
-bashrc
-bash_aliases
-bash_functions
+* bashrc
+* bash_aliases
+* bash_functions
 
-cygwin 
-
-mac 
-
-eri/working
+other platform
+* cygwin 
+* mac 
+* eri/working
