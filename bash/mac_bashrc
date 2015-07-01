@@ -25,37 +25,58 @@ shopt -s nocaseglob
 # for example, cd /vr/lgo/apache would find /var/log/apache
 shopt -s cdspell
 
+# Completion options
+# These completion tuning parameters change the default behavior of bash_completion:
+
+# Define to access remotely checked-out files over passwordless ssh for CVS
+# COMP_CVS_REMOTE=1
+
+# Define to avoid stripping description in --option=description of './configure --help'
+# COMP_CONFIGURE_HINTS=1
+
+# Define to avoid flattening internal contents of tar files
+# COMP_TAR_INTERNAL_PATHS=1
+
+# Uncomment to turn on programmable completion enhancements.
+# Any completions you add in ~/.bash_completion are sourced last.
+# [[ -f /etc/bash_completion ]] && . /etc/bash_completion
+
 # History Options
 
 # Don't put duplicate lines in the history.
 export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 
-# prompt
-# PS1='\[\e[1;37m\]\u\[\e[0m\]@\[\e[0;31m\]\h\[\e[0m\] [\[\e[0;32m\]\W\[\e[0m\]] \[\e[0;36m\]\$\[\e[0m\] '
-if [ ! -z $CDE_VIEW ]
-then
-    PS1='\[\e[35;1m\]\@\[\e[0m\] \[\e[33;1m\]$CDE_VIEW\[\e[0m\]@\[\e[0;31m\]\h\[\e[0m\] [\[\e[0;32m\]\w\[\e[0m\]] \n\[\e[0;36m\]\$\[\e[0m\] '
-else
-    PS1='\[\e[35;1m\]\@\[\e[0m\] \[\e[33;1m\]\u\[\e[0m\]@\[\e[0;31m\]\h\[\e[0m\] [\[\e[0;32m\]\w\[\e[0m\]] \n\[\e[0;36m\]\$\[\e[0m\] '
-fi
+# Ignore some controlling instructions
+# HISTIGNORE is a colon-delimited list of patterns which should be excluded.
+# The '&' is a special pattern which suppresses duplicate entries.
+# export HISTIGNORE=$'[ \t]*:&:[fb]g:exit'
+# export HISTIGNORE=$'[ \t]*:&:[fb]g:exit:ls' # Ignore the ls command as well
 
-# Aliases
-if [ -f "${HOME}/.bash_aliases" ]; then
-   source "${HOME}/.bash_aliases"
-fi
+# Whenever displaying the prompt, write the previous line to disk
+# export PROMPT_COMMAND="history -a"
 
 ### set defualt bash settings
+export PATH="$HOME/bin:/usr/local/bin:$PATH"
 # export PATH=$PATH:/usr/local/bin:/usr/ucb:/usr/ccs/bin:/opt/sfw/bin
 # export MANPATH=$MANPATH:/usr/man:/usr/local/man:/opt/sfw/man
 # export PS1='\u@\h:\w#'
+# prompt
+# PS1='\[\e[1;37m\]\u\[\e[0m\]@\[\e[0;31m\]\h\[\e[0m\] [\[\e[0;32m\]\W\[\e[0m\]] \[\e[0;36m\]\$\[\e[0m\] '
+PS1='\[\e[35;1m\]\@\[\e[0m\] \[\e[33;1m\]\u\[\e[0m\]@\[\e[0;31m\]\h\[\e[0m\] [\[\e[0;32m\]\w\[\e[0m\]] \n\[\e[0;36m\]\$\[\e[0m\] '
+
 export EDITOR="vim"
 export VISUAL="vim"
 export PAGER="most"
 # export LESSOPEN='|/usr/bin/lesspipe.sh %s'
 
-## Bash Aliases
+## Aliases
 if [ -f "${HOME}/.bash_aliases" ]; then
    source "${HOME}/.bash_aliases"
+fi
+
+## Functions
+if [ -f "${HOME}/.bash_functions"  ]; then
+    source "${HOME}/.bash_functions"
 fi
 
 ## Easiser for navigation
@@ -74,27 +95,28 @@ alias -- -="cd -"
 ## get rid of command not found ##
 alias cd..='cd ..'
 
-## shortcut 
+## shortcut
 alias c='clear'
+alias clr="clear"
+
 alias g="git"
+
 # editor settings
 alias v="vim"
 alias e="/Users/chaozhao/homebrew/Cellar/vim/7.4.488/bin/vim"
-# alias e="vim"
 
 alias h='history'
 alias j='jobs -l'
 alias t='htop'
 
+# ls alias for mac bash
 # Some shortcuts for different directory listings
-alias ls='ls -hF --color=tty'                 # classify files in colour
+alias ls='ls -G'                              # classify files in colour
 alias dir='ls --color=auto --format=vertical'
 alias vdir='ls --color=auto --format=long'
-alias ll='ls -l'                              # long list
+alias ll='ls -alF'                            # long list
 alias la='ls -A'                              # all but . and ..
 alias l='ls -CF'                              #
-
-alias clr="clear"
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
@@ -110,3 +132,17 @@ alias whence='type -a'                        # where, of a sort
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
+
+alias mkdir='mkdir -pv'
+
+alias path='echo -e ${PATH//:/\\n}'
+alias now='date +"%T"'
+alias nowtime=now
+alias nowdate='date +"%d-%m-%Y"'
+
+# Stop after sending count ECHO_REQUEST packets #
+alias ping='ping -c 5'
+# Do not wait interval 1 second, go fast #
+alias fastping='ping -c 100 -s.2'
+
+alias ports='netstat -tulanp'
