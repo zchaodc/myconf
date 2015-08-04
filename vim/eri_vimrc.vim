@@ -1,18 +1,18 @@
 " **********************************************************************
-"  version guard
+"    version guard
 " **********************************************************************
 if v:version < 703
     finish
 endif
 
 " **********************************************************************
-" vim env settings
+"    vim env settings
 " **********************************************************************
 let $VIMRUNTIME="/usr/share/vim/vim72"
 set runtimepath=/usr/share/vim/vim72
 
 " **********************************************************************
-" vundle settings
+"    vundle settings
 " **********************************************************************
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -255,7 +255,7 @@ endfunction
 nnoremap <silent> <expr> <CR> Highlighting()
 
 " **********************************************************************
-" General VIM Settings
+"    General VIM Settings
 " **********************************************************************
 
 set nocompatible    " not compatible with the old-fashion vi mode
@@ -320,6 +320,7 @@ nmap <leader>r  :e!<CR>
 nmap <leader>R  :tabdo bufdo e!<CR>
 " Open new buffers
 nmap <leader>v  :rightbelow vsp<cr>
+" nmap <leader>|  :rightbelow vsp<cr>
 nmap <leader>-  :rightbelow sp<cr>
 " Yank text to the OS X clipboard
 noremap <leader>y "*y
@@ -356,23 +357,24 @@ noremap <leader>0 :tablast<cr>
 nnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
 vnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
 
-"set autoindent
-set smartindent
-set backspace=2
 
-" set textwidth=100
-"
+" default text width
+set textwidth=100
+
 " tab key
 set tabstop=4       " the tab length
-" set smarttab        " the smart tab
+set smarttab        " the smart tab
 set softtabstop=4   " control tab state
 set expandtab       " change the tab to space
 set shiftwidth=4    " space for inserted or indentation
-au FileType Makefile set noexpandtab
-autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
-autocmd FileType erlang setlocal tabstop=8 shiftwidth=4 softtabstop=4 textwidth=79
 set autoindent
 set smartindent
+set backspace=2
+
+" custom settings for speccific filetype
+autocmd FileType Makefile set noexpandtab
+autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
+autocmd FileType erlang setlocal tabstop=8 shiftwidth=4 softtabstop=4 textwidth=79
 
 " set ai!
 
@@ -439,6 +441,21 @@ set wildmode=longest:list,full
 
 " ignore these files while expanding wild chars
 set wildignore=*.swp,*.o,*.class,*.pyc,*.beam
+
+"---------------------------------------------------------------------------
+"   swap and backup setting
+"---------------------------------------------------------------------------
+" swap files (.swp) in a common location, add swap path first
+" // means use the file's full path
+set dir=~/.vim/_swap//
+
+" backup files (~) in a common location if possible
+" set backup
+" set backupdir=~/.vim/_backup/,~/tmp,.
+
+" turn on undo files, put them in a common location
+" set undofile
+" set undodir=~/.vim/_undo/
 
 " **********************************************************************
 " other settings
