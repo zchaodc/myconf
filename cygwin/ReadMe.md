@@ -5,9 +5,9 @@
 1. Cygwin Settings
  * apt package
  
-   [apt-get](https://github.com/transcode-open/apt-cyg)
+   apt-get like cygwin command: [apt-cyg](https://github.com/transcode-open/apt-cyg)
    
-  old:https://code.google.com/p/apt-cyg/
+    old link:https://code.google.com/p/apt-cyg/
 
  * tools
  
@@ -21,11 +21,11 @@
 
    util-linux -> more,less,most,mkfs,mount,whereis
 
-   * version control
+   * version control tool
    
      subversion, git
 
-     mercurial ->  hg, version control tool
+     mercurial ->  hg
      
    * shell
    
@@ -35,7 +35,7 @@
      
      doc -> cygwin-doc, other docs
 
-   screen, tmux
+     screen, tmux
 
 2. Color Settings
 
