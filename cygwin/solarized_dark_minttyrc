@@ -1,10 +1,14 @@
 # mintty setting
 BoldAsFont=no
 Font=Powerline Consolas
-FontHeight=11
+FontHeight=12
 Columns=119
-Rows=30
+Rows=50
 Term=xterm-256color
+Locale=C
+Charset=UTF-8
+RightClickAction=paste
+CursorType=block
 
 # color for solarized dark
 ForegroundColour=131, 148, 150
@@ -27,3 +31,5 @@ Cyan=             42, 161, 152
 BoldCyan=        147, 161, 161
 White=           238, 232, 213
 BoldWhite=       253, 246, 227
+
+
