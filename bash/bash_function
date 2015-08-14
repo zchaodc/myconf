@@ -1,0 +1,19 @@
+#!/bin/bash
+# bash functions
+#
+
+#   ---------------------------
+#   SEARCHING
+#   ---------------------------
+
+alias fq="find . -iname "                 # qfind:    Quickly search for file
+
+# fc () { /usr/bin/find . -iname "$@" ;  }      # ff:       Find file under the current directory
+
+ff () { /usr/bin/find . -iname "$@" ;  }      # ff:       Find file under the current directory
+
+fs () { /usr/bin/find . -iname "$@"'*' ;  }  # ffs:      Find file whose name starts with a given string
+
+fe () { /usr/bin/find . -iname '*'"$@" ;  }  # ffe:      Find file whose name ends with a given string
+
+ef () { echo '&'"$@"; }
