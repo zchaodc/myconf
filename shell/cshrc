@@ -1,0 +1,109 @@
+# user csh settings
+# UTF-8 or go home.
+setenv LC_TYPE en_US.utf-8
+
+# cd aliases
+alias - cd -
+alias .. cd ..
+alias ... cd ../..
+alias cd.. cd ..
+
+
+# linux os
+alias ll ls -lA --color=auto
+alias ls ls --color=auto
+alias la ls -A
+
+alias clr clear
+alias c clear
+
+alias grep grep --color                     # show differences in colour
+alias egrep egrep --color=auto              # show differences in colour
+alias fgrep fgrep --color=auto              # show differences in colour
+
+alias rm rm -i
+alias cp cp -i
+alias mv mv -i
+
+alias df df -h
+alias du du -h
+
+# Shortcuts
+alias g git
+alias h history
+alias j jobs
+alias t ~/tools/bin/htop
+alias e ~/tools/bin/vim
+alias v vim
+# alias m mate .
+# alias s subl .
+# alias o open
+# alias oo open .
+alias em "/home/eijjmno/bin/emacs -nw"
+
+# tree command
+alias tree "~/bin/tree"
+alias tr1 "tree -L 1 -p"
+alias tr2 "~/bin/tree -L 2 -p"
+alias tr3 "~/bin/tree -L 3 -p"
+
+alias tmux "~/bin/tmux"
+# tool autojump
+# [[ -s /home/eijjmno/.autojump/etc/profile.d/autojump.sh ]] && source /home/eijjmno/.autojump/etc/profile.d/autojump.sh
+# if ( -r "${HOME}/.autojump/etc/profile.d/autojump.sh" ) source "${HOME}/.autojump/etc/profile.d/autojump.sh"
+
+set nobeep
+set printexitvalue
+
+# CDE_VIEW=$CLEARCASE_VIEW
+
+# prompt settings
+set promptchars = '%#'
+# set prompt = "[%t] %B%n%b@%m [%~] %# %L"
+set prompt = "%t %B%n%b@%{\e[0;31m%}%m%{\e[0m%} [%{\033[0;32m%}%~%{\033[0m%}] %# %L"
+
+# if [ ! -z "$CDE_VIEW" ]
+# then
+    # set prompt = "%t %B%n%b@%{\e[0;31m%}%m%{\e[0m%} [%{\033[0;32m%}%~%{\033[0m%}] %# %L"
+# else
+    # set prompt = "%t %B%n%b@%{\e[0;31m%}%m%{\e[0m%} [%{\033[0;32m%}%~%{\033[0m%}] ($CDE_VIEW) %# %L"
+# fi
+
+# set sbg path
+alias cdft "cd /vobs/mgwblade/PPB/SBG_HSD10196_1/test/auto/suite/test"
+alias cdb2b "cd /vobs/mgwblade/SGC/SGC_CSA10105_4/SGC_CRA1190962/B2B_CNA113208/src"
+alias cdsgn "cd /vobs/mgwblade/SGC/SGC_CSA10105_4/SGC_CRA1190962/SGN_CNA113329/src"
+alias cdreg "cd /vobs/mgwblade/SGC/SGC_CSA10105_4/SGC_CRA1190962/REG_CNA113206/src"
+alias cdoab "cd /vobs/mgwblade/SGC/SGC_CSA10105_4/SGC_CRA1190962/OAB_CNA113207/src"
+alias cdsni "cd /vobs/mgwblade/SGC/SGC_CSA10105_4/SGC_CRA1190962/SNI_CNA113330/src"
+alias cdsgm "cd /vobs/mgwblade/SGC/SGC_CSA10105_4/SGC_CRA1190962/SGM_CNA113211/src"
+alias cddia "cd /vobs/mgwblade/SGC/SGC_CSA10105_4/SGC_CRA1190962/DIA_CNA113193/src"
+alias cdsmf "cd /vobs/mgwblade/SOM/SOM_CRA1190221/SMF_CNA113038/src"
+alias cdsmfxml "cd /vobs/mgwblade/SOM/SOM_CRA1190221/SMF_CNA113038/src/xml"
+alias cdsmm "cd /vobs/mgwblade/SYF/SYF_CRA1190070/SMM_CNA113305/src"
+alias cddis "cd /vobs/mgwblade/SYF/SYF_CRA1190070/DIS_CNA113315/src"
+alias cdsip "cd /vobs/mgwblade/SYF/SYF_CRA1190070/SIP_CNA113165/src"
+alias cdsyf "cd /vobs/mgwblade/SYF/SYF_CRA1190070"
+alias cdsctp "cd /vobs/mgwblade/SYF/SYF_CRA1190070/SCTP*7"
+alias cdsmgr "cd /vobs/mgwblade/SOM/SOM_CRA1190221/SMGR_CNA113037/src"
+alias cdsnc "cd /vobs/mgwblade/SOM/SOM_CRA1190221/SNC_CNA113328/src"
+alias cdsommib "cd /vobs/mgwblade/SOM/SOM_CRA1190221/doc/19603"
+alias cdsgcmib "cd /vobs/mgwblade/SGC/SGC_CSA10105_4/SGC_CRA1190962/doc/19603"
+alias cdsgc "cd /vobs/mgwblade/SGC/SGC_CSA10105_4"
+alias cdbt "cd /vobs/mgwblade/SGC/SGC_CSA10105_4/SGC_CRA1190962/test/suite/esrc/ssit"
+alias cdjpt "cd /vobs/mgwblade/PPB/GBS_CSA10105+/test/auto/tools/jpTsbg/"
+alias b2bbt "cd /vobs/mgwblade/SGC/SGC_CSA10105_4/SGC_CRA1190962/B2B_CNA113208/test/bt"
+alias cdsgcc "cd /vobs/mgwblade/CONF1/HAS_CRA1190528/SGCC_CNA113225_1/src"
+alias cdtest 'cd /vobs/mgwblade/PPB/SBG_HSD10196_1/test/auto'
+
+# ct short command
+alias pwv "ct pwv"
+alias lsv "ct lsview"
+
+
+alias ag "~/tools/ag/ag --color "
+alias ack "i~/tools/ack/ack --color "
+# alias myis "${HOME}/projects/sbg/scripts/myis.sh"
+
+ # sbg project
+# if ( -r "${HOME}/projects/sbg/scripts/tcsh_sbg" ) source "${HOME}/projects/sbg/scripts/tcsh_sbg"
