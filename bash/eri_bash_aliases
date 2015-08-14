@@ -1,3 +1,4 @@
+#! /bin/bash
 # Easiser for navigation
 alias ..="cd .."
 alias ...="cd ../.."
@@ -11,19 +12,22 @@ alias .5='cd ../../../../..'
 alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
-## get rid of command not found ##
-alias cd..='cd ..'
-
 # Shortcuts
 # alias d="cd ~/Documents/Dropbox"
 # alias p="cd ~/Projects"
 alias g="git"
 alias h="history"
-alias j="jobs"
+# jobs alias
+alias j="\jobs"
+# alias js="\jobs"
+
 alias v="vim"
-alias e="~/tools/bin/vim"
+alias vim='\vim '
+alias gv='\gvim '
+# alias e="~/tools/bin/vim"
+alias e='\vim '
 # alias t="top"
-alias t="~/tools/bin/htop"
+alias t="~/bin/htop"
 # alias m="mate ."
 # alias s="subl ."
 # alias o="open"
@@ -31,7 +35,7 @@ alias t="~/tools/bin/htop"
 
 # clear
 alias clr='clear'
-alias c='clearr'
+alias c='clear'
 
 # screen command
 alias scr='screen'
@@ -40,26 +44,31 @@ alias scrra='screen -r'
 alias scrrd='screen -rd'
 
 # tmux command
-alias tmux='~/tools/bin/tmux'
+# alias tmux='~/bin/tmux ' # tmux path
+alias ta='tmux attach -t'
+alias ts='tmux new-session -s'
+alias tl='tmux list-sessions'
+alias tksv='tmux kill-server'
+alias tkss='tmux kill-session -t'
 
 # ssh
 alias sshx="ssh -X "
 
 # tree
-alias tree="~/tools/bin/tree"
-alias tree1='tree -L 1'
-alias tree2='tree -L 2'
-alias tree3='tree -L 3'
+# alias tree="~/bin/tree "
+alias tree1='tree -L 1 '
+alias tree2='tree -L 2 '
+alias tree3='tree -L 3 '
 
-alias tr1='tree -L 1 -p'
-alias tr2='tree -L 2 -p'
-alias tr3='tree -L 3 -p'
+alias tr1='tree -L 1 -p '
+alias tr2='tree -L 2 -p '
+alias tr3='tree -L 3 -p '
 
 # ctags
-alias ctags="/usr/bin/ctags"
-alias erlctags="ctags --file-scope=no -R --languages=erlang"
-alias etags="~/tools/bin/ctags"
-alias erltags="etags --file-scope=no -R --languages=erlang"
+alias ctags="/usr/bin/ctags "
+alias erlctags="ctags --file-scope=no -R --languages=erlang "
+alias etags="~/tools/bin/ctags "
+alias erltags="etags --file-scope=no -R --languages=erlang "
 
 # cmake
 # alias cmake="~/tools/cmake/cmake-3.0.1/bin/cmake"
@@ -67,6 +76,14 @@ alias erltags="etags --file-scope=no -R --languages=erlang"
 
 
 # ack
-alias ack="~/tools/ack/ack --color "
+# alias ack="~/tools/ack/ack --color "
+alias ack="ack --color "
+
 # ag
-alias ag="~/tools/ag/ag --color --ignore '*tags' "
+# alias ag="~/tools/ag/ag --color --ignore '*tags' "
+alias ag="ag --color --ignore '*tags' "
+
+# path jump helper
+# autojump
+# [[ -s /home/eijjmno/.autojump/etc/profile.d/autojump.sh  ]] && source /home/eijjmno/.autojump/etc/profile.d/autojump.sh
+
