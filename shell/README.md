@@ -1,6 +1,8 @@
 Shell
 =====
 
+Shell resources
+
 1. inpurtrc
 
 code like below
@@ -8,7 +10,6 @@ code like below
 export PAGER
 ```
 
-![IMG](https://avatars0.githubusercontent.com/u/7233041?v=3&s=48 "An optional title")
 
 1. bashrc
 2. cshrc
