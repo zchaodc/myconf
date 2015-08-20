@@ -1,18 +1,81 @@
-# user csh settings
+# Default user .cshrc 
+
+#-----------------------------------------------------------------------------
+#   The umask sets the access permissions for any new files you create.
+#   Common umasks:
+#     077 - our default - removes all permissions except the owner's
+#     022 - the standard unix default - removes write permissions for
+#           everyone other than the owner.  (Allows others to read most
+#           of your files.)
+#     027 - removes write permissions for the members of a file's group,
+#           and removes all permissions for all others.
+#   For an explanation of the octal encoding, see "man chmod".
+#-----------------------------------------------------------------------------
+umask 077
+
 # UTF-8 or go home.
 setenv LC_TYPE en_US.utf-8
+
+setenv PAGER less
+setenv LESS eMs
+setenv EDITOR vim
+setenv VISUAL vim
+
+#
+set addsuffix autocorrect autoexpand autolist chase_symlinks
+set history = 100
+set noclobber filec nobeep
+set symlinks = chase
+set correct = cmd
+set fignore = (.aux .cp .dvi .elc .fn .log .o .orig .pg .toc .tp .vr .bak '~')
+set printexitvalue
+
+# tcsh prompt
+# if ( $?tcsh  ) then 
+    # set prompt="%n@%m (%/) % "
+    # set prompt2 = "%R loop: "
+    # set prompt3 = "oops\041 %R (y|n|e)? "
+# else
+    # set prompt="`whoami`@`hostname` % "
+# endif
+# prompt settings
+set promptchars = '%#'
+# set prompt = "[%t] %B%n%b@%m [%~] %# %L"
+set prompt = "%t %B%n%b@%{\e[0;31m%}%m%{\e[0m%} [%{\033[0;32m%}%~%{\033[0m%}] %# %L"
+
+# CDE_VIEW=$CLEARCASE_VIEW
+# if [ ! -z "$CDE_VIEW" ]
+# then
+    # set prompt = "%t %B%n%b@%{\e[0;31m%}%m%{\e[0m%} [%{\033[0;32m%}%~%{\033[0m%}] %# %L"
+# else
+    # set prompt = "%t %B%n%b@%{\e[0;31m%}%m%{\e[0m%} [%{\033[0;32m%}%~%{\033[0m%}] ($CDE_VIEW) %# %L"
+# fi
+
+# Alias file
+# if ( -f ~/.aliases ) then
+    # source ~/.aliases
+# endif
+
+# Printer
+# if ( -f ~/.printer ) then
+    # setenv PRINTER `cat ~/.printer`
+# endif
 
 # cd aliases
 alias - cd -
 alias .. cd ..
 alias ... cd ../..
 alias cd.. cd ..
-
+alias .2 "cd ../.."
+alias .3 "cd ../../.."
+alias .4 "cd ../../../.."
+alias .5 "cd ../../../../.."
 
 # linux os
 alias ll ls -lA --color=auto
 alias ls ls --color=auto
 alias la ls -A
+alias l \ls "--color=auto"
 
 alias clr clear
 alias c clear
@@ -31,10 +94,10 @@ alias du du -h
 # Shortcuts
 alias g git
 alias h history
-alias j jobs
-alias t ~/tools/bin/htop
-alias e ~/tools/bin/vim
-alias v vim
+alias j "jobs -l"
+alias t "~/bin/htop"
+alias e "~/bin/vim"
+alias v \vim
 # alias m mate .
 # alias s subl .
 # alias o open
@@ -44,32 +107,24 @@ alias em "/home/eijjmno/bin/emacs -nw"
 # tree command
 alias tree "~/bin/tree"
 alias tr1 "tree -L 1 -p"
-alias tr2 "~/bin/tree -L 2 -p"
-alias tr3 "~/bin/tree -L 3 -p"
+alias tr2 "tree -L 2 -p"
+alias tr3 "tree -L 3 -p"
 
 alias tmux "~/bin/tmux"
+
+# ag & ack: grep-like tools
+alias ag "~/bin/ag --color "
+alias ack "~/bin/ack --color "
+
 # tool autojump
 # [[ -s /home/eijjmno/.autojump/etc/profile.d/autojump.sh ]] && source /home/eijjmno/.autojump/etc/profile.d/autojump.sh
 # if ( -r "${HOME}/.autojump/etc/profile.d/autojump.sh" ) source "${HOME}/.autojump/etc/profile.d/autojump.sh"
 
-set nobeep
-set printexitvalue
-
-# CDE_VIEW=$CLEARCASE_VIEW
-
-# prompt settings
-set promptchars = '%#'
-# set prompt = "[%t] %B%n%b@%m [%~] %# %L"
-set prompt = "%t %B%n%b@%{\e[0;31m%}%m%{\e[0m%} [%{\033[0;32m%}%~%{\033[0m%}] %# %L"
-
-# if [ ! -z "$CDE_VIEW" ]
-# then
-    # set prompt = "%t %B%n%b@%{\e[0;31m%}%m%{\e[0m%} [%{\033[0;32m%}%~%{\033[0m%}] %# %L"
-# else
-    # set prompt = "%t %B%n%b@%{\e[0;31m%}%m%{\e[0m%} [%{\033[0;32m%}%~%{\033[0m%}] ($CDE_VIEW) %# %L"
-# fi
-
+############################################################
+#    SBG settings
+############################################################
 # set sbg path
+alias cdsgc "cd /vobs/mgwblade/SGC/SGC_CSA10105_4"
 alias cdft "cd /vobs/mgwblade/PPB/SBG_HSD10196_1/test/auto/suite/test"
 alias cdb2b "cd /vobs/mgwblade/SGC/SGC_CSA10105_4/SGC_CRA1190962/B2B_CNA113208/src"
 alias cdsgn "cd /vobs/mgwblade/SGC/SGC_CSA10105_4/SGC_CRA1190962/SGN_CNA113329/src"
@@ -89,21 +144,20 @@ alias cdsmgr "cd /vobs/mgwblade/SOM/SOM_CRA1190221/SMGR_CNA113037/src"
 alias cdsnc "cd /vobs/mgwblade/SOM/SOM_CRA1190221/SNC_CNA113328/src"
 alias cdsommib "cd /vobs/mgwblade/SOM/SOM_CRA1190221/doc/19603"
 alias cdsgcmib "cd /vobs/mgwblade/SGC/SGC_CSA10105_4/SGC_CRA1190962/doc/19603"
-alias cdsgc "cd /vobs/mgwblade/SGC/SGC_CSA10105_4"
 alias cdbt "cd /vobs/mgwblade/SGC/SGC_CSA10105_4/SGC_CRA1190962/test/suite/esrc/ssit"
 alias cdjpt "cd /vobs/mgwblade/PPB/GBS_CSA10105+/test/auto/tools/jpTsbg/"
 alias b2bbt "cd /vobs/mgwblade/SGC/SGC_CSA10105_4/SGC_CRA1190962/B2B_CNA113208/test/bt"
 alias cdsgcc "cd /vobs/mgwblade/CONF1/HAS_CRA1190528/SGCC_CNA113225_1/src"
 alias cdtest 'cd /vobs/mgwblade/PPB/SBG_HSD10196_1/test/auto'
 
+# clearcase/ct
 # ct short command
 alias pwv "ct pwv"
 alias lsv "ct lsview"
+alias lsco "ct lsp -co"
 
-
-alias ag "~/tools/ag/ag --color "
-alias ack "i~/tools/ack/ack --color "
+set SBG_SCRIPT_PATH = "${HOME}/projects/sbg/scripts"
 # alias myis "${HOME}/projects/sbg/scripts/myis.sh"
-
- # sbg project
+alias setwp149 "echo setting wp 149"
+# sbg project
 # if ( -r "${HOME}/projects/sbg/scripts/tcsh_sbg" ) source "${HOME}/projects/sbg/scripts/tcsh_sbg"
