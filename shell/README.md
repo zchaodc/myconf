@@ -1,7 +1,7 @@
 Shell
 =====
 
-Shell resources
+### Shell resources
 
 1. inpurtrc
 
@@ -10,7 +10,7 @@ code like below
 export PAGER
 ```
 
-
+### shell 
 1. bashrc
 2. cshrc
   * cshrc template [reference1](http://sourceforge.net/p/modules/modules-tcl/ci/d081f5528358a2d7c5eba74bec1f737c6e87a053/tree/contrib/template/.cshrc)
