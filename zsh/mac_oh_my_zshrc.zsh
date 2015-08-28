@@ -29,7 +29,7 @@ DISABLE_AUTO_UPDATE="true"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -51,12 +51,13 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx mvn gradle autojump brew vim)
+plugins=(git osx brew brew-cask vim colored-man)
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="$HOME/bin:/usr/local/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
+# export MANWIDTH=80
 
 source $ZSH/oh-my-zsh.sh
 
@@ -73,10 +74,10 @@ fi
 export PAGER=${commands[most]-${commands[less]-$commands[more]}}
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -89,4 +90,4 @@ export PAGER=${commands[most]-${commands[less]-$commands[more]}}
 
 # import zshrc.user
 ZSH_PATH="${HOME}/tools/zsh"
-[[ -s "$ZSH_PATH/zshrc.user" ]] && . "$ZSH_PATH/zshrc.user"
+[[ -s "${ZSH_PATH}/zshrc.user" ]] && source "${ZSH_PATH}/zshrc.user"

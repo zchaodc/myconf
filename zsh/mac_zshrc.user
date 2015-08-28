@@ -1,26 +1,57 @@
 #! /bin/zsh
 
-# Alias 
-alias vi
-# my zsh settings
+# Aliases
+
+# Easiser for navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias .2='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+
+alias ~="cd ~" # `cd` is probably faster to type though
+alias -- -="cd -"
+
+# Editor
+alias e='mvim'
+alias v='vim'
+alias vi='vi'
+alias vim='\vim'
+alias subl='/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl'
+
+# Tools
 alias c='clear'
 alias cls='clear'
 
+alias l='ls -G'
 alias ll='ls -l'
 alias la='ls -al'
 
-alias e='vim'
-alias vi='vim'
+# tree
+alias tree1='tree -L 1 '
+alias tree2='tree -L 2 '
+alias tree3='tree -L 3 '
 
+alias tr1='tree -L 1 -p '
+alias tr2='tree -L 2 -p '
+alias tr3='tree -L 3 -p '
 
+alias j='jobs -l'
+alias h='history'
+alias grep='grep --color=auto'
+
+# pyhton settings
 alias py='python '
 alias py2='python '
 alias py3='python3 '
-alias ipy='ipython'
+alias ipy='ipython '
 
 # quick edit
 alias -s h=vim
-alias -s py=vim       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似
+alias -s py=mvim       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似
 alias -s log=less
 
 
