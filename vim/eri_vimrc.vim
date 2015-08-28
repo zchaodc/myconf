@@ -68,7 +68,6 @@ Plugin 'flazz/vim-colorschemes'
 "
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'kien/ctrlp.vim'
-
 Plugin 'mileszs/ack.vim'
 
 " plugins for erlang
@@ -200,6 +199,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.beam
             " \ 'file': '\v\.(so)$',
             " \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
             " \ }
+let g:ctrlp_user_command = 'find %s -type f'
 
 " -----------------------------------------------------------------------------
 " easymotion
