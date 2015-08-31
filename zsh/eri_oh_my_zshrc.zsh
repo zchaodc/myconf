@@ -72,6 +72,19 @@ export ARCHFLAGS="-arch x86_64"
 # ssh
 export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+# History
+export HISTSIZE=50
+export SAVEHIST=50
+
+### Export
+export PAGER='less'
+
+### Editor
+export EDITOR='vim'
+
+### settings for man(manual page)
+# export MANWIDTH=80
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -85,6 +98,3 @@ export SSH_KEY_PATH="~/.ssh/dsa_id"
 ZSH_PATH="${HOME}/tools/zsh"
 [[ -s "${ZSH_PATH}/zshrc.user" ]] && . "${ZSH_PATH}/zshrc.user"
 
-
-export HISTSIZE=50
-export SAVEHIST=50

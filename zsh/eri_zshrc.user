@@ -1,13 +1,5 @@
-#! /bin/zsh
+#!/bin/zsh
 #
-### Export
-export PAGER='less'
-
-### Editor
-export EDITOR='vim'
-
-### settings for man(manual page)
-export MANWIDTH=80
 
 ### Aliases
 
@@ -21,17 +13,22 @@ alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
 
-alias ~="cd ~" # `cd` is probably faster to type though
+alias ~="cd ~"                   # `cd` is probably faster to type though
 alias -- -="cd -"
 
+### Editor
 alias e='vim'
 alias v='vim'
-alias t='htop'
-alias h='history'
-alias j='jobs'
-# clear
-alias clr='clear'
+
+### Tools
 alias c='clear'
+alias clr='clear'
+
+alias ls='ls -F --color=auto'
+alias ll='ls -al'
+alias la='ls -a'
+alias l='ls '
+
 # tree
 alias tree1='tree -L 1 '
 alias tree2='tree -L 2 '
@@ -41,14 +38,13 @@ alias tr1='tree -L 1 -p '
 alias tr2='tree -L 2 -p '
 alias tr3='tree -L 3 -p '
 
-alias ls='ls -F --color=auto'
-alias ll='ls -al'
-alias la='ls -a'
+alias t='htop'
+alias j='jobs -l'
+alias h='history'
 
 alias grep='grep --color=auto'
 
 alias py2='python'
-
 
 # ctags
 # alias ctags="/usr/bin/ctags "
