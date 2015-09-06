@@ -65,7 +65,6 @@ Plugin 'jiangmiao/auto-pairs'
 " Plugin 'tomasr/molokai'
 Plugin 'sickill/vim-monokai'
 Plugin 'flazz/vim-colorschemes'
-"
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
@@ -271,7 +270,8 @@ set number              " always show line numbers
 " auto operation
 set autoread    " auto read when file is changed from outside
 " set autochdir " auto change the directory
-
+set mousehide
+set mouse=v
 set mouse=a " enable using the mouse if terminal emulator
 set ttymouse=xterm2 " screen user
 " supports it (xterm does)
@@ -292,7 +292,7 @@ set showtabline=2
 " auto complete
 set complete=.,w,b,k,t,i
 set completeopt=longest,menu
-" With a map leader it's possibl
+" With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
 let mapleader = ","
 let g:mapleader = ","
@@ -360,7 +360,6 @@ noremap <leader>0 :tablast<cr>
 nnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
 vnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
 
-
 " default text width
 set textwidth=100
 
@@ -379,7 +378,6 @@ autocmd FileType Makefile set noexpandtab
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
 autocmd FileType erlang setlocal tabstop=8 shiftwidth=4 softtabstop=4 textwidth=79
 
-" set ai!
 
 set foldcolumn=4
 set foldopen=all
@@ -387,8 +385,13 @@ set foldclose=all
 
 " set cmdheight=2
 
+" Highlight search results
 set hlsearch
-set ignorecase " use easymotion search
+" Makes search act like search in modern browsers
+set incsearch
+set ignorecase                  " ignore case when searching
+set smartcase                   " ignore case if search pattern is all lowercase,
+                                "    case-sensitive otherwise
 
 " window split default settings
 set splitbelow
@@ -426,8 +429,9 @@ set laststatus=2
 " set statusline+=:%l/%L    " line/lines
 
 "---------------------------------------------------------------------------
-"" ENCODING SETTINGS
+"   ENCODING SETTINGS
 "---------------------------------------------------------------------------
+" Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf-8
 set termencoding=utf-8
 set fileencoding=utf-8
@@ -438,12 +442,17 @@ set showmatch           " Cursor shows matching ) and }
 set showmode            " Show current mode
 " set modelines=0
 " set nomodeline
+
+" Turn on the Wild menu
 set wildchar=<TAB>TAB   " start wild expansion in the command line using <TAB>
 set wildmenu            " wild char completion menu
 set wildmode=longest:list,full
 
 " ignore these files while expanding wild chars
 set wildignore=*.swp,*.o,*.class,*.pyc,*.beam
+
+" Set 7 lines to the cursor - when moving vertically using j/k
+set so=7
 
 "---------------------------------------------------------------------------
 "   swap and backup setting

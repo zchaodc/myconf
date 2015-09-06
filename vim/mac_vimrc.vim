@@ -39,6 +39,8 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -110,6 +112,23 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 " let g:airline_powerline_fonts = 1
 " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
 let g:airline_theme = 'solarized'
+" -----------------------------------------------------------------------------
+" CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+" let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_max_files = 15000
+let g:ctrlp_max_depth = 40
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.beam
+" let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+" let g:ctrlp_custom_ignore = {
+            " \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+            " \ 'file': '\v\.(so)$',
+            " \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+            " \ }
+let g:ctrlp_user_command = 'find %s -type f'
 
 " -----------------------------------------------------------------------------
 " easymotion
@@ -143,6 +162,23 @@ nmap <F6> :SyntasticCheck<CR>
 nmap <F7> :NERDTreeToggle<CR>
 " Tagbar shortcut
 nmap <F8> :TagbarToggle<CR>
+" Pasete mode
+set pastetoggle=<F9>
+nmap <F10> :set paste<CR>
+nmap <F11> :set nopaste<CR>
+
+" Highlight selected word with mouse and Enter key
+let g:highlighting = 0
+function! Highlighting()
+    if g:highlighting == 1 && @/ =~ '^\\<'.expand('<cword>').'\\>$'
+        let g:highlighting = 0
+        return ":silent nohlsearch\<CR>"
+    endif
+    let @/ = '\<'.expand('<cword>').'\>'
+    let g:highlighting = 1
+    return ":silent set hlsearch\<CR>"
+endfunction
+nnoremap <silent> <expr> <CR> Highlighting()
 
 " **********************************************************************
 "    General VIM Settings
@@ -157,14 +193,15 @@ set number              " always show line numbers
 
 " auto operation
 set autoread		" auto read when file is changed from outside
-" set autochdir 		" auto change the directory
+" set autochdir 	" auto change the directory
 set mousehide
 set mouse=v
 set mouse=a             " enable using the mouse if terminal emulator
+set ttymouse=xterm2     " screen user
                         "    supports it (xterm does)
-set title              " change the terminal's title
-"set ttyfast            " always use a fast terminal
-"set cursorline         " underline the current line, for quick orientation
+set title               " change the terminal's title
+" set ttyfast           " always use a fast terminal
+" set cursorline        " underline the current line, for quick orientation
 set background=dark
 colorscheme solarized
 
@@ -173,10 +210,77 @@ syntax on		" set syntax
 filetype on           	" Enable filetype detection
 filetype indent on    	" Enable filetype-specific indenting
 filetype plugin on    	" Enable filetype-specific plugins
+" auto reload vimrc when editing it
+autocmd! bufwritepost .vimrc source ~/.vimrc
 
-set ignorecase                  " ignore case when searching
-set smartcase                   " ignore case if search pattern is all lowercase,
-                                "    case-sensitive otherwise
+" tab page
+set tabpagemax=9
+set showtabline=2
+" auto complete
+set complete=.,w,b,k,t,i
+set completeopt=longest,menu
+" With a map leader it's possible to do extra key combinations
+" like <leader>w saves the current file
+let mapleader = ","
+let g:mapleader = ","
+
+
+" Fast operations
+nmap <leader>w  :w!<cr>
+nmap <leader>W  :wa!<cr>
+nmap <leader>q  :q!<cr>
+nmap <leader>Q  :qa!<cr>
+nmap <leader>x  :x!<cr>
+nmap <leader>X  :xa!<cr>
+nmap <leader>h  :set hlsearch!<CR>
+" nmap <leader>s :saveas<cr> " must add the arguments
+nmap <leader>t  :tabnew<cr>
+" reload current file
+nmap <leader>r  :e!<CR>
+" reload all open files
+nmap <leader>R  :tabdo bufdo e!<CR>
+" Open new buffers
+nmap <leader>v  :rightbelow vsp<cr>
+" nmap <leader>|  :rightbelow vsp<cr>
+nmap <leader>-  :rightbelow sp<cr>
+" Yank text to the OS X clipboard
+noremap <leader>y "*y
+noremap <leader>yy "*Y
+" :W sudo saves the file
+" (useful for handling the permission-denied error)
+" command W w !sudo tee % > /dev/null
+"--------------------
+" Function: Open tag under cursor in new tab
+" Source:   http://stackoverflow.com/questions/563616/vimctags-tips-and-tricks
+"--------------------
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+"--------------------
+" Function: Remap keys to make it more similar to firefox tab functionality
+" Purpose:  Because I am familiar with firefox tab functionality
+"--------------------
+" map <C-T> :tabnew<CR>
+map <C-N> :!gvim &<CR><CR>
+map <C-W> :confirm bdelete<CR>
+
+" Go to tab by number
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
+
+" Go to last active tab
+nnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
+vnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
+
+" default text width
+set textwidth=100
+
 " tab key
 set tabstop=4       " the tab length
 " set smarttab        " the smart tab
@@ -191,11 +295,29 @@ set backspace=2
 autocmd FileType Makefile set noexpandtab
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
 
+set foldcolumn=4
+set foldopen=all
+set foldclose=all
+
+" set cmdheight=2
+
 " Highlight search results
 set hlsearch
 " Makes search act like search in modern browsers
 set incsearch
+set ignorecase                  " ignore case when searching
+set smartcase                   " ignore case if search pattern is all lowercase,
+                                "    case-sensitive otherwise
 
+" window split default settings
+set splitbelow
+set splitright
+
+"---------------------------------------------------------------------------
+" Status line
+"---------------------------------------------------------------------------
+" last status
+set laststatus=2
 "---------------------------------------------------------------------------
 "   ENCODING SETTINGS
 "---------------------------------------------------------------------------
@@ -205,43 +327,49 @@ set termencoding=utf-8
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,big5,gb2312,latin1
 
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
-let mapleader = ","
-let g:mapleader = ","
+set clipboard=unnamed   " yank to the system register (*) by default
+set showmatch           " Cursor shows matching ) and }
+set showmode            " Show current mode
+" set modelines=0
+" set nomodeline
 
-" :W sudo saves the file
-" (useful for handling the permission-denied error)
-" command W w !sudo tee % > /dev/null
+" Turn on the Wild menu
+set wildchar=<TAB>TAB   " start wild expansion in the command line using <TAB>
+set wildmenu            " wild char completion menu
+set wildmode=longest:list,full
+
+" ignore these files while expanding wild chars
+set wildignore=*.swp,*.o,*.class,*.pyc,*.beam
 
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
 
-" Turn on the WiLd menu
-set wildmenu                    " make tab completion for files/buffers act like bash
-set wildmode=list:full          " show a list when pressing tab and complete
-                                "    first full match
-set wildignore=*.swp,*.bak,*.pyc,*.class,*.out,*.o
+"---------------------------------------------------------------------------
+"   swap and backup setting
+"---------------------------------------------------------------------------
+" swap files (.swp) in a common location, add swap path first
+" // means use the file's full path
+set dir=~/.vim/_swap//
 
-""""""""""""""""""""""""""""""
-" => Status line
-""""""""""""""""""""""""""""""
-" Always show the status line
-set laststatus=2
+" backup files (~) in a common location if possible
+" set backup
+" set backupdir=~/.vim/_backup/,~/tmp,.
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" turn on undo files, put them in a common location
+" set undofile
+" set undodir=~/.vim/_undo/
+
+" **********************************************************************
+" other settings
+" **********************************************************************
+
+
+
 " => Fast editing and reloading of vimrc configs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " map <leader>e :e! ~/.vim_runtime/my_configs.vim<cr>
 " autocmd! bufwritepost vimrc source ~/.vim_runtime/my_configs.vim
 
-" Fast commands
-nmap <leader>w :w!<cr>
-nmap <leader>W :wa!<cr>
-nmap <leader>q :q!<cr>
-nmap <leader>Q :qa!<cr>
-nmap <leader>x :x!<cr>
-nmap <leader>X :xa!<cr>
 " Go back to the last line
 autocmd BufReadPost *
 	\ if line("'\"") > 0 && line("'\"") <= line("$") |
