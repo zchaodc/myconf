@@ -339,7 +339,7 @@ set wildmenu            " wild char completion menu
 set wildmode=longest:list,full
 
 " ignore these files while expanding wild chars
-set wildignore=*.swp,*.o,*.class,*.pyc,*.beam
+set wildignore=*.swp,*.bak,*.out,*.o,*.pyc,*.class
 
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
