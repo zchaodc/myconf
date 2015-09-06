@@ -83,18 +83,17 @@ filetype plugin indent on    " required
 " filetype plugin on
 "
 " Brief help
-" :PluginList          - list configured plugins
-" :PluginInstall(!)    - install (update) plugins
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
-"
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
 " **********************************************************************
 "    ***** Plugin settings *****
 " **********************************************************************
-
 " Syntastic
 let g:syntastic_mode_map = { 'mode': 'passive' }
 let g:syntastic_check_on_open=0
@@ -129,7 +128,7 @@ let NERDSpaceDelims=1
 " tagbar
 nmap tb :TlistClose<CR>:TagbarToggle<CR>
 let g:tagbar_ctags_bin='/usr/bin/ctags'
-let g:tagbar_width=30    " tagbar width
+let g:tagbar_width=30     " tagbar width
 "let g:tagbar_left=1      " tagbar
 let g:tagbar_sort = 0
 
@@ -240,6 +239,10 @@ nmap <F6> :SyntasticCheck<CR>
 nmap <F7> :NERDTreeToggle<CR>
 " Tagbar shortcut
 nmap <F8> :TagbarToggle<CR>
+" Pasete mode
+set pastetoggle=<F9>
+nmap <F10> :set paste<CR>
+nmap <F11> :set nopaste<CR>
 
 " Highlight selected word with mouse and Enter key
 let g:highlighting = 0
@@ -258,12 +261,12 @@ nnoremap <silent> <expr> <CR> Highlighting()
 "    General VIM Settings
 " **********************************************************************
 
-set nocompatible    " not compatible with the old-fashion vi mode
-set bs=2    " allow backspacing over everything in insert mode
-set history=500 " keep 50 lines of command line history
-set ruler   " show the cursor position all the time
-"set rulerformat=%15(%c%V\ %p%%%)
-set number " always show line numbers
+set nocompatible	" not compatible with the old-fashion vi mode
+set bs=2		" allow backspacing over everything in insert mode
+set history=500		" keep 50 lines of command line history
+set ruler		" show the cursor position all the time
+" set rulerformat=%15(%c%V\ %p%%%)
+set number              " always show line numbers
 
 " auto operation
 set autoread    " auto read when file is changed from outside
@@ -275,11 +278,11 @@ set ttymouse=xterm2 " screen user
 set title " change the terminal's title
 " set ttyfast " always use a fast terminal
 " set cursorline " underline the current line, for quick orientation
-filetype off " necessary to make ftdetect work on Linux
-syntax on   " set syntax
-filetype on " Enable filetype detection
-filetype indent on " Enable filetype-specific indenting
-filetype plugin on " Enable filetype-specific plugins
+filetype off          	" necessary to make ftdetect work on Linux
+syntax on		" set syntax
+filetype on           	" Enable filetype detection
+filetype indent on    	" Enable filetype-specific indenting
+filetype plugin on    	" Enable filetype-specific plugins
 " auto reload vimrc when editing it
 autocmd! bufwritepost .vimrc source ~/.vimrc
 

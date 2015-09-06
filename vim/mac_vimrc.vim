@@ -1,4 +1,6 @@
-" vundle plugins
+" **********************************************************************
+"    vundle settings
+" **********************************************************************
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -14,7 +16,6 @@ Plugin 'gmarik/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
 " Git plugin not hosted on GitHub
@@ -27,12 +28,15 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Avoid a name conflict with L9
 " Plugin 'user/L9', {'name': 'newL9'}
 
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
+Plugin 'SuperTab'
+Plugin 'Syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'tpope/vim-surround'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'Lokaltog/vim-easymotion'
 
@@ -44,18 +48,28 @@ filetype plugin indent on    " required
 "
 " Brief help
 " :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just
-" :PluginUpdate
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to
-" auto-approve removal
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" -----------------------------------------------------------------------------
-"    ***** Plugins setting *****
-" -----------------------------------------------------------------------------
+" **********************************************************************
+"    ***** Plugin settings *****
+" **********************************************************************
+" Syntastic
+let g:syntastic_mode_map = { 'mode': 'passive' }
+let g:syntastic_check_on_open=0
+let g:syntastic_check_on_wq=0
+let g:syntastic_aggregate_errors=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+let g:syntastic_loc_list_height = 5
+" c++ settings
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+" let g:syntastic_cpp_errorformat = '%f:%l:%c: %trror: %m'
 
 " -----------------------------------------------------------------------------
 " NERDTree
@@ -69,10 +83,18 @@ let NERDTreeQuitOnOpen=1
 let NERDTreeHighlightCursorline=1
 let NERDTreeMouseMode=2
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
-            \ '\.o$', '\.so$', '\.egg$', '^\.git$', '\.beam$' ]
-            
+            \ '\.o$', '\.so$', '\.egg$', '^\.git$', '\.beam$', '\.swp$' ]
+
 " NERDCommenter
 let NERDSpaceDelims=1
+
+" -----------------------------------------------------------------------------
+" tagbar
+nmap tb :TlistClose<CR>:TagbarToggle<CR>
+let g:tagbar_ctags_bin='/usr/bin/ctags'
+let g:tagbar_width=30     " tagbar width
+"let g:tagbar_left=1      " tagbar
+let g:tagbar_sort = 0
 
 " -----------------------------------------------------------------------------
 " vim-airline
@@ -88,14 +110,6 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 " let g:airline_powerline_fonts = 1
 " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
 let g:airline_theme = 'solarized'
-
-" -----------------------------------------------------------------------------
-" tagbar
-nmap tb :TlistClose<CR>:TagbarToggle<CR>
-let g:tagbar_ctags_bin='/usr/bin/ctags'
-let g:tagbar_width=30     " tagbar width
-"let g:tagbar_left=1      " tagbar
-let g:tagbar_sort = 0
 
 " -----------------------------------------------------------------------------
 " easymotion
@@ -121,7 +135,7 @@ let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1 " US layout
 
 " -----------------------------------------------------------------------------
-" Plugin Shortcuts
+"    Shortcuts for plugins
 " -----------------------------------------------------------------------------
 " Syntax Check
 nmap <F6> :SyntasticCheck<CR>
@@ -130,9 +144,9 @@ nmap <F7> :NERDTreeToggle<CR>
 " Tagbar shortcut
 nmap <F8> :TagbarToggle<CR>
 
-" *****************************************
-" vim settings
-" *****************************************
+" **********************************************************************
+"    General VIM Settings
+" **********************************************************************
 
 set nocompatible	" not compatible with the old-fashion vi mode
 set bs=2		" allow backspacing over everything in insert mode
@@ -140,6 +154,8 @@ set history=500		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 " set rulerformat=%15(%c%V\ %p%%%)
 set number              " always show line numbers
+
+" auto operation
 set autoread		" auto read when file is changed from outside
 " set autochdir 		" auto change the directory
 set mousehide
@@ -167,7 +183,12 @@ set tabstop=4       " the tab length
 set softtabstop=4   " control tab state
 set expandtab       " change the tab to space
 set shiftwidth=4    " space for inserted or indentation
-au FileType Makefile set noexpandtab
+set autoindent
+set smartindent
+set backspace=2
+
+" custom settings for speccific filetype
+autocmd FileType Makefile set noexpandtab
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
 
 " Highlight search results
@@ -175,8 +196,11 @@ set hlsearch
 " Makes search act like search in modern browsers
 set incsearch
 
+"---------------------------------------------------------------------------
+"   ENCODING SETTINGS
+"---------------------------------------------------------------------------
 " Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf-8                                  
+set encoding=utf-8
 set termencoding=utf-8
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,big5,gb2312,latin1
@@ -186,7 +210,7 @@ set fileencodings=ucs-bom,utf-8,big5,gb2312,latin1
 let mapleader = ","
 let g:mapleader = ","
 
-" :W sudo saves the file 
+" :W sudo saves the file
 " (useful for handling the permission-denied error)
 " command W w !sudo tee % > /dev/null
 
@@ -218,7 +242,7 @@ nmap <leader>q :q!<cr>
 nmap <leader>Q :qa!<cr>
 nmap <leader>x :x!<cr>
 nmap <leader>X :xa!<cr>
-
+" Go back to the last line
 autocmd BufReadPost *
 	\ if line("'\"") > 0 && line("'\"") <= line("$") |
 	\   exe "normal g`\"" |
