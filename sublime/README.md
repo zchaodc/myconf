@@ -1,3 +1,12 @@
-### Sublime Text 
+# Sublime Editor
+=====
 
-Build System files
+## Build System files
+
+-----
+
+## Plugins 
+
+  [Package Control](https://packagecontrol.io/)
+  
+  Sulime Linter
