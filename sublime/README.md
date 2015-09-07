@@ -8,6 +8,6 @@
 
 ## Plugins 
 
-    (Package Control)[https://packagecontrol.io/]
+    [Package Control](https://packagecontrol.io)
     
     Sulime Linter
