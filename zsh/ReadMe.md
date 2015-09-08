@@ -2,7 +2,6 @@
 
 ====================
 
-
 ### Configuration files
 
 * zshrc
@@ -10,6 +9,10 @@
 * zshrc.user
 
 ### oh-my-zsh
+
+-----
+
+* https://github.com/robbyrussell/oh-my-zsh
 
 #### plugins 
 * git 
@@ -28,9 +31,7 @@ and [v]().
 
 #### Theme 
 
-* zchaodc.theme
-
-customize zsh theme
+* zchaodc.theme, custom zsh theme
 
 
 [GUIDE](http://doppnet.com/2013/01/10-super-powers-for-your-shell/)
