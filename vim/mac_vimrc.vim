@@ -162,7 +162,7 @@ nmap <F6> :SyntasticCheck<CR>
 nmap <F7> :NERDTreeToggle<CR>
 " Tagbar shortcut
 nmap <F8> :TagbarToggle<CR>
-" Pasete mode
+" Paste mode
 set pastetoggle=<F9>
 nmap <F10> :set paste<CR>
 nmap <F11> :set nopaste<CR>
@@ -197,8 +197,8 @@ set autoread		" auto read when file is changed from outside
 set mousehide
 set mouse=v
 set mouse=a             " enable using the mouse if terminal emulator
-set ttymouse=xterm2     " screen user
                         "    supports it (xterm does)
+set ttymouse=xterm2     " screen user
 set title               " change the terminal's title
 " set ttyfast           " always use a fast terminal
 " set cursorline        " underline the current line, for quick orientation
@@ -210,8 +210,6 @@ syntax on		" set syntax
 filetype on           	" Enable filetype detection
 filetype indent on    	" Enable filetype-specific indenting
 filetype plugin on    	" Enable filetype-specific plugins
-" auto reload vimrc when editing it
-autocmd! bufwritepost .vimrc source ~/.vimrc
 
 " tab page
 set tabpagemax=9
@@ -362,15 +360,11 @@ set dir=~/.vim/_swap//
 " **********************************************************************
 " other settings
 " **********************************************************************
-
-
-
 " => Fast editing and reloading of vimrc configs
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" map <leader>e :e! ~/.vim_runtime/my_configs.vim<cr>
-" autocmd! bufwritepost vimrc source ~/.vim_runtime/my_configs.vim
+" map <leader>e :e! ~/.vimrc<cr>
+autocmd! bufwritepost .vimrc source ~/.vimrc
 
-" Go back to the last line
+" => Go back to the last line
 autocmd BufReadPost *
 	\ if line("'\"") > 0 && line("'\"") <= line("$") |
 	\   exe "normal g`\"" |
