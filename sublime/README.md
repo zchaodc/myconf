@@ -1,17 +1,22 @@
 # Sublime Editor
 
-=====
+===========================
 
 ## Build System files
 
------
 
-## Plugins 
+## Sublime app
 
-  [Package Control] (https://packagecontrol.io)
-    
-  Sublime Linter
-  
+> ln -sf /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+
+## Plugins
+
+> [Package Control](https://packagecontrol.io)
+
+> Sublime Linter
+
+> SideBarEnhancement
+
 ## Refer
-  
-  [Column Selection](https://www.sublimetext.com/docs/2/column_selection.html)
+
+> [Column Selection](https://www.sublimetext.com/docs/2/column_selection.html)
