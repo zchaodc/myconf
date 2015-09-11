@@ -55,6 +55,9 @@ export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 # Whenever displaying the prompt, write the previous line to disk
 # export PROMPT_COMMAND="history -a"
 
+# tty settings
+stty -ixon
+
 ### set defualt bash settings
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 # export PATH=$PATH:/usr/local/bin:/usr/ucb:/usr/ccs/bin:/opt/sfw/bin

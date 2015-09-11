@@ -30,6 +30,9 @@ set correct = cmd
 set fignore = (.aux .cp .dvi .elc .fn .log .o .orig .pg .toc .tp .vr .bak '~')
 set printexitvalue
 
+# tty settings
+stty -ixon
+
 # tcsh prompt
 # if ( $?tcsh  ) then 
     # set prompt="%n@%m (%/) % "
@@ -158,6 +161,6 @@ alias lsco "ct lsp -co"
 
 set SBG_SCRIPT_PATH = "${HOME}/projects/sbg/scripts"
 # alias myis "${HOME}/projects/sbg/scripts/myis.sh"
-alias setwp149 "echo setting wp 149"
+alias setwp149 "echo setting wp 149;${SBG_SCRIPT_PATH}/is_wp/wp_149"
 # sbg project
 # if ( -r "${HOME}/projects/sbg/scripts/tcsh_sbg" ) source "${HOME}/projects/sbg/scripts/tcsh_sbg"

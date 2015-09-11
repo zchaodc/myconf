@@ -55,6 +55,9 @@ export HISTIGNORE=$'[ \t]*:&:[fb]g:exit:ls' # Ignore the ls command as well
 # Whenever displaying the prompt, write the previous line to disk
 export PROMPT_COMMAND="history -a"
 
+# tty settings
+stty -ixon
+
 CDE_VIEW=$CLEARCASE_VIEW
 # prompt
 # PS1='\[\e[1;37m\]\u\[\e[0m\]@\[\e[0;31m\]\h\[\e[0m\] [\[\e[0;32m\]\W\[\e[0m\]] \[\e[0;36m\]\$\[\e[0m\] '
