@@ -2,23 +2,20 @@
 
 ---
 
-###
-website:
-
-> http://brew.sh/
+### [Homepage](http://brew.sh/)
 
 ### tools
 
-> brew-cask
+> 1. brew-cask
 
-> gcc gdb valgrind autoconf automake libtool
+> 1. gcc gdb valgrind autoconf automake libtool
 
-> macvim vim kdiff3
+> 1. macvim vim kdiff3
 
-> most tree wget ranger htop-osx pstree ctags cscope git
+> 1. most tree wget ranger htop-osx pstree ctags cscope git
 
-> python python3 node
+> 1. python python3 node
 
-> tmux
+> 1. tmux
 
-> openssl
+> 1. openssl
