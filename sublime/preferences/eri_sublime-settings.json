@@ -20,6 +20,7 @@
 			"cmd": "gs9o_open"
 		}
 	],
+	"show_encoding": true,
 	"word_wrap": "true",
 	"tab_size": 4,
 	"translate_tabs_to_spaces": true,
