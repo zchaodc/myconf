@@ -260,16 +260,16 @@ nnoremap <silent> <expr> <CR> Highlighting()
 "    General VIM Settings
 " **********************************************************************
 
-set nocompatible	" not compatible with the old-fashion vi mode
-set bs=2		" allow backspacing over everything in insert mode
-set history=500		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
+set nocompatible        " not compatible with the old-fashion vi mode
+set bs=2                " allow backspacing over everything in insert mode
+set history=500         " keep 50 lines of command line history
+set ruler               " show the cursor position all the time
 " set rulerformat=%15(%c%V\ %p%%%)
 set number              " always show line numbers
 
 " auto operation
-set autoread		" auto read when file is changed from outside
-" set autochdir 	" auto change the directory
+set autoread            " auto read when file is changed from outside
+" set autochdir         " auto change the directory
 set mousehide
 set mouse=v
 set mouse=a             " enable using the mouse if terminal emulator
@@ -278,11 +278,11 @@ set ttymouse=xterm2     " screen user
 set title               " change the terminal's title
 " set ttyfast           " always use a fast terminal
 " set cursorline        " underline the current line, for quick orientation
-filetype off          	" necessary to make ftdetect work on Linux
-syntax on		" set syntax
-filetype on           	" Enable filetype detection
-filetype indent on    	" Enable filetype-specific indenting
-filetype plugin on    	" Enable filetype-specific plugins
+filetype off            " necessary to make ftdetect work on Linux
+syntax on               " set syntax
+filetype on             " Enable filetype detection
+filetype indent on      " Enable filetype-specific indenting
+filetype plugin on      " Enable filetype-specific plugins
 
 " tab page
 set tabpagemax=9
@@ -455,22 +455,22 @@ set so=7
 "---------------------------------------------------------------------------
 "   swap and backup setting
 "---------------------------------------------------------------------------
-" swap files (.swp) in a common location, add swap path first
+" => swap files (.swp) in a common location, add swap path first
 " // means use the file's full path
 set dir=~/.vim/_swap//
 
-" backup files (~) in a common location if possible
+" => backup files (~) in a common location if possible
 " set backup
 " set backupdir=~/.vim/_backup/,~/tmp,.
 
-" turn on undo files, put them in a common location
+" => turn on undo files, put them in a common location
 " set undofile
 " set undodir=~/.vim/_undo/
 
 " **********************************************************************
 " other settings
 " **********************************************************************
-" VIM color settings
+" => VIM color settings
 hi MatchParen ctermfg=233  ctermbg=208 cterm=bold guifg=#000000 guibg=#FD971F gui=bold
 hi Search ctermfg=0   ctermbg=222   cterm=NONE guifg=#000000 guibg=#FFE792
 " monokai Visual color
@@ -495,7 +495,7 @@ set tags=tags; " The ';' at the end will cause the ctags plugin to search for cu
 " Run erlc on the file being saved
 " autocmd BufWritePost *.erl :!erlc <afile>
 
-" Remove trailing sapce
+" => Remove trailing sapce
 " Not worked well
 " function! StripTrailingWhitespace()
     " normal mZ
@@ -511,6 +511,11 @@ set tags=tags; " The ';' at the end will cause the ctags plugin to search for cu
 
 " autocmd BufWritePre * :%s/\s\+$//e      " any file type
 " autocmd BufWritePre *.rb :%s/\s\+$//e   " ruby(.rb) files
+
+" => highlight the extra space
+" highlight ExtraWhitespace ctermbg=red guibg=darkgreen
+" autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+" match ExtraWhitespace /\s\+$\| \+\ze\t/
 
 " => Fast editing and reloading of vimrc configs
 " map <leader>e :e! ~/.vimrc<cr>
