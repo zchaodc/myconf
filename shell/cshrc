@@ -11,13 +11,14 @@
 #           and removes all permissions for all others.
 #   For an explanation of the octal encoding, see "man chmod".
 #-----------------------------------------------------------------------------
-umask 077
+umask 022
 
 # UTF-8 or go home.
 setenv LC_TYPE en_US.utf-8
 
 setenv PAGER less
-setenv LESS eMs
+# setenv LESS eMs
+setenv LESS "-M -I -R"
 setenv EDITOR vim
 setenv VISUAL vim
 
