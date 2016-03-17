@@ -1,19 +1,170 @@
-#!/usr/bin/bash
-# This is a generic bash rc file
-#
-#
+#!/bin/bash
+# User dependent .bashrc file
 
-alias cls='clear'
-alias ll='ls -l'
-alias la='ls -a'
-alias vi='vim'
+# If not running interactively, don't do anything
+[[ "$-" != *i* ]] && return
+
+# Shell Options
+
+# Don't wait for job termination notification
+set -o notify
+
+# Don't use ^D to exit
+set -o ignoreeof
+
+# Use case-insensitive filename globbing
+shopt -s nocaseglob
+
+# Make bash append rather than overwrite the history on disk
+shopt -s histappend
+
+# When changing directory small typos can be ignored by bash
+# for example, cd /vr/lgo/apache would find /var/log/apache
+shopt -s cdspell
+
+# Completion options
+
+# These completion tuning parameters change the default behavior of bash_completion:
+
+# Define to access remotely checked-out files over passwordless ssh for CVS
+COMP_CVS_REMOTE=1
+
+# Define to avoid stripping description in --option=description of './configure --help'
+COMP_CONFIGURE_HINTS=1
+
+# Define to avoid flattening internal contents of tar files
+COMP_TAR_INTERNAL_PATHS=1
+
+# Uncomment to turn on programmable completion enhancements.
+# Any completions you add in ~/.bash_completion are sourced last.
+[[ -f /etc/bash_completion ]] && . /etc/bash_completion
+
+# History Options
+
+# Don't put duplicate lines in the history.
+export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
+
+# Ignore some controlling instructions
+# HISTIGNORE is a colon-delimited list of patterns which should be excluded.
+# The '&' is a special pattern which suppresses duplicate entries.
+export HISTIGNORE=$'[ \t]*:&:[fb]g:exit'
+export HISTIGNORE=$'[ \t]*:&:[fb]g:exit:ls' # Ignore the ls command as well
+
+# Whenever displaying the prompt, write the previous line to disk
+export PROMPT_COMMAND="history -a"
+
+# tty settings
+stty -ixon
+
+### set defualt bash settings
+MY_BIN="${HOME}/bin"
+export PATH="$MY_BIN:$PATH"
+# export PATH=$PATH:/usr/local/bin:/usr/ucb:/usr/ccs/bin:/opt/sfw/bin
+# export MANPATH=$MANPATH:/usr/man:/usr/local/man:/opt/sfw/man
+
+# export PS1='\u@\h:\w#'
+# prompt
+# PS1='\[\e[1;37m\]\u\[\e[0m\]@\[\e[0;31m\]\h\[\e[0m\] [\[\e[0;32m\]\W\[\e[0m\]] \[\e[0;36m\]\$\[\e[0m\] '
+PS1='\[\e[35;1m\]\@\[\e[0m\] \[\e[33;1m\]\u\[\e[0m\]@\[\e[0;31m\]\h\[\e[0m\] [\[\e[0;32m\]\w\[\e[0m\]] \n\[\e[0;36m\]\$\[\e[0m\] '
+
+
+export LANG=en_US
+
+export EDITOR="vim"
+export VISUAL="vim"
+export PAGER="less"
+# export LESSOPEN='|/usr/bin/lesspipe.sh %s'
+export LESS='-M -i -R'
+
+# Aliases
+if [ -f "${HOME}/.bash_aliases" ]; then
+   source "${HOME}/.bash_aliases"
+fi
+
+# Some example alias instructions
+# If these are enabled they will be used instead of any instructions
+# they may mask.  For example, alias rm='rm -i' will mask the rm
+# application.  To override the alias instruction use a \ before, ie
+# \rm will call the real rm not the alias.
+
+## Easiser for navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias .2='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+
+alias ~="cd ~" # `cd` is probably faster to type though
+alias -- -="cd -"
+
+## get rid of command not found ##
+alias cd..='cd ..'
+
+## shortcut
+alias c='clear'
+alias clr="clear"
+
+alias g="git"
+
+# editor settings
+alias v="\vim"
+alias e="\vim"
+
+alias h='history'
+alias j='jobs -l'
+alias t='htop'
+
+# Some shortcuts for different directory listings
+alias ls='ls -hF --color=auto'                # classify files in colour
+alias dir='ls --color=auto --format=vertical'
+alias vdir='ls --color=auto --format=long'
+alias ll='ls -alF'                            # long list
+alias la='ls -A'                              # all but . and ..
+alias l='ls -CF'                              #
+
+# Interactive and verbose operation
+alias rm='rm -iv '
+alias cp='cp -iv '
+alias mv='mv -iv '
+
+# Default to human readable figures
+alias df='df -h '
+alias du='du -h '
+
+# Misc :)
+alias less='less -r'                          # raw control characters
+alias whence='type -a'                        # where, of a sort
+## Colorize the grep command output for ease of use (good for log files)##
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+alias mkdir='mkdir -pv'
+
+alias path='echo -e ${PATH//:/\\n}'
+alias now='date +"%T"'
+alias nowtime=now
+alias nowdate='date +"%d-%m-%Y"'
+
+# Stop after sending count ECHO_REQUEST packets #
+alias ping='ping -c 5'
+# Do not wait interval 1 second, go fast #
+alias fastping='ping -c 100 -s.2'
+
+alias ports='netstat -tulanp'
+
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
 alias javac="javac -J-Dfile.encoding=utf8"
-alias grep="grep --color=auto"
 
 # zsh config
-alias -s html=mate   # 在命令行直接输入后缀为 html 的文件名，会在 TextMate 中打开
-alias -s rb=mate     # 在命令行直接输入 ruby 文件，会在 TextMate 中打开
-alias -s py=vi       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似
+alias -s html=subl   # Open file with extension html in Sublime
+alias -s rb=mate     # Open file with extension html in TextMate
+alias -s py=vim      # Open file with extension html in vim
 alias -s js=vi
 alias -s c=vi
 alias -s java=vi
@@ -23,10 +174,29 @@ alias -s tgz='tar -xzvf'
 alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
 
- # 256 color settings
- if [ -e /usr/share/terminfo/x/xterm-256color  ]; then
-     #debian在/lib/terminfo/x/xterm-256color
-     export TERM='xterm-256color'
- else
-     export TERM='xterm-color'
- fi
+# Functions
+if [ -f "${HOME}/.bash_functions"  ]; then
+      source "${HOME}/.bash_functions"
+  fi
+#
+# Some example functions:
+#
+# a) function settitle
+settitle ()
+{
+      echo -ne "\e]2;$@\a\e]1;$@\a";
+}
+
+# terminal 256 color settings
+# debian in /lib/terminfo/x/xterm-256color
+if [ -e /usr/share/terminfo/x/xterm-256color  ]; then
+    export TERM='xterm-256color'
+else
+    export TERM='xterm-color'
+fi
+
+# tmux home end key
+if [[ -n "$TMUX"  ]]; then
+    bind '"\e[1~":"\eOH"'
+    bind '"\e[4~":"\eOF"'
+fi

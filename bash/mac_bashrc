@@ -59,9 +59,11 @@ export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 stty -ixon
 
 ### set defualt bash settings
-export PATH="$HOME/bin:/usr/local/bin:$PATH"
+MY_BIN="${HOME}/bin:/usr/local/bin"
+export PATH="$MY_BIN:$PATH"
 # export PATH=$PATH:/usr/local/bin:/usr/ucb:/usr/ccs/bin:/opt/sfw/bin
 # export MANPATH=$MANPATH:/usr/man:/usr/local/man:/opt/sfw/man
+
 # export PS1='\u@\h:\w#'
 # prompt
 # PS1='\[\e[1;37m\]\u\[\e[0m\]@\[\e[0;31m\]\h\[\e[0m\] [\[\e[0;32m\]\W\[\e[0m\]] \[\e[0;36m\]\$\[\e[0m\] '
@@ -114,12 +116,17 @@ alias t='htop'
 
 # ls alias for mac bash
 # Some shortcuts for different directory listings
-alias ls='ls -G'                              # classify files in colour
-alias dir='ls --color=auto --format=vertical'
-alias vdir='ls --color=auto --format=long'
+alias ls='ls -hFG '                           # classify files in colour
+alias dir='ls --color=auto --format=vertical '
+alias vdir='ls --color=auto --format=long '
 alias ll='ls -alF'                            # long list
 alias la='ls -A'                              # all but . and ..
 alias l='ls -CF'                              #
+
+# Interactive and verbose operation
+alias rm='rm -iv '
+alias cp='cp -iv '
+alias mv='mv -iv '
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '

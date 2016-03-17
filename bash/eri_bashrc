@@ -1,6 +1,4 @@
 #!/bin/bash
-# bash rc
-
 # User dependent .bashrc file
 
 # If not running interactively, don't do anything

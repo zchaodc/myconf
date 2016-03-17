@@ -19,8 +19,8 @@ local return_code='%(?..%{$fg[red]%}%? ↵%{$reset_color%})'
 local git_branch='%{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%} '
 
 function prompt_char {
-    # if [ $UID -eq 0  ]; then echo "#"; else echo $; fi
-    if [ $UID -eq 0  ]; then echo "%{$fg[red]%}#%{$reset_color%}"; else echo "%{$fg[magenta]%}$%{$reset_color%}"; fi
+    # if [ $UID -eq 0 ]; then echo "#"; else echo $; fi
+    if [ $UID -eq 0 ]; then echo "%{$fg[red]%}#%{$reset_color%}"; else echo "%{$fg[magenta]%}$%{$reset_color%}"; fi
 }
 
 PROMPT="%{$fg_bold[green]%}${current_time}${user_host}${current_dir}${git_branch}
