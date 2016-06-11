@@ -1,12 +1,12 @@
 #! /bin/zsh
 
-# Aliases
+### Aliases
 
 # Easiser for navigation
 alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
+# alias ...="cd ../.."
+# alias ....="cd ../../.."
+# alias .....="cd ../../../.."
 alias .2='cd ../..'
 alias .3='cd ../../..'
 alias .4='cd ../../../..'
@@ -15,16 +15,17 @@ alias .5='cd ../../../../..'
 alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
-# Editor
-alias e='mvim'
+### Editor
+alias e='vim'
 alias v='vim'
 alias vi='vi'
 alias vim='\vim'
-alias subl='/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl'
+# alias subl='/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl'
+# alias atom='~/tools/atom/Atom.app'
 
-# Tools
+### Tools
 alias c='clear'
-alias cls='clear'
+alias clr='clear'
 
 alias l='ls -G'
 alias ll='ls -l'
@@ -39,6 +40,7 @@ alias tr1='tree -L 1 -p '
 alias tr2='tree -L 2 -p '
 alias tr3='tree -L 3 -p '
 
+alias t='htop'
 alias j='jobs -l'
 alias h='history'
 alias grep='grep --color=auto'

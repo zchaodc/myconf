@@ -1,32 +1,35 @@
-#!/bin/zsh
-#
+#! /bin/zsh
 
 ### Aliases
 
 # Easiser for navigation
 alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
+# alias ...="cd ../.."
+# alias ....="cd ../../.."
+# alias .....="cd ../../../.."
 alias .2='cd ../..'
 alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
 
-alias ~="cd ~"                   # `cd` is probably faster to type though
+alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 ### Editor
 alias e='vim'
 alias v='vim'
+alias vi='vi'
+alias vim='\vim'
+# alias subl='/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl'
+# alias atom='~/tools/atom/Atom.app'
 
 ### Tools
 alias c='clear'
 alias clr='clear'
 
 alias ls='ls -F --color=auto'
-alias ll='ls -al'
-alias la='ls -a'
+alias ll='ls -a'
+alias la='ls -al'
 alias l='ls '
 
 # tree
@@ -38,14 +41,16 @@ alias tr1='tree -L 1 -p '
 alias tr2='tree -L 2 -p '
 alias tr3='tree -L 3 -p '
 
-alias t='htop'
-alias j='jobs -l'
-alias h='history'
+alias t='htop '
+alias j='jobs -l '
+alias h='history '
 
-alias grep='grep --color=auto'
+alias grep='grep --color=auto '
 
-alias py2='python'
-
+# pyhton settings
+alias py='python '
+alias py2='python '
+alias py3='python3 '
 # ctags
 # alias ctags="/usr/bin/ctags "
 alias erlctags="ctags --file-scope=no -R --languages=erlang "
@@ -55,7 +60,6 @@ alias erltags="etags --file-scope=no -R --languages=erlang "
 # alias shortcut
 alias -s erl=vim
 alias -s ptts=vim
-
 alias -s js=vim
 
 alias -s log=less
