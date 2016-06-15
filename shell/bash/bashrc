@@ -56,17 +56,16 @@ export PROMPT_COMMAND="history -a"
 # tty settings
 stty -ixon
 
+# prompt
+# PS1='\[\e[1;37m\]\u\[\e[0m\]@\[\e[0;31m\]\h\[\e[0m\] [\[\e[0;32m\]\W\[\e[0m\]] \[\e[0;36m\]\$\[\e[0m\] '
+PS1='\[\e[35;1m\]\@\[\e[0m\] \[\e[33;1m\]\u\[\e[0m\]@\[\e[0;31m\]\h\[\e[0m\] [\[\e[0;32m\]\w\[\e[0m\]] \n\[\e[0;36m\]\$\[\e[0m\] '
+# export PS1='\u@\h:\w#'
+
 ### set defualt bash settings
 MY_BIN="${HOME}/bin"
 export PATH="$MY_BIN:$PATH"
 # export PATH=$PATH:/usr/local/bin:/usr/ucb:/usr/ccs/bin:/opt/sfw/bin
 # export MANPATH=$MANPATH:/usr/man:/usr/local/man:/opt/sfw/man
-
-# export PS1='\u@\h:\w#'
-# prompt
-# PS1='\[\e[1;37m\]\u\[\e[0m\]@\[\e[0;31m\]\h\[\e[0m\] [\[\e[0;32m\]\W\[\e[0m\]] \[\e[0;36m\]\$\[\e[0m\] '
-PS1='\[\e[35;1m\]\@\[\e[0m\] \[\e[33;1m\]\u\[\e[0m\]@\[\e[0;31m\]\h\[\e[0m\] [\[\e[0;32m\]\w\[\e[0m\]] \n\[\e[0;36m\]\$\[\e[0m\] '
-
 
 export LANG=en_US
 
@@ -87,35 +86,12 @@ fi
 # application.  To override the alias instruction use a \ before, ie
 # \rm will call the real rm not the alias.
 
-## Easiser for navigation
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias .2='cd ../..'
-alias .3='cd ../../..'
-alias .4='cd ../../../..'
-alias .5='cd ../../../../..'
-
 alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
-
-## get rid of command not found ##
-alias cd..='cd ..'
-
-## shortcut
-alias c='clear'
-alias clr="clear"
-
-alias g="git"
-
 # editor settings
 alias v="\vim"
 alias e="\vim"
-
-alias h='history'
-alias j='jobs -l'
-alias t='htop'
+alias j='jobs -l '
 
 # Some shortcuts for different directory listings
 alias ls='ls -hF --color=auto'                # classify files in colour
@@ -142,37 +118,8 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
-alias mkdir='mkdir -pv'
-
-alias path='echo -e ${PATH//:/\\n}'
-alias now='date +"%T"'
-alias nowtime=now
-alias nowdate='date +"%d-%m-%Y"'
-
-# Stop after sending count ECHO_REQUEST packets #
-alias ping='ping -c 5'
-# Do not wait interval 1 second, go fast #
-alias fastping='ping -c 100 -s.2'
-
-alias ports='netstat -tulanp'
-
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
-
-alias javac="javac -J-Dfile.encoding=utf8"
-
-# zsh config
-alias -s html=subl   # Open file with extension html in Sublime
-alias -s rb=mate     # Open file with extension html in TextMate
-alias -s py=vim      # Open file with extension html in vim
-alias -s js=vi
-alias -s c=vi
-alias -s java=vi
-alias -s txt=vi
-alias -s gz='tar -xzvf'
-alias -s tgz='tar -xzvf'
-alias -s zip='unzip'
-alias -s bz2='tar -xjvf'
 
 # Functions
 if [ -f "${HOME}/.bash_functions"  ]; then
@@ -188,8 +135,8 @@ settitle ()
 }
 
 # terminal 256 color settings
-# debian in /lib/terminfo/x/xterm-256color
 if [ -e /usr/share/terminfo/x/xterm-256color  ]; then
+    #debian in /lib/terminfo/x/xterm-256color
     export TERM='xterm-256color'
 else
     export TERM='xterm-color'

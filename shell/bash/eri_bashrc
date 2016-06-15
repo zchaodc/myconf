@@ -56,20 +56,25 @@ export PROMPT_COMMAND="history -a"
 # tty settings
 stty -ixon
 
-CDE_VIEW=$CLEARCASE_VIEW
 # prompt
 # PS1='\[\e[1;37m\]\u\[\e[0m\]@\[\e[0;31m\]\h\[\e[0m\] [\[\e[0;32m\]\W\[\e[0m\]] \[\e[0;36m\]\$\[\e[0m\] '
+CDE_VIEW=$CLEARCASE_VIEW
 if [[ ! -z $CDE_VIEW ]]
 then
     PS1='\[\e[35;1m\]\@\[\e[0m\] \[\e[33;1m\]\u\[\e[0m\]@\[\e[0;31m\]\h\[\e[0m\] (\[\e[1;36m\]$CDE_VIEW\[\e[0m\]) \[\e[0;32m\]\w\[\e[0m\] \n\[\e[0;36m\]\$\[\e[0m\] '
 else
-    PS1='\[\e[35;1m\]\@\[\e[0m\] \[\e[33;1m\]\u\[\e[0m\]@\[\e[0;31m\]\h\[\e[0m\] \[\e[0;32m\]\w\[\e[0m\] \n\[\e[0;36m\]\$\[\e[0m\] '
+    PS1='\[\e[35;1m\]\@\[\e[0m\] \[\e[33;1m\]\u\[\e[0m\]@\[\e[0;31m\]\h\[\e[0m\] [\[\e[0;32m\]\w\[\e[0m\]] \n\[\e[0;36m\]\$\[\e[0m\] '
 fi
+# export PS1='\u@\h:\w#'
 
 ### set defualt bash settings
+MY_BIN="${HOME}/bin"
+export PATH="$MY_BIN:$PATH"
 # export PATH=$PATH:/usr/local/bin:/usr/ucb:/usr/ccs/bin:/opt/sfw/bin
 # export MANPATH=$MANPATH:/usr/man:/usr/local/man:/opt/sfw/man
-# export PS1='\u@\h:\w#'
+
+export LANG=en_US
+
 export EDITOR="vim"
 export VISUAL="vim"
 export PAGER="less"
@@ -81,15 +86,19 @@ if [ -f "${HOME}/.bash_aliases" ]; then
    source "${HOME}/.bash_aliases"
 fi
 
-# Set path
-MY_BIN='${HOME}/bin'
-export PATH=$MY_BIN:$PATH
-
 # Some example alias instructions
 # If these are enabled they will be used instead of any instructions
 # they may mask.  For example, alias rm='rm -i' will mask the rm
 # application.  To override the alias instruction use a \ before, ie
 # \rm will call the real rm not the alias.
+
+# Some shortcuts for different directory listings
+alias ls='ls -hF --color=tty'                 # classify files in colour
+alias dir='ls --color=auto --format=vertical'
+alias vdir='ls --color=auto --format=long'
+alias ll='ls -alF'                            # long list
+alias la='ls -A'                              # all but . and ..
+alias l='ls -CF'                              #
 
 # Interactive and verbose operation
 alias rm='rm -iv '
@@ -106,14 +115,6 @@ alias whence='type -a'                        # where, of a sort
 alias grep='grep --color'                     # show differences in colour
 alias egrep='egrep --color=auto'              # show differences in colour
 alias fgrep='fgrep --color=auto'              # show differences in colour
-
-# Some shortcuts for different directory listings
-alias ls='ls -hF --color=tty'                 # classify files in colour
-alias dir='ls --color=auto --format=vertical'
-alias vdir='ls --color=auto --format=long'
-alias ll='ls -l'                              # long list
-alias la='ls -A'                              # all but . and ..
-alias l='ls -CF'                              #
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '

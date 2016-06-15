@@ -1,9 +1,9 @@
 #! /bin/bash
 # Easiser for navigation
 alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
+# alias ...="cd ../.."
+# alias ....="cd ../../.."
+# alias .....="cd ../../../.."
 alias .2='cd ../..'
 alias .3='cd ../../..'
 alias .4='cd ../../../..'
@@ -11,31 +11,44 @@ alias .5='cd ../../../../..'
 
 alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
+## get rid of command not found ##
+alias cd..='cd ..'
+
+# Some shortcuts for different directory listings
+alias ls='ls -hF --color=auto'                # classify files in colour
+alias dir='ls --color=auto --format=vertical'
+alias vdir='ls --color=auto --format=long'
+alias ll='ls -alF'                            # long list
+alias la='ls -A'                              # all but . and ..
+alias l='ls -CF'
+
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
+alias mkdir='mkdir -pv'
 
 # Shortcuts
 # alias d="cd ~/Documents/Dropbox"
-# alias p="cd ~/Projects"
-alias g="git"
-alias h="history"
+alias p="\cd ~/projects "
+alias g="\git "
+alias h="\history "
 # jobs alias
-alias j="\jobs"
-# alias js="\jobs"
-
-alias v="vim"
+alias j='\jobs -l'
+# editor
+alias v="\vim"
 alias vim='\vim '
 alias gv='\gvim '
-# alias e="~/tools/bin/vim"
-alias e='\vim '
-# alias t="top"
-alias t="~/bin/htop"
-# alias m="mate ."
+alias e="\vim"
 # alias s="subl ."
 # alias o="open"
 # alias oo="open ."
 
+# alias t="top"
+alias t="htop"
+
 # clear
-alias clr='clear'
-alias c='clear'
+alias c='clear '
+alias clr='clear '
 
 # screen command
 alias scr='screen'
@@ -55,7 +68,7 @@ alias tkss='tmux kill-session -t'
 alias sshx="ssh -X "
 
 # tree
-# alias tree="~/bin/tree "
+alias tree="tree -C "
 alias tree1='tree -L 1 '
 alias tree2='tree -L 2 '
 alias tree3='tree -L 3 '

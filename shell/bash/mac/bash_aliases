@@ -1,0 +1,55 @@
+#!/bin/bash
+# Easiser for navigation
+alias ..="cd .."
+# alias ...="cd ../.."
+# alias ....="cd ../../.."
+# alias .....="cd ../../../.."
+alias .2='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+
+alias ~="cd ~" # `cd` is probably faster to type though
+alias -- -="cd -"
+## get rid of command not found ##
+alias cd..='cd ..'
+# Shortcuts
+# alias d="cd ~/Documents/Dropbox"
+alias p="\cd ~/projects "
+alias g="\git "
+alias h="\history "
+# alias j="jobs"
+alias j='\jobs -l'
+# editor
+alias v="\vim"
+alias vim='\vim '
+alias gv='\gvim '
+alias e="\vim"
+# alias s="subl ."
+# alias o="open"
+# alias oo="open ."
+
+# alias t="top"
+alias t="htop"
+
+# clear
+alias c='clear '
+alias clr='clear '
+
+# tree
+alias tree="tree -C "
+alias tree1='tree -L 1 '
+alias tree2='tree -L 2 '
+alias tree3='tree -L 3 '
+
+alias tr1='tree -L 1 -p '
+alias tr2='tree -L 2 -p '
+alias tr3='tree -L 3 -p '
+# python 2
+alias py2="python2"
+alias pip2="pip2"
+# pyhton 3
+alias py3="python3"
+alias pip3="pip3"
+
+alias ipy="ipython"

@@ -25,15 +25,45 @@ shopt -s nocaseglob
 # for example, cd /vr/lgo/apache would find /var/log/apache
 shopt -s cdspell
 
+# Completion options
+# These completion tuning parameters change the default behavior of bash_completion:
+
+# Define to access remotely checked-out files over passwordless ssh for CVS
+# COMP_CVS_REMOTE=1
+
+# Define to avoid stripping description in --option=description of './configure --help'
+# COMP_CONFIGURE_HINTS=1
+
+# Define to avoid flattening internal contents of tar files
+# COMP_TAR_INTERNAL_PATHS=1
+
+# Uncomment to turn on programmable completion enhancements.
+# Any completions you add in ~/.bash_completion are sourced last.
+# [[ -f /etc/bash_completion ]] && . /etc/bash_completion
+
 # History Options
 
 # Don't put duplicate lines in the history.
 export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 
+# Ignore some controlling instructions
+# HISTIGNORE is a colon-delimited list of patterns which should be excluded.
+# The '&' is a special pattern which suppresses duplicate entries.
+# export HISTIGNORE=$'[ \t]*:&:[fb]g:exit'
+# export HISTIGNORE=$'[ \t]*:&:[fb]g:exit:ls' # Ignore the ls command as well
+
+# Whenever displaying the prompt, write the previous line to disk
+# export PROMPT_COMMAND="history -a"
+
+# tty settings
+stty -ixon
+
 ### set defualt bash settings
-export PATH="/usr/local/bin:$PATH"
+MY_BIN="${HOME}/bin:/usr/local/bin"
+export PATH="$MY_BIN:$PATH"
 # export PATH=$PATH:/usr/local/bin:/usr/ucb:/usr/ccs/bin:/opt/sfw/bin
 # export MANPATH=$MANPATH:/usr/man:/usr/local/man:/opt/sfw/man
+
 # export PS1='\u@\h:\w#'
 # prompt
 # PS1='\[\e[1;37m\]\u\[\e[0m\]@\[\e[0;31m\]\h\[\e[0m\] [\[\e[0;32m\]\W\[\e[0m\]] \[\e[0;36m\]\$\[\e[0m\] '
@@ -49,11 +79,16 @@ if [ -f "${HOME}/.bash_aliases" ]; then
    source "${HOME}/.bash_aliases"
 fi
 
+## Functions
+if [ -f "${HOME}/.bash_functions"  ]; then
+    source "${HOME}/.bash_functions"
+fi
+
 ## Easiser for navigation
 alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
+# alias ...="cd ../.."
+# alias ....="cd ../../.."
+# alias .....="cd ../../../.."
 alias .2='cd ../..'
 alias .3='cd ../../..'
 alias .4='cd ../../../..'
@@ -67,11 +102,13 @@ alias cd..='cd ..'
 
 ## shortcut
 alias c='clear'
+alias clr="clear"
+
 alias g="git"
+
 # editor settings
 alias v="vim"
 alias e="/Users/chaozhao/homebrew/Cellar/vim/7.4.488/bin/vim"
-# alias e="vim"
 
 alias h='history'
 alias j='jobs -l'
@@ -79,14 +116,17 @@ alias t='htop'
 
 # ls alias for mac bash
 # Some shortcuts for different directory listings
-alias ls='ls -G'                 # classify files in colour
-alias dir='ls --color=auto --format=vertical'
-alias vdir='ls --color=auto --format=long'
-alias ll='ls -alF'                              # long list
+alias ls='ls -hFG '                           # classify files in colour
+alias dir='ls -hFG '
+alias vdir='ls -G -l '
+alias ll='ls -alF'                            # long list
 alias la='ls -A'                              # all but . and ..
 alias l='ls -CF'                              #
 
-alias clr="clear"
+# Interactive and verbose operation
+alias rm='rm -iv '
+alias cp='cp -iv '
+alias mv='mv -iv '
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
