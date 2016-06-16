@@ -35,6 +35,7 @@ alias mkdir='mkdir -pv'
 alias p="\cd ~/projects "
 alias g="\git "
 alias h="\history "
+alias ht="h |tail -n 15 "
 # alias j="jobs"
 alias j='\jobs -l'
 # editor

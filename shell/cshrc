@@ -67,8 +67,8 @@ set prompt = "%t %B%n%b@%{\e[0;31m%}%m%{\e[0m%} [%{\033[0;32m%}%~%{\033[0m%}] %#
 
 # cd aliases
 alias - cd -
-alias .. cd ..
-alias ... cd ../..
+# alias .. cd ..
+# alias ... cd ../..
 alias cd.. cd ..
 alias .2 "cd ../.."
 alias .3 "cd ../../.."
@@ -98,6 +98,7 @@ alias du du -h
 # Shortcuts
 alias g git
 alias h history
+alias ht "history |tail -n 15"
 alias j "jobs -l"
 alias t "~/bin/htop"
 alias e "~/bin/vim"
@@ -109,7 +110,12 @@ alias v \vim
 alias em "/home/eijjmno/bin/emacs -nw"
 
 # tree command
-alias tree "~/bin/tree"
+alias tree "~/bin/tree -C "
+
+alias tree1 "tree -L 1 "
+alias tree2 "tree -L 2 "
+alias tree3 "tree -L 3 "
+
 alias tr1 "tree -L 1 -p"
 alias tr2 "tree -L 2 -p"
 alias tr3 "tree -L 3 -p"
@@ -127,9 +133,10 @@ alias ack "~/bin/ack --color "
 ############################################################
 #    SBG settings
 ############################################################
-# set sbg path
+# SBG root path
+alias cdsbg "cd /vobs/mgwblade "
+# SGC
 alias cdsgc "cd /vobs/mgwblade/SGC/SGC_CSA10105_4"
-alias cdft "cd /vobs/mgwblade/PPB/SBG_HSD10196_1/test/auto/suite/test"
 alias cdb2b "cd /vobs/mgwblade/SGC/SGC_CSA10105_4/SGC_CRA1190962/B2B_CNA113208/src"
 alias cdsgn "cd /vobs/mgwblade/SGC/SGC_CSA10105_4/SGC_CRA1190962/SGN_CNA113329/src"
 alias cdreg "cd /vobs/mgwblade/SGC/SGC_CSA10105_4/SGC_CRA1190962/REG_CNA113206/src"
@@ -137,28 +144,42 @@ alias cdoab "cd /vobs/mgwblade/SGC/SGC_CSA10105_4/SGC_CRA1190962/OAB_CNA113207/s
 alias cdsni "cd /vobs/mgwblade/SGC/SGC_CSA10105_4/SGC_CRA1190962/SNI_CNA113330/src"
 alias cdsgm "cd /vobs/mgwblade/SGC/SGC_CSA10105_4/SGC_CRA1190962/SGM_CNA113211/src"
 alias cddia "cd /vobs/mgwblade/SGC/SGC_CSA10105_4/SGC_CRA1190962/DIA_CNA113193/src"
-alias cdsmf "cd /vobs/mgwblade/SOM/SOM_CRA1190221/SMF_CNA113038/src"
-alias cdsmfxml "cd /vobs/mgwblade/SOM/SOM_CRA1190221/SMF_CNA113038/src/xml"
+# SYF
+alias cdsyf "cd /vobs/mgwblade/SYF/SYF_CRA1190070"
+alias cdsys "cd /vobs/mgwblade/SYF/SYF_CRA1190070/SYS_CNA11333/src"
 alias cdsmm "cd /vobs/mgwblade/SYF/SYF_CRA1190070/SMM_CNA113305/src"
 alias cddis "cd /vobs/mgwblade/SYF/SYF_CRA1190070/DIS_CNA113315/src"
 alias cdsip "cd /vobs/mgwblade/SYF/SYF_CRA1190070/SIP_CNA113165/src"
-alias cdsyf "cd /vobs/mgwblade/SYF/SYF_CRA1190070"
 alias cdsctp "cd /vobs/mgwblade/SYF/SYF_CRA1190070/SCTP*7"
+alias cdperf "cd /vobs/mgwblade/SYF/SYF_CRA1190070/PERF_CNA113086/src "
+alias cdplc "cd /vobs/mgwblade/SYF/SYF_CRA1190070/PLC_CNA11345/src "
+alias cdevip "cd /vobs/mgwblade/SYF/SYF_CRA1190070/EVIP_CNA113361/src/esrc "
+alias cdrcm "cd /vobs/mgwblade/SYF/SYF_CRA1190070/RCM_CNA11346/src "
+# SOM
+alias cdsom "cd /vobs/mgwblade/SOM/SOM_CRA1190221"
+alias cdsmf "cd /vobs/mgwblade/SOM/SOM_CRA1190221/SMF_CNA113038/src"
+alias cdsmfxml "cd /vobs/mgwblade/SOM/SOM_CRA1190221/SMF_CNA113038/src/xml"
 alias cdsmgr "cd /vobs/mgwblade/SOM/SOM_CRA1190221/SMGR_CNA113037/src"
 alias cdsnc "cd /vobs/mgwblade/SOM/SOM_CRA1190221/SNC_CNA113328/src"
 alias cdsommib "cd /vobs/mgwblade/SOM/SOM_CRA1190221/doc/19603"
 alias cdsgcmib "cd /vobs/mgwblade/SGC/SGC_CSA10105_4/SGC_CRA1190962/doc/19603"
+# Test
 alias cdbt "cd /vobs/mgwblade/SGC/SGC_CSA10105_4/SGC_CRA1190962/test/suite/esrc/ssit"
+alias cdft "cd /vobs/mgwblade/PPB/SBG_HSD10196_1/test/auto/suite/test"
 alias cdjpt "cd /vobs/mgwblade/PPB/GBS_CSA10105+/test/auto/tools/jpTsbg/"
+
 alias b2bbt "cd /vobs/mgwblade/SGC/SGC_CSA10105_4/SGC_CRA1190962/B2B_CNA113208/test/bt"
 alias cdsgcc "cd /vobs/mgwblade/CONF1/HAS_CRA1190528/SGCC_CNA113225_1/src"
 alias cdtest 'cd /vobs/mgwblade/PPB/SBG_HSD10196_1/test/auto'
 
 # clearcase/ct
 # ct short command
-alias pwv "ct pwv"
-alias lsv "ct lsview"
-alias lsco "ct lsp -co"
+alias pwv "ct pwv "
+alias lsv "ct lsview "
+alias lsco "ct lsp -co "
+alias ctco "ct co -unr -nc "
+alias ctci "ct ci -nc "
+alias ctcs "ct catcs "
 
 set SBG_SCRIPT_PATH = "${HOME}/projects/sbg/scripts"
 # alias myis "${HOME}/projects/sbg/scripts/myis.sh"

@@ -4,20 +4,23 @@
 # the following line is actually
 # equivalent to "\C-?": delete-char
 "\e[3~": delete-char
+"\e[2~": quoted-insert
 
 # VT
 "\e[1~": beginning-of-line
 "\e[4~": end-of-line
-
-# kvt
-"\e[H": beginning-of-line
-"\e[F": end-of-line
+"\e[5~": beginning-of-history
+"\e[6~": end-of-history
 
 # rxvt and konsole (i.e. the KDE-app...)
 "\e[7~": beginning-of-line
 "\e[8~": end-of-line
 
-# VT220
+# kvt/Konsole
+"\e[H": beginning-of-line
+"\e[F": end-of-line
+
+# VT220/xterm
 "\eOH": beginning-of-line
 "\eOF": end-of-line
 
@@ -27,9 +30,19 @@
 #set input-meta on
 #set output-meta on
 
+# Allow the command prompt to wrap to the next line
+set horizontal-scroll-mode Off
+
+# All of the following map the escape sequence of the
+# value contained inside the 1st argument to the
+# readline specific functions
+
+"\eOd": backward-word
+"\eOc": forward-word
+
 # $if Bash
     # Don't ring bell on completion
-    #set bell-style none
+    set bell-style none
 
     # or, don't beep at me - show me
     #set bell-style visible
@@ -42,11 +55,15 @@
     #set expand-tilde on
 
     # Append "/" to all dirnames
+    # on/off
     set mark-directories on
-    #set mark-symlinked-directories on
+    set mark-modified-lines on
+    set mark-symlinked-directories on
 
     # Match all files
-    #set match-hidden-files on
+    set match-hidden-files on
+    
+    set show-all-if-ambiguous on
 
     # 'Magic Space'
     # Insert a space character then performs

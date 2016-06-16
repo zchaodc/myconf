@@ -44,6 +44,7 @@ alias tr3='tree -L 3 -p '
 alias t='htop '
 alias j='jobs -l '
 alias h='history '
+alias ht='h |tail -n 15'
 
 alias grep='grep --color=auto '
 
