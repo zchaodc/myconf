@@ -28,8 +28,8 @@ alias c='clear'
 alias clr='clear'
 
 alias ls='ls -F --color=auto'
-alias ll='ls -a'
-alias la='ls -al'
+alias ll='ls -al'
+alias la='ls -a'
 alias l='ls '
 
 # tree
@@ -60,6 +60,7 @@ alias erltags="etags --file-scope=no -R --languages=erlang "
 # alias shortcut
 alias -s erl=vim
 alias -s ptts=vim
+
 alias -s js=vim
 
 alias -s log=less

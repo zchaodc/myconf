@@ -40,10 +40,11 @@ alias tr1='tree -L 1 -p '
 alias tr2='tree -L 2 -p '
 alias tr3='tree -L 3 -p '
 
-alias t='htop'
-alias j='jobs -l'
-alias h='history'
-alias grep='grep --color=auto'
+alias t='htop '
+alias j='jobs -l '
+alias h='history '
+
+alias grep='grep --color=auto '
 
 # pyhton settings
 alias py='python '

@@ -1,3 +1,5 @@
+#! /usr/bin/evn zsh
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -6,6 +8,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="robbyrussell"
+# ZSH_THEME="random"
 ZSH_THEME="zchaodc"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -51,20 +54,24 @@ plugins=(git)
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="$HOME/bin:/usr/local/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
+# export MANWIDTH=80    # settings for man(manual page)
 
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
+# Editor
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
+  export EDITOR='vim'
 # else
 #   export EDITOR='mvim'
 # fi
+
+export PAGER=${commands[most]-${commands[less]-$commands[more]}}
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
@@ -73,17 +80,8 @@ export ARCHFLAGS="-arch x86_64"
 export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # History
-export HISTSIZE=50
-export SAVEHIST=50
-
-### Export
-export PAGER='less'
-
-### Editor
-export EDITOR='vim'
-
-### settings for man(manual page)
-# export MANWIDTH=80
+export HISTSIZE=1000
+export SAVEHIST=500
 
 # tty settings
 stty -ixon
@@ -99,5 +97,4 @@ stty -ixon
 
 # import zshrc.user
 ZSH_PATH="${HOME}/tools/zsh"
-[[ -s "${ZSH_PATH}/zshrc.user" ]] && . "${ZSH_PATH}/zshrc.user"
-
+[[ -s "${ZSH_PATH}/zshrc.user" ]] && source "${ZSH_PATH}/zshrc.user"

@@ -55,13 +55,14 @@ plugins=(git osx brew brew-cask vim colored-man)
 
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
-# export MANWIDTH=80
+# export MANWIDTH=80    # settings for man(manual page)
 
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
+# Editor
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
@@ -76,6 +77,10 @@ export ARCHFLAGS="-arch x86_64"
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# History
+export HISTSIZE=1000
+export SAVEHIST=500
 
 # tty settings
 stty -ixon
