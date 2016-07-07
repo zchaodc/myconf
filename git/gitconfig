@@ -1,0 +1,32 @@
+[user]
+	name = zchaodc
+	email = zchaodc@hotmail.com
+[push]
+	default = simple
+[core]
+	# editor = /usr/bin/vim
+    editor = '/usr/local/bin/subl' -w
+
+[diff]
+    tool = bc3
+[difftool]
+    # prompt = false
+[difftool "bc3"]
+    cmd = \"/Applications/Beyond Compare.app/Contents/MacOS/bcomp\" \"$LOCAL\" \"$REMOTE\"
+
+[merge]
+    tool = bc3
+[mergetool]
+    # prompt = false
+    keepBackup = false
+[mergetool "bc3"]
+    cmd = \"/Applications/Beyond Compare.app/Contents/MacOS/bcomp\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+    trustExitCode = true
+
+[alias]
+    st = status
+    dt = difftool
+    mt = mergetool
+
+[color]
+	status = auto
