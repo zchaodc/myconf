@@ -11,7 +11,6 @@ alias .2='cd ../..'
 alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
-
 alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 ## get rid of command not found ##
@@ -46,20 +45,17 @@ alias e="\vim"
 # alias s="subl ."
 # alias o="open"
 # alias oo="open ."
-
+# tools
 # alias t="top"
 alias t="htop"
-
 # clear
 alias c='clear '
 alias clr='clear '
-
 # screen command
 alias scr='screen'
 alias scrls='screen -ls'
 alias scrra='screen -r'
 alias scrrd='screen -rd'
-
 # tmux command
 # alias tmux='~/bin/tmux ' # tmux path
 alias ta='tmux attach -t'
@@ -67,16 +63,13 @@ alias ts='tmux new-session -s'
 alias tl='tmux list-sessions'
 alias tksv='tmux kill-server'
 alias tkss='tmux kill-session -t'
-
 # ssh
 alias sshx="ssh -X "
-
 # tree
 alias tree="tree -C "
 alias tree1='tree -L 1 '
 alias tree2='tree -L 2 '
 alias tree3='tree -L 3 '
-
 alias tr1='tree -L 1 -p '
 alias tr2='tree -L 2 -p '
 alias tr3='tree -L 3 -p '
@@ -85,28 +78,27 @@ alias path='echo -e ${PATH//:/\\n}'
 alias now='date +"%T"'
 alias nowtime=now
 alias nowdate='date +"%d-%m-%Y"'
-
-# Stop after sending count ECHO_REQUEST packets #
-alias ping='ping -c 5'
-# Do not wait interval 1 second, go fast #
-alias fastping='ping -c 100 -s.2'
-
-alias ports='netstat -tulanp'
-
 # ctags
 alias ctags="/usr/bin/ctags"
 alias erlctags="/usr/bin/ctags --file-scope=no -R --languages=erlang"
-#   ---------------------------
-#   SEARCHING
-#   ---------------------------
 
-alias fq="find . -iname "                 # qfind:    Quickly search for file
-fc () { /usr/bin/find . -iname "$@" ; }      # ff:       Find file under the current directory
-fs () { /usr/bin/find . -iname "$@"'*' ; }  # ffs:      Find file whose name starts with a given string
-fe () { /usr/bin/find . -iname '*'"$@" ; }  # ffe:      Find file whose name ends with a given string
-
+# network
+# Stop after sending count ECHO_REQUEST packets #
+alias ping='ping -c 5 '
+# Do not wait interval 1 second, go fast #
+alias fastping='ping -c 100 -s 2 '
+alias ports='netstat -tulanp '
 # lang command
 # alias javac="javac -J-Dfile.encoding=utf8"
 
 # set terminal
 tput setf 2
+
+#   ---------------------------
+#   SEARCHING
+#   ---------------------------
+alias fq="find . -iname "                   # qfind:    Quickly search for file
+fc () { /usr/bin/find . -iname "$@" ; }     # ff:       Find file under the current directory
+fs () { /usr/bin/find . -iname "$@"'*' ; }  # ffs:      Find file whose name starts with a given string
+fe () { /usr/bin/find . -iname '*'"$@" ; }  # ffe:      Find file whose name ends with a given string
+

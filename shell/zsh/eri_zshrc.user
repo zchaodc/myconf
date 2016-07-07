@@ -11,7 +11,6 @@ alias .2='cd ../..'
 alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
-
 alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
@@ -24,44 +23,62 @@ alias vim='\vim'
 # alias atom='~/tools/atom/Atom.app'
 
 ### Tools
+# clear
 alias c='clear'
 alias clr='clear'
-
+# ls
 alias ls='ls -F --color=auto'
 alias ll='ls -al'
 alias la='ls -a'
 alias l='ls '
 
 # tree
+alias tree='tree -C '
 alias tree1='tree -L 1 '
 alias tree2='tree -L 2 '
 alias tree3='tree -L 3 '
-
 alias tr1='tree -L 1 -p '
 alias tr2='tree -L 2 -p '
 alias tr3='tree -L 3 -p '
-
+# grep
+alias grep='grep --color=auto '
+alias egrep='egrep --color=auto '
+alias fgrep='fgrep --color=auto '
+# others
+alias g='git '
 alias t='htop '
 alias j='jobs -l '
 alias h='history '
 alias ht='h |tail -n 15'
-
-alias grep='grep --color=auto '
-
+# project
+alias p='cd ~/projects '
+# lang
 # pyhton settings
 alias py='python '
 alias py2='python '
 alias py3='python3 '
+alias ipy='ipython '
 # ctags
 # alias ctags="/usr/bin/ctags "
 alias erlctags="ctags --file-scope=no -R --languages=erlang "
 alias etags="~/tools/bin/ctags "
 alias erltags="etags --file-scope=no -R --languages=erlang "
-
-# alias shortcut
+# quick edit
+alias -s txt=vim
+alias -s log=less
+alias -s js=vim
+alias -s java=vim
 alias -s erl=vim
 alias -s ptts=vim
+# quick uncompress
+alias -s gz='tar -xzvf'
+alias -s tgz='tar -xzvf'
+alias -s zip='unzip'
+alias -s bz2='tar -xjvf'
 
-alias -s js=vim
-
-alias -s log=less
+### Network
+# Stop after sending count ECHO_REQUEST packets #
+alias ping='\ping -c 5 '
+# Do not wait interval 1 second, go fast #
+alias fastping='\ping -c 100 -s.2 '
+alias ports='\netstat -tulanp '
