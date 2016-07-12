@@ -22,6 +22,10 @@ shopt -s histappend
 # for example, cd /vr/lgo/apache would find /var/log/apache
 shopt -s cdspell
 
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+# shopt -s checkwinsize
+
 # Completion options
 
 # These completion tuning parameters change the default behavior of bash_completion:
@@ -37,7 +41,18 @@ COMP_TAR_INTERNAL_PATHS=1
 
 # Uncomment to turn on programmable completion enhancements.
 # Any completions you add in ~/.bash_completion are sourced last.
-[[ -f /etc/bash_completion ]] && . /etc/bash_completion
+# [[ -f /etc/bash_completion ]] && . /etc/bash_completion
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
 
 # History Options
 
@@ -49,6 +64,10 @@ export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 # The '&' is a special pattern which suppresses duplicate entries.
 export HISTIGNORE=$'[ \t]*:&:[fb]g:exit'
 export HISTIGNORE=$'[ \t]*:&:[fb]g:exit:ls' # Ignore the ls command as well
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+export HISTSIZE=1000
+export HISTFILESIZE=2000
 
 # Whenever displaying the prompt, write the previous line to disk
 export PROMPT_COMMAND="history -a"
@@ -67,7 +86,10 @@ export PATH="$MY_BIN:$PATH"
 # export PATH=$PATH:/usr/local/bin:/usr/ucb:/usr/ccs/bin:/opt/sfw/bin
 # export MANPATH=$MANPATH:/usr/man:/usr/local/man:/opt/sfw/man
 
-export LANG=en_US
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+# export LANG=en_US
 
 export EDITOR="vim"
 export VISUAL="vim"
