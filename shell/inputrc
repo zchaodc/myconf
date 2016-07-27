@@ -57,7 +57,7 @@ set horizontal-scroll-mode Off
     # Append "/" to all dirnames
     # on/off
     set mark-directories on
-    set mark-modified-lines on
+    # set mark-modified-lines on
     set mark-symlinked-directories on
 
     # Match all files
