@@ -67,7 +67,7 @@ set prompt = "%t %B%n%b@%{\e[0;31m%}%m%{\e[0m%} [%{\033[0;32m%}%~%{\033[0m%}] %#
 
 # cd aliases
 alias - cd -
-# alias .. cd ..
+alias .. cd ..
 # alias ... cd ../..
 alias cd.. cd ..
 alias .2 "cd ../.."
@@ -76,10 +76,10 @@ alias .4 "cd ../../../.."
 alias .5 "cd ../../../../.."
 
 # linux os
-alias ll ls -lA --color=auto
-alias ls ls --color=auto
-alias la ls -A
+alias ls ls "--color=auto"
 alias l \ls "--color=auto"
+alias ll ls "-lA --color=auto"
+alias la ls "-A"
 
 alias clr clear
 alias c clear
@@ -98,33 +98,38 @@ alias du du -h
 # Shortcuts
 alias g git
 alias h history
-alias ht "history |tail -n 15"
-alias j "jobs -l"
-alias t "~/bin/htop"
-alias e "~/bin/vim"
-alias v \vim
-# alias m mate .
+alias ht    "history |tail -n 15"
+alias j     "jobs -l"
+alias t     "~/bin/htop"
+
+# Editor
+alias e     "~/bin/vim"
+alias v     "\vim"
 # alias s subl .
-# alias o open
-# alias oo open .
-alias em "/home/eijjmno/bin/emacs -nw"
+alias em    "/home/eijjmno/bin/emacs -nw"
 
 # tree command
-alias tree "~/bin/tree -C "
+alias tree  "~/bin/tree -C "
 
 alias tree1 "tree -L 1 "
 alias tree2 "tree -L 2 "
 alias tree3 "tree -L 3 "
 
-alias tr1 "tree -L 1 -p"
-alias tr2 "tree -L 2 -p"
-alias tr3 "tree -L 3 -p"
+alias tr1   "tree -L 1 -p"
+alias tr2   "tree -L 2 -p"
+alias tr3   "tree -L 3 -p"
 
-alias tmux "~/bin/tmux"
+# tmux command
+alias tmux  '~/bin/tmux '
+alias ta    'tmux attach -t'
+alias ts    'tmux new-session -s'
+alias tl    'tmux list-sessions'
+alias tksv  'tmux kill-server'
+alias tkss  'tmux kill-session -t'
 
 # ag & ack: grep-like tools
-alias ag "~/bin/ag --color "
-alias ack "~/bin/ack --color "
+alias ag    "~/bin/ag --color "
+alias ack   "~/bin/ack --color "
 
 # tool autojump
 # [[ -s /home/eijjmno/.autojump/etc/profile.d/autojump.sh ]] && source /home/eijjmno/.autojump/etc/profile.d/autojump.sh
