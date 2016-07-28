@@ -1,15 +1,14 @@
 #! /usr/bin/evn zsh
 
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH=${HOME}/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# ZSH_THEME="robbyrussell"
 # ZSH_THEME="random"
-ZSH_THEME="zchaodc"
+ZSH_THEME="dcpros"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -45,16 +44,18 @@ ENABLE_CORRECTION="true"
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=${HOME}/.oh-my-zsh/custom/
 
+# Put custom zshrc in ZSH_CUSTOM
+ZSH_PATH="${HOME}/tools/zsh"
+[[ -s "${ZSH_PATH}/zshrc.user" ]] && source "${ZSH_PATH}/zshrc.user"
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-# plugins=(git tmux autojump)
-plugins=(git)
+plugins=(git osx brew brew-cask vim colored-man)
 
 # User configuration
-
-export PATH="$HOME/bin:/usr/local/bin:$PATH"
+export PATH="${HOME}/bin:/usr/local/bin:${PATH}"
 # export MANPATH="/usr/local/man:$MANPATH"
 # export MANWIDTH=80    # settings for man(manual page)
 
@@ -66,10 +67,11 @@ export LANG=en_US.UTF-8
 # Editor
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+#   export EDITOR='vim'
 # else
 #   export EDITOR='mvim'
 # fi
+export EDITOR='vim'
 
 export PAGER=${commands[most]-${commands[less]-$commands[more]}}
 
@@ -77,7 +79,7 @@ export PAGER=${commands[most]-${commands[less]-$commands[more]}}
 export ARCHFLAGS="-arch x86_64"
 
 # ssh
-export SSH_KEY_PATH="~/.ssh/dsa_id"
+export SSH_KEY_PATH="~/.ssh/"
 
 # History
 export HISTSIZE=1000
@@ -95,6 +97,3 @@ stty -ixon
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# import zshrc.user
-ZSH_PATH="${HOME}/tools/zsh"
-[[ -s "${ZSH_PATH}/zshrc.user" ]] && source "${ZSH_PATH}/zshrc.user"

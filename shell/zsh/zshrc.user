@@ -7,6 +7,7 @@ alias ..="cd .."
 # alias ...="cd ../.."
 # alias ....="cd ../../.."
 # alias .....="cd ../../../.."
+alias .1='cd ..'
 alias .2='cd ../..'
 alias .3='cd ../../..'
 alias .4='cd ../../../..'
@@ -27,18 +28,18 @@ alias vim='\vim'
 alias c='clear'
 alias clr='clear'
 # ls
-alias ls='ls -G '
-alias l='ls -G '
-alias ll='ls -l '
-alias la='ls -al '
+alias ls='ls -F --color=auto'
+alias l='ls '
+alias ll='ls -al'
+alias la='ls -a'
 # tree
 alias tree='tree -C '
-alias tree1='tree -L 1 '
-alias tree2='tree -L 2 '
-alias tree3='tree -L 3 '
-alias tr1='tree -L 1 -p '
-alias tr2='tree -L 2 -p '
-alias tr3='tree -L 3 -p '
+alias tr1='tree -L 1 '
+alias tr2='tree -L 2 '
+alias tr3='tree -L 3 '
+alias tree1='tree -L 1 -p '
+alias tree2='tree -L 2 -p '
+alias tree3='tree -L 3 -p '
 # grep
 alias grep='grep --color=auto '
 alias egrep='egrep --color=auto '
@@ -57,21 +58,23 @@ alias py='python '
 alias py2='python '
 alias py3='python3 '
 alias ipy='ipython '
+# ctags
+# alias ctags="/usr/bin/ctags "
+alias erlctags="ctags --file-scope=no -R --languages=erlang "
+alias etags="~/tools/bin/ctags "
+alias erltags="etags --file-scope=no -R --languages=erlang "
 # quick edit
-alias -s txt=subl
+alias -s txt=vim
 alias -s log=less
-alias -s h=subl
-alias -s py=subl
-alias -s js=subl
-alias -s java=subl
+alias -s js=vim
+alias -s java=vim
+alias -s erl=vim
+alias -s ptts=vim
 # quick uncompress
 alias -s gz='tar -xzvf'
 alias -s tgz='tar -xzvf'
 alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
-alias -s rar='unrar x'
-# path navigation
-[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
 
 ### Network
 # Stop after sending count ECHO_REQUEST packets #
