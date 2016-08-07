@@ -2,7 +2,7 @@
 CUR_PATH="${PWD}"
 VIM_PATH="vim"
 BUNDLE_PATH="${VIM_PATH}/bundle"
-VUNDLE_GIT="https://github.com/gmarik/Vundle.vim.git"
+VUNDLE_GIT="https://github.com/VundleVim/Vundle.vim.git"
 
 # vim tools installation
 INSTALL_VIM_PATH="${CUR_PATH}/${VIM_PATH}"

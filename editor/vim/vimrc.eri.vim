@@ -1,4 +1,16 @@
 " **********************************************************************
+"    version guard
+" **********************************************************************
+if v:version < 703
+    finish
+endif
+" **********************************************************************
+"    vim env settings
+" **********************************************************************
+let $VIMRUNTIME="/usr/share/vim/vim72"
+set runtimepath=/usr/share/vim/vim72
+
+" **********************************************************************
 "    vundle settings
 " **********************************************************************
 set nocompatible              " be iMproved, required
@@ -32,18 +44,36 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
-Plugin 'bling/vim-airline'
-" Plugin 'SuperTab'
-" Plugin 'Syntastic'
+
+Plugin 'taglist.vim'
 Plugin 'majutsushi/tagbar'
-" Plugin 'scrooloose/nerdtree'
+" Plugin 'Valloric/YouCompleteMe'
+" statusline
+" Plugin 'powerline/powerline'
+Plugin 'bling/vim-airline'
+" Plugin 'edkolev/tmuxline.vim'
+" Plugin 'itchyny/lightline.vim'
+Plugin 'SuperTab'
+Plugin 'Syntastic'
+Plugin 'vim-scripts/grep.vim'
+" Plugin 'garbas/vim-snipmate'
+Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'jiangmiao/auto-pairs'
+" color scheme
+" Plugin 'tomasr/molokai'
+Plugin 'sickill/vim-monokai'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'Lokaltog/vim-easymotion'
-" Plugin 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 
+" plugins for erlang
+Plugin 'jimenezrick/vimerl'
+Plugin 'edkolev/erlang-motions.vim'
+Plugin 'vim-erlang/vim-erlang-tags'
+
+" -----------------------------------------------------------------------------
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -63,33 +93,33 @@ filetype plugin indent on    " required
 "    ***** Plugin settings *****
 " **********************************************************************
 " Syntastic
-" let g:syntastic_mode_map = { 'mode': 'passive' }
-" let g:syntastic_check_on_open=0
-" let g:syntastic_check_on_wq=0
-" let g:syntastic_aggregate_errors=1
-" let g:syntastic_auto_loc_list=1
-" let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
-" let g:syntastic_loc_list_height = 5
+let g:syntastic_mode_map = { 'mode': 'passive' }
+let g:syntastic_check_on_open=0
+let g:syntastic_check_on_wq=0
+let g:syntastic_aggregate_errors=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+let g:syntastic_loc_list_height = 5
 " c++ settings
-" let g:syntastic_cpp_compiler = 'clang++'
-" let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 " let g:syntastic_cpp_errorformat = '%f:%l:%c: %trror: %m'
 " -----------------------------------------------------------------------------
 " SuperTab
-" let g:SuperTabDefaultCompletionType = "context"
-" let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
-" let g:SuperTabContextDiscoverDiscovery = ["&completefunc:<c-x><c-u>", "&omnifunc:<c-x><c-o>"]
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
+let g:SuperTabContextDiscoverDiscovery = ["&completefunc:<c-x><c-u>", "&omnifunc:<c-x><c-o>"]
 " -----------------------------------------------------------------------------
 " NERDTree
-" let NERDTreeBookmarksFile=expand("$HOME/.vim/NERDTreeBookmarks")
-" let NERDTreeShowBookmarks=1
-" let NERDTreeShowFiles=1
-" let NERDTreeShowHidden=1
-" let NERDTreeQuitOnOpen=1
-" let NERDTreeHighlightCursorline=1
-" let NERDTreeMouseMode=2
-" let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
-            " \ '\.o$', '\.so$', '\.egg$', '^\.git$', '\.beam$', '\.swp$' ]
+let NERDTreeBookmarksFile=expand("$HOME/.vim/NERDTreeBookmarks")
+let NERDTreeShowBookmarks=1
+let NERDTreeShowFiles=1
+let NERDTreeShowHidden=1
+let NERDTreeQuitOnOpen=1
+let NERDTreeHighlightCursorline=1
+let NERDTreeMouseMode=2
+let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
+            \ '\.o$', '\.so$', '\.egg$', '^\.git$', '\.beam$', '\.swp$' ]
 " nnoremap <leader>n :NERDTreeFocus<CR>
 " nnoremap <leader>m :NERDTreeClose<CR>:NERDTreeFind<CR>
 " nnoremap <leader>N :NERDTreeClose<CR>
@@ -108,37 +138,74 @@ let g:tagbar_autofocus = 1
 let g:tagbar_compact = 1
 nmap tb :TlistClose<CR>:TagbarToggle<CR>
 " -----------------------------------------------------------------------------
+" taglist
+nmap tl :TagbarClose<CR>:TlistToggle<CR>
+" let Tlist_Use_Right_Window=1
+" let Tlist_Enable_Fold_Column=0
+let Tlist_Show_One_File=1             " especially with this one
+let Tlist_Compact_Format=1
+let Tlist_Exit_OnlyWindow=1
+let Tlist_Ctags_Cmd='/usr/bin/ctags'
+set updatetime=1000
+let Tlist_GainFocus_On_ToggleOpen=1   " put focus on the TagList window when it opens
+" let Tlist_Process_File_Always=1     " process files in the background, even when the TagList window isn't open
+let Tlist_WinWidth=40                 " set the width
+let Tlist_Inc_Winwidth=1              " increase window by 1 when growing
+let Tlist_Display_Prototype=1
+let Tlist_Display_Tag_Scope=0         " don't show scope info
+" -----------------------------------------------------------------------------
 " vim-airline
 " let g:airline_theme='powerlineish'
-let g:airline_left_sep=''
-let g:airline_right_sep=''
+" let g:airline_left_sep=''
+" let g:airline_right_sep=''
 " let g:airline_left_sep = '▶'
 " let g:airline_right_sep = '◀'
-let g:airline_section_z=''
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_sep = '>'
 let g:airline#extensions#tabline#left_alt_sep = '|'
 " let g:airline_powerline_fonts = 1
 " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
-let g:airline_theme = 'solarized'
+" let g:airline_section_z=''
+" let g:airline#extensions#tmuxline#enabled = 1
+" -----------------------------------------------------------------------------
+" tmuxline
+" let g:tmuxline_theme = 'jellybeans'
+" let g:tmuxline_preset = {
+      " \'a'    : '#S',
+      " \'c'    : ['#(whoami)', '#(uptime | cut -d " " -f 1,2,3)'],
+      " \'win'  : ['#I', '#W'],
+      " \'cwin' : ['#I', '#W', '#F'],
+      " \'x'    : '#(date)',
+      " \'y'    : ['%R', '%a', '%Y'],
+      " \'z'    : '#H'}
+" let g:tmuxline_powerline_separators = 0
+" let g:tmuxline_separators = {
+    " \ 'left' : '',
+    " \ 'left_alt': '>',
+    " \ 'right' : '',
+    " \ 'right_alt' : '<',
+    " \ 'space' : ' '}
+
+" let g:lightline = {
+      " \ 'colorscheme': 'wombat',
+      " \ }
 " -----------------------------------------------------------------------------
 " CtrlP
-" let g:ctrlp_map = '<c-p>'
-" let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-" " let g:ctrlp_cmd = 'CtrlP'
-" let g:ctrlp_cmd = 'CtrlPMixed'
-" let g:ctrlp_max_files = 15000
-" let g:ctrlp_max_depth = 40
-" let g:ctrlp_working_path_mode = 'ra'
-" set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.beam
-" " let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-" " let g:ctrlp_custom_ignore = {
-            " " \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-            " " \ 'file': '\v\.(so)$',
-            " " \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
-            " " \ }
-" let g:ctrlp_user_command = 'find %s -type f'
-
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+" let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_max_files = 15000
+let g:ctrlp_max_depth = 40
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.beam
+" let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+" let g:ctrlp_custom_ignore = {
+            " \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+            " \ 'file': '\v\.(so)$',
+            " \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+            " \ }
+let g:ctrlp_user_command = 'find %s -type f'
 " -----------------------------------------------------------------------------
 " easymotion
 " Gif config
@@ -163,12 +230,18 @@ let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1 " US layout
 
 " -----------------------------------------------------------------------------
+"  vim erlang plugins
+"
+let erlang_skel_dir = "~/.vim/plugin/erlang_skels"
+let erlang_show_errors = 0
+
+" -----------------------------------------------------------------------------
 "    Shortcuts for plugins
 " -----------------------------------------------------------------------------
 " Syntax Check
-" nmap <F6> :SyntasticCheck<CR>
+nmap <F6> :SyntasticCheck<CR>
 " NerdTree shortcut
-" nmap <F7> :NERDTreeToggle<CR>
+nmap <F7> :NERDTreeToggle<CR>
 " Tagbar shortcut
 nmap <F8> :TagbarToggle<CR>
 " Paste mode
@@ -230,17 +303,26 @@ let g:mapleader = ","
 " color settings
 " ***************
 set t_Co=256
-set background=dark
+" set background=dark
 " set background=light
 
 " let g:solarized_termcolors=256
-try
-    colorscheme solarized
+" try
+    " colorscheme solarized
     " colorscheme adam
     " colorscheme molokai
     " colorscheme monokai
-catch
-endtry
+" catch
+" endtry
+
+" => VIM color settings
+hi MatchParen ctermfg=233  ctermbg=208 cterm=bold guifg=#000000 guibg=#FD971F gui=bold
+hi Search ctermfg=0   ctermbg=222   cterm=NONE guifg=#000000 guibg=#FFE792
+" monokai Visual color
+hi Visual ctermfg=NONE ctermbg=59 cterm=NONE guifg=NONE guibg=#49483e gui=NONE
+" molokai Visual color
+" hi Visual ctermfg=NONE ctermbg=235 cterm=NONE guifg=NONE guibg=#49483e gui=NONE
+hi LineNr ctermfg=102 ctermbg=237 cterm=NONE guifg=#90908a guibg=#3c3d37 gui=NONE
 
 " ***************
 " default text width
@@ -250,12 +332,12 @@ set textwidth=100
 " ***************
 " tab key and indent
 " ***************
-set tabstop=4         " the tab length
-set smarttab          " the smart tab
-set softtabstop=4     " control tab state
-set expandtab         " change the tab to space
-set shiftwidth=4      " space for inserted or indentation
-set shiftround        " use multiple of shiftwidth when indenting with '<' and '>'
+set smarttab            " the smart tab
+set expandtab           " change the tab to space
+set tabstop=4           " the tab length
+set softtabstop=4       " control tab state
+set shiftwidth=4        " space for inserted or indentation
+set shiftround          " use multiple of shiftwidth when indenting with '<' and '>'
 set autoindent
 set smartindent
 " set copyindent        " copy the previous indentation on autoindenting
@@ -265,7 +347,7 @@ set whichwrap+=<,>,h,l
 " Linebreak on 500 characters
 set lbr
 set tw=500
-set wrap              " Wrap lines
+set wrap                " Wrap lines
 
 set clipboard=unnamed   " yank to the system register (*) by default
 set showmatch           " Cursor shows matching ) and }
@@ -280,7 +362,7 @@ set wildmenu            " wild char completion menu
 set wildmode=longest:list,full
 
 " ignore these files while expanding wild chars
-set wildignore=*.o,*~,*.pyc,*.swp,*.bak
+set wildignore=*.o,*~,*.pyc,*.swp,*.bak,*.beam
 if has("win16") || has("win32")
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 else
@@ -394,6 +476,7 @@ nmap <leader>-  :rightbelow sp<cr>
 " Yank text to the OS X clipboard
 noremap <leader>y "*y
 noremap <leader>yy "*Y
+
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
 " command W w !sudo tee % > /dev/null
@@ -458,8 +541,10 @@ set laststatus=2
 " set statusline+=:%l/%L    " line/lines
 
 
+" erlang language
+let s:tlist_def_erlang_settings='erlang;d:macro;r:record;m:module;f:function'
 
-" vim language
+" => vim language
 let s:tlist_def_vim_settings='vim;a:autocmds;v:variable;f:function'
 
 " Maps the updates of tags to key ,t.
@@ -485,7 +570,6 @@ set tags=tags; " The ';' at the end will cause the ctags plugin to search for cu
 " endfunction
 
 " autocmd BufWritePre * :call StripTrailingWhitespace()
-
 " autocmd BufWritePre * :%s/\s\+$//e      " any file type
 " autocmd BufWritePre *.rb :%s/\s\+$//e   " ruby(.rb) files
 

@@ -8,7 +8,7 @@
 #%w The date in day-dd format.
 #%W The date in mm/dd/yy format.
 #%D{string}
-local current_time='%{$fg[white]%}[%{$fg[magenta]%}%D %*%{$fg[white]%}]%{$reset_color%} '
+local current_time='%{$fg[magenta]%}%D %*%{$reset_color%} '
 local user_host='%{$terminfo[bold]$fg[blue]%}%n%{$fg[white]%}@%{$fg[red]%}%m%{$reset_color%} '
 local current_dir='%{$terminfo[bold]$fg[green]%}%~%{$reset_color%} '
 local return_code='%(?..%{$fg[red]%}%? ↵%{$reset_color%})'
