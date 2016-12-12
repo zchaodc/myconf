@@ -1,35 +1,39 @@
 {
-    "auto_upgrade": false,
-    "color_scheme": "Packages/User/SublimeLinter/Solarized (Light) (SL).tmTheme",
-    "font_size": 12,
-    "http_proxy": "www-proxy.xxx.se:8080",
-    "ignored_packages":
-    [
-        "Vintage"
-    ],
-    "on_save":
-    [
-        {
-            "args":
-            {
-                "focus_view": false,
-                "run":
-                [
-                    "sh",
-                    "go build . errors && go test -i && go test"
-                ]
-            },
-            "cmd": "gs9o_open"
-        }
-    ],
-    "show_encoding": true,
-    "spacegray_sidebar_font_xlarge": true,
-    "spacegray_sidebar_tree_xlarge": true,
-    "spacegray_tabs_font_normal": true,
-    "spacegray_tabs_normal": true,
-    "theme": "Spacegray Eighties.sublime-theme",
-    "word_wrap": "true",
-    "tab_size": 4,
-    "translate_tabs_to_spaces": true,
-    "trim_trailing_white_space_on_save": true
+	"auto_upgrade": false,
+	"color_scheme": "Packages/User/SublimeLinter/base16-eighties.dark (SL).tmTheme",
+	"enable_tab_scrolling": true,
+	"font_size": 13,
+	"http_proxy": "www-proxy.ericsson.se:8080",
+	"ignored_packages":
+	[
+		"Go",
+		"GoSublime",
+		"Vintage"
+	],
+	"on_save":
+	[
+		{
+			"args":
+			{
+				"focus_view": false,
+				"run":
+				[
+					"sh",
+					"go build . errors && go test -i && go test"
+				]
+			},
+			"cmd": "gs9o_open"
+		}
+	],
+	"show_encoding": true,
+	"spacegray_fileicons": false,
+	"spacegray_sidebar_font_xlarge": true,
+	"spacegray_sidebar_tree_xlarge": true,
+	"spacegray_tabs_font_normal": true,
+	"spacegray_tabs_normal": true,
+	"tab_size": 4,
+	"theme": "Spacegray Eighties.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"word_wrap": "true"
 }
