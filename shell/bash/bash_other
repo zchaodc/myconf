@@ -1,6 +1,6 @@
 #!/bin/bash
 # proxy
-export proxy='http://www-proxy.ericsson.se:8080/'
+export proxy='http://www-proxy.proxy-name.com:8080/'
 export http_proxy="$proxy"
 export https_proxy="$proxy"
 

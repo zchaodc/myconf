@@ -3,7 +3,9 @@
 	"color_scheme": "Packages/User/SublimeLinter/base16-eighties.dark (SL).tmTheme",
 	"enable_tab_scrolling": true,
 	"font_size": 13,
-	"http_proxy": "www-proxy.ericsson.se:8080",
+        "highlight_line": true,
+        "highlight_modified_tabs": true,
+        "http_proxy": "www-proxy.xxx.se:8080",
 	"ignored_packages":
 	[
 		"Go",
@@ -25,6 +27,7 @@
 			"cmd": "gs9o_open"
 		}
 	],
+        "open_files_in_new_window": false,
 	"show_encoding": true,
 	"spacegray_fileicons": false,
 	"spacegray_sidebar_font_xlarge": true,
@@ -34,6 +37,6 @@
 	"tab_size": 4,
 	"theme": "Spacegray Eighties.sublime-theme",
 	"translate_tabs_to_spaces": true,
-	"trim_trailing_white_space_on_save": true,
+        "trim_trailing_white_space_on_save": true
 	"word_wrap": "true"
 }

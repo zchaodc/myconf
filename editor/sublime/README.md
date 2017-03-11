@@ -17,6 +17,6 @@
 
 > SideBarEnhancement
 
-## Refer
+## Reference
 
 > [Column Selection](https://www.sublimetext.com/docs/2/column_selection.html)
