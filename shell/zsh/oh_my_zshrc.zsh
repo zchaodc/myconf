@@ -13,6 +13,10 @@ ZSH_THEME="dcpros"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
 # Uncomment the following line to disable bi-weekly auto-update checks.
 DISABLE_AUTO_UPDATE="true"
 
@@ -39,7 +43,7 @@ ENABLE_CORRECTION="true"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=${HOME}/.oh-my-zsh/custom/
@@ -52,9 +56,10 @@ ZSH_PATH="${HOME}/tools/zsh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux)
+plugins=(git tmux docker)
 
 # User configuration
+# export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 export PATH="${HOME}/bin:/usr/local/bin:${PATH}"
 # export MANPATH="/usr/local/man:$MANPATH"
 # export MANWIDTH=80    # settings for man(manual page)
@@ -79,6 +84,7 @@ export PAGER=${commands[most]-${commands[less]-$commands[more]}}
 export ARCHFLAGS="-arch x86_64"
 
 # ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
 export SSH_KEY_PATH="~/.ssh/"
 
 # History
