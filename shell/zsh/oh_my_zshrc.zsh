@@ -47,10 +47,7 @@ HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=${HOME}/.oh-my-zsh/custom/
-
-# Put custom zshrc in ZSH_CUSTOM
 ZSH_PATH="${HOME}/tools/zsh"
-[[ -s "${ZSH_PATH}/zshrc.user" ]] && source "${ZSH_PATH}/zshrc.user"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -58,13 +55,15 @@ ZSH_PATH="${HOME}/tools/zsh"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git tmux docker)
 
+source $ZSH/oh-my-zsh.sh
+# Put custom zshrc in ZSH_CUSTOM
+[[ -s "${ZSH_PATH}/zshrc.user" ]] && source "${ZSH_PATH}/zshrc.user"
+
 # User configuration
 # export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 export PATH="${HOME}/bin:/usr/local/bin:${PATH}"
 # export MANPATH="/usr/local/man:$MANPATH"
 # export MANWIDTH=80    # settings for man(manual page)
-
-source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -84,7 +83,7 @@ export PAGER=${commands[most]-${commands[less]-$commands[more]}}
 export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 export SSH_KEY_PATH="~/.ssh/"
 
 # History
