@@ -1,11 +1,12 @@
 [user]
-	name = zchaodc
-	email = zchaodc@hotmail.com
+    name = zchaodc
+    email = zchaodc@hotmail.com
 [push]
-	default = simple
+    default = simple
 [core]
-	# editor = /usr/bin/vim
+    # editor = /usr/bin/vim
     editor = '/usr/local/bin/subl' -w
+    pager = less -FMRiX
 
 [diff]
     tool = bc3
